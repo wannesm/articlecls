@@ -376,8 +376,11 @@ img {
 	page-break-inside: avoid; /* Do not split image over multiple pages. */
 }
 
+/**
+ * Avoid figure environments to be split over multiple pages.
+ */
 figure {
-	page-break-inside: avoid; /* Do not split image over multiple pages. */
+	page-break-inside: avoid;
 }
 
 /** AUXILIARY ***************************************************************/

@@ -15,10 +15,9 @@ var styles = Array("modern", "classic");
 $(document).ready(function(){
 
 	// Parse options
-	var options = Array();
+	var setoptions = {};
 	optiontags = $('script').filter(function(index) {
-		//console.log($(this)[0]);
-		src = $(this)[0].getAttribute("src")
+		src = $(this).first().attr("src")
 		if (src)
 			return src.indexOf('wmarticle.js') >= 0;
 		return false;
@@ -31,14 +30,14 @@ $(document).ready(function(){
 	}
 	optiontags.each(function(k,v) {
 		//console.log(v);
-		optionslist = $(this)[0].getAttribute("options").replace(" ","").split(",");
+		optionslist = $(this).first().attr("data-options").replace(" ","").split(",");
 		//console.log(optionslist);
 		$.each(optionslist, function(k,v) {
 			option = v.split("=");
 			if (option.length == 1) {
-				options[option[0]] = true;
+				setoptions[option[0]] = true;
 			} else if (option.length == 2) {
-				options[option[0]] = option[1];
+				setoptions[option[0]] = option[1];
 			} else {
 				console.log("Error in parsing option: "+v);
 			}
@@ -47,15 +46,16 @@ $(document).ready(function(){
 	});
 
 	// Modern style
-	if (options["modern"] == true) {
+	if (setoptions["modern"] == true) {
 		switchStyle("modern");
 	}
-	if (options["stylechooser"] == true) {
+	if (setoptions["stylechooser"] == true) {
 		insertStyleMenu();
 	}
 
 	// Hyphenator
-	if (options["hyphenator"] == true) {
+	if (setoptions["hyphenator"] == true) {
+		//console.log("Activate hyphenator.js");
 		$('p').addClass("hyphenate text");
 		$.getScript("js/Hyphenator.js", function() {
 			Hyphenator.config({
@@ -138,7 +138,7 @@ function createOutline(base) {
 		html += "<li"+classstr+"><a href=\"#"+tocstr+"\">"+value.textContent+"</a>";
 		links = $(this).parent().children('a').filter(function(i) {
 			//console.log($(this));
-			name = $(this)[0].getAttribute("name")
+			name = $(this).first().attr("name")
 			//console.log(name);
 			if (name == tocstr) {
 				return true

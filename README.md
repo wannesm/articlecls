@@ -11,7 +11,9 @@ Open `wmarticle.html` in a webbrowser or have a look at the online version at <a
 Credits
 -------
 
-- Normalize.js, <http://necolas.github.com/normalize.css/>
+- Normalize.css, <http://necolas.github.com/normalize.css/>
+- jQuery, <http://jquery.com/>
+- Hyphenator.js, <http://code.google.com/p/hyphenator/>
 
 Author
 ------

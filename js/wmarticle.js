@@ -136,7 +136,19 @@ function createOutline(base) {
 		var tocstr = "toc";
 		for (i=0; i<=curlevel; i++) { tocstr += "_"+cnt[i]; }
 		html += "<li"+classstr+"><a href=\"#"+tocstr+"\">"+value.textContent+"</a>";
-		$(this).before("<a name=\""+tocstr+"\"></a>");
+		links = $(this).parent().children('a').filter(function(i) {
+			//console.log($(this));
+			name = $(this)[0].getAttribute("name")
+			//console.log(name);
+			if (name == tocstr) {
+				return true
+			}
+			return false;
+		});
+		//console.log(links);
+		if (links.length == 0) {
+			$(this).before("<a name=\""+tocstr+"\"></a>");
+		}
 	});
 
 	html += "</ol>"

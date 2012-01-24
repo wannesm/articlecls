@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>WMArticle</title>
+	<meta charset="utf-8" />
+	<meta name="generator" content="wmarticle" />
+	<meta name="author" content="Wannes Meert" />
+	<meta name="date" content="January 2012" />
+	<link rel="author" href="mailto:wannes.meert@cs.kuleuven.be" />
+	<link rel="tags" href="http://wannesm.be/wmarticle/tags/example+html5" />
+	<link rel="license" href="http://wannesm.be/wmarticle/license/" />
+
+	<link rel="stylesheet" href="css/normalize.css" type="text/css" />
+	<link rel="stylesheet" href="css/wmarticle.css" type="text/css" />
+
+	<script src="js/jquery-1.7.1.min.js"></script>
+	<!--<script options="modern" src="js/wmarticle.js"></script>-->
+	<script options="stylechooser" src="js/wmarticle.js"></script>
+</head>
+<body>
+	<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+		tex2jax: {
+			inlineMath: [ ["$","$"],["\\(","\\)"] ],
+			displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+			processEscapes: false,
+		},
+		TeX: { 
+			equationNumbers: {  autoNumber: "all"  },
+			extensions: ["AMSmath.js", "AMSsymbols.js"],
+			TagSide: "right"
+		},
+	});
+	</script>
+	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+	<!--<script type="text/javascript" src="/Users/wannes/Projects/programming/MathJaxV2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>-->
+
+	<article>
+	<header><hgroup>
+		<h1>WMArticle</h1>
+		<p>Wannes Meert</p>
+		<time datetime="2012-01-17" pubdate>January 17, 2012</time>
+	</hgroup></header>
+
+<!-- = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = -->
+	<section id="abstract">
+
+	<p>The wmarticle stylesheet and javascript module are an attempt to create a nicely looking style for print. It is inspired by the features found in LaTeX and triggered by the idea that most of these features are also supported in today's CSS3 and HTML5.</p>
+
+	</section>
+
+<!-- = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = -->
+	<section id="toc">
+	<h2 class="nonumber">Table of Contents</h2>
+	</section>
+
+
+<!-- = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = -->
+	<section>
+	<h2 id=structure>Structure</h2>
+	
+	<section>
+	<h3>Doctype</h3>
+
+	<pre><code>&lt;!DOCTYPE html&gt;</code></pre>
+	</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+	<section>
+	<h3>Header</h3>
+
+	<pre><code>&lt;head&gt;
+	&lt;title&gt;WMArticle&lt;/title&gt;
+	&lt;meta charset="utf-8" /&gt;
+	&lt;meta name="generator" content="wmarticle" /&gt;
+	&lt;meta name="author" content="Wannes Meert" /&gt;
+	&lt;meta name="date" content="January 2012" /&gt;
+	&lt;link rel="author" href="mailto:wannes.meert@cs.kuleuven.be" /&gt;
+
+	&lt;link rel="stylesheet" href="css/normalize.css" type="text/css" /&gt;
+	&lt;link rel="stylesheet" href="css/wmarticle.css" type="text/css" /&gt;
+
+	&lt;script src="js/jquery-1.7.1.min.js"&gt;&lt;/script&gt;
+	&lt;script src="js/wmarticle.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+</code></pre>
+
+	If you want a modern version of the style you can use the following line:
+
+	<pre><code>	&lt;script options="modern" src="js/wmarticle.js"&gt;&lt;/script&gt;
+</code></pre>
+
+	</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+	<section>
+	<h3>Body</h3>
+
+	<p>Overview:</p>
+
+	<pre><code>&lt;body&gt;
+&lt;article&gt;
+	&lt;header&gt;
+		&lt;h1&gt;Title&lt;/h1&gt;
+		&lt;p&gt;Author and stuff&lt;/p&gt;
+		&lt;time datetime="2012-01-17" pubdate&gt;January 17, 2012&lt;/time&gt;
+	&lt;/header&gt;
+	&lt;section&gt;
+		&lt;h2&gt;Introduction&lt;/h2&gt;
+		&lt;p&gt;Some introductionary text.&lt;/p&gt;
+	&lt;/section&gt;
+	&lt;section&gt;
+		&lt;h2&gt;Another section&lt;/h2&gt;
+		&lt;p&gt;Some more text.&lt;/p&gt;
+		&lt;section&gt;
+			&lt;h3&gt;A subsection&lt;/h3&gt;
+			&lt;p&gt;Some subsection text.&lt;/p&gt;
+		&lt;/section&gt;
+	&lt;/section&gt;
+	&lt;section&gt;
+		&lt;h2 class="notoc"&gt;References&lt;/h2&gt;
+		&lt;p&gt;Some references.&lt;/p&gt;
+	&lt;/section&gt;
+&lt;/article&gt;
+&lt;/body&gt;</code></pre>
+
+	<p>The <tt>&lt;section&gt;</tt> tags are not necessary.</p>
+
+	</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+	<section>
+	<h3>Abstract</h3>
+
+	<p>Add an id to the abstract section named <tt>abstract</tt></p>
+
+	<figure class=listing>
+	<pre><code>&lt;section id="abstract"&gt;
+	My abstract ...
+&lt;\section&gt;</code></pre>
+	</figure class=listing>
+
+	</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+	<section>
+	<h3>Table of Contents</h3>
+
+	<p>Add the id <tt>toc</tt> to the section where you want your table of contents. Headers having as class <tt>notoc</tt> will not be included in the table of contents and header with the class <tt>nonumber</tt> will be unnumbered but included into the table of contents.</p>
+
+	<figure class=listing>
+	<pre><code>&lt;section id="toc"&gt;
+	&lt;h2 class="nonumber"&gt;Table of Contents&lt;/h2&gt;
+&lt;\section&gt;</code></pre>
+	</figure class=listing>
+
+	</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+	<section>
+	<h3>Headers and footers</h3>
+	
+	<p>The wmarticle module adds a header which contains the document title on the left page and the current section on the right page. The footer contains the current page number.</p>
+
+	<p>These features are supported by <a href="#prince">prince</a> but not by all browsers.</p>
+
+	</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+	<section>
+	<h3>Crossreferencing</h3>
+	
+	<p>To make a reference from one part of your text to another you can use the id-tag. For example a link to the <a href="#structure" class=secref>parent section</a>.</p>
+
+	<figure>
+	<pre><code>...
+&lt;h3 id="mytitle"&gt;Tagged title&lt;/h3&gt;
+...
+&lt;figure id="myfig"&gt;...&lt;/figure&gt;
+...
+&lt;p&gt;Some text referencing the &lt;a href="#mytitle"&gt;tagged title&lt;/a&gt; and the &lt;a href="#myfig"&gt;tagged figure&lt;/a&gt;.&lt;/p&gt;</code></pre>
+	</figure>
+
+	</section>
+
+	</section>
+
+<!-- = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = -->
+
+	<section>
+	<h2>Lists</h2>
+
+	<section>
+	<h3>Inserting a numbered list</h3>
+
+	<figure class=listing>
+	<pre><code>&lt;ol&gt;
+	&lt;li&gt;Item 1
+	&lt;li&gt;Item 2
+&lt;/ol&gt;</code></pre>
+	</figure class=listing>
+
+	<p>Output:</p>
+	<ol>
+		<li>Item 1
+		<li>Item 2
+	</ol>
+
+	</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+	<section>
+	<h3>Inserting a bullet list</h3>
+
+	<figure class=listing>
+	<pre><code>&lt;ul&gt;
+	&lt;li&gt;Item 1
+	&lt;li&gt;Item 2
+&lt;/ul&gt;</code></pre>
+	</figure class=listing>
+
+	<p>Output:</p>
+	<ul>
+		<li>Item 1
+		<li>Item 2
+	</ul>
+
+	</section>
+	</section>
+
+<!-- = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = -->
+	<section>
+	<h2>Floats</h2>
+
+	<section>
+	<h3>Inserting an image</h3>
+
+	<figure>
+	<img src="img/image.jpg" \>
+	<figcaption>Example image.</figcaption>
+	</figure>
+
+	<figure class=listing>
+	<pre><code>&lt;p&gt;Reference &lt;a class="figref" href="#firstfig"&gt;this figure&lt;/a&gt;.&lt;/p&gt;
+&lt;figure id="firstfig"&gt;
+	&lt;img alt="image" src="image.jpg" /&gt;
+	&lt;figcaption&gt;Example image.&lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
+	<figcaption>Code inserting an image.</figcaption>
+	</figure>
+	</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+	<section>
+	<h3>Inserting a pdf</h3>
+
+	<p>Next to image files, you can also include pdfs as images.</p>
+	
+	<pre><code>&lt;object data="filename.pdf" type="application/pdf" title="samplepdf" width="100%" height="100px"&gt;
+	&lt;p&gt;Insert your error message here, if the PDF cannot be displayed.&lt;/p&gt;
+&lt;/object&gt;</code></pre>
+	</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+	<section>
+	<h3>Inserting code</h3>
+
+	<figure class=listing>
+	<pre><code>&lt;figure class=listing&gt;
+	&lt;pre&gt;&lt;code&gt;
+		&lt;figure class=listing&gt;
+		...
+		&lt;/figure class=listing&gt;
+	&lt;/code&gt;&lt;/pre&gt;
+	&lt;figcaption&gt;Example code.&lt;/figcaption&gt;
+&lt;/figure class=listing&gt;</code></pre>
+	<figcaption>Example code.</figcaption>
+	</figure class=listing>
+	</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+	<section>
+	<h3>Inserting a table</h3>
+
+	<style>
+		table {
+			width: 30%;
+		}
+	</style>
+	<figure class=table>
+	<table>
+		<caption>Table title.</caption>
+		<thead>
+			<tr>
+				<th> Col1
+				<th> Col2
+				<th> Col3
+		<tbody>
+			<tr>
+				<td> Item 1 1
+				<td> Item 1 2
+				<td> Item 1 3
+			<tr>
+				<td> Item 2 1
+				<td> Item 2 2
+				<td> Item 2 3
+	</table>
+	<figcaption>Tabular caption text.</figcaption>
+	</figure>
+
+<pre><code>&lt;figure&gt;
+&lt;table&gt;
+	&lt;caption&gt;Table title.&lt;/caption&gt;
+	&lt;thead&gt;
+		&lt;tr&gt;
+			&lt;th&gt; Col1
+			&lt;th&gt; Col2
+			&lt;th&gt; Col3
+	&lt;tbody&gt;
+		&lt;tr&gt;
+			&lt;td&gt; Item 1 1
+			&lt;td&gt; Item 1 2
+			&lt;td&gt; Item 1 3
+		&lt;tr&gt;
+			&lt;td&gt; Item 2 1
+			&lt;td&gt; Item 2 2
+			&lt;td&gt; Item 2 3
+&lt;/table&gt;
+&lt;figcaption&gt;Tabular caption text.&lt;/figcaption&gt;
+&lt;/figure&gt;
+</code></pre>
+
+	</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+	<section>
+	<h3>Styling a table</h3>
+	
+	<p>For style you can use CSS.</p>
+	
+	<style>
+		table.styledtable {
+			width: 30%;
+		}
+		table.styledtable caption {
+			font-weight: bold;
+			border: 1px #cccccc solid;
+		}
+		table.styledtable thead {
+			background-color: #cccccc;
+		}
+		table.styledtable thead,
+		table.styledtable tbody {
+			border: 1px #cccccc solid;
+		}
+		table.styledtable td {
+			border-right: 1px #cccccc solid;
+		}
+	</style>
+	<figure class=table>
+	<table class="styledtable">
+		<caption>Table title.</caption>
+		<thead>
+			<tr>
+				<th> Col1
+				<th> Col2
+				<th> Col3
+		<tbody>
+			<tr>
+				<td> Item 1 1
+				<td> Item 1 2
+				<td> Item 1 3
+			<tr>
+				<td> Item 2 1
+				<td> Item 2 2
+				<td> Item 2 3
+	</table>
+	<figcaption>Stylized table</figcaption>
+	</figure>
+
+	<pre><code>&lt;style&gt;
+	table.styledtable {
+		width: 30%;
+	}
+	table.styledtable caption {
+		font-weight: bold;
+		border: 1px #cccccc solid;
+	}
+	table.styledtable thead {
+		background-color: #cccccc;
+	}
+	table.styledtable thead,
+	table.styledtable tbody {
+		border: 1px #cccccc solid;
+	}
+	table.styledtable td {
+		border-right: 1px #cccccc solid;
+	}
+&lt;/style&gt;
+&lt;table class="styledtable"&gt;
+...
+</code></pre>
+
+	</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+	<section>
+	<h3>Float positioning</h3>
+
+	<p>Not yet implemented.</p>
+	</section>
+	</section>
+
+<!-- = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = -->
+
+	<section>
+	<h2>Mathematics</h2>
+
+	<section>
+	<h3>Insert equation</h3>
+	<p>wmarticle uses <a href="mathjax.org">MathJax</a> to display mathematical equations with $\LaTeX$ inline $\frac{a}{b}$ and as blocks:</p>
+
+$$\label{eqsimple}\frac{a}{b}$$
+
+<p>Or a more extensive example:</p>
+
+\[
+\begin{aligned}
+\label{eqmaxwell}
+\nabla \times \vec{\mathbf{B}} -\, \frac1c\, \frac{\partial\vec{\mathbf{E}}}{\partial t} &amp; = \frac{4\pi}{c}\vec{\mathbf{j}} \\   \nabla \cdot \vec{\mathbf{E}} &amp; = 4 \pi \rho \\
+\nabla \times \vec{\mathbf{E}}\, +\, \frac1c\, \frac{\partial\vec{\mathbf{B}}}{\partial t} &amp; = \vec{\mathbf{0}} \\
+\nabla \cdot \vec{\mathbf{B}} &amp; = 0
+\end{aligned}
+\]
+
+
+<p>And we can reference equations \eqref{eqmaxwell} and \eqref{eqsimple} (only works with MathJax 2.0 which is not yet released).</p>
+
+	<figure class=listing>
+	<pre><code>&#92;&#91;
+&#92;begin{aligned}
+&#92;label{eqmaxwell}
+&#92;nabla &#92;times &#92;vec{&#92;mathbf{B}} -&#92;, &#92;frac1c&#92;, &#92;frac{&#92;partial&#92;vec{&#92;mathbf{E}}}{&#92;partial t} &amp; = &#92;frac{4&#92;pi}{c}&#92;vec{&#92;mathbf{j}} &#92;&#92;
+&#92;nabla &#92;cdot &#92;vec{&#92;mathbf{E}} &amp; = 4 &#92;pi &#92;rho &#92;&#92;
+&#92;nabla &#92;times &#92;vec{&#92;mathbf{E}}&#92;, +&#92;, &#92;frac1c&#92;, &#92;frac{&#92;partial&#92;vec{&#92;mathbf{B}}}{&#92;partial t} &amp; = &#92;vec{&#92;mathbf{0}} &#92;&#92;
+&#92;nabla &#92;cdot &#92;vec{&#92;mathbf{B}} &amp; = 0
+&#92;end{aligned}
+&#92;&#93;
+&lt;p&gt;And we can reference equations &#92;eqref{eqmaxwell}.&lt;/p&gt;
+</code></pre>
+	</figure class=listing>
+	</section>
+	</section>
+
+<!-- = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = -->
+
+	<section>
+	<h2>Converting to PDF</h2>
+
+	<section>
+	<h3>HTML to PDF convertor</h3>
+	<h4>Browser</h4>
+	<p>Use print functionality of Safari or Firefox.</p>
+	<h4 id="prince"><a href="http://www.princexml.com/">Prince</a></h4><p>Direct printing from html</p>
+	<p>
+	Usage:
+	</p>
+	<pre><code>$ prince wmarticle.html -o wmarticle.pdf</code></pre>
+	</section>
+	</section>
+
+<!-- = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = -->
+
+	<section>
+	<h2>Final thoughts</h2>
+
+	<section>
+	<h3>Comparison to LaTeX</h3>
+
+	<h4>Advantages to LaTeX</h4>
+	<ul>
+		<li><strong>Debugging</strong>: Easy css and javascript debugging with advanced tools (in-browser tools, htmllint, jslint, csslint, ...).
+		<li><strong>Online</strong>: Easy distribution of articles over the web (native).
+		<li><strong>Stylize</strong>: It is more easy to make visually appealing layouts with html and css.
+		<li><strong>Interactive</strong>: In html it is easy to incorporate dynamic content for ebooks and online articles.
+	</ul>
+
+	<h4>Disadvantages to LaTeX</h4>
+	<ul>
+		<li><strong>References</strong>: Not yet easy referencing.<br/>
+		Although there is the <a href="http://citationstyles.org/">Citation Style Language</a>.
+		<li><strong>Consistency</strong>: LaTeX has more consistent commands.<br/>
+		In html you mix html-commands, css-commands and javascript-commands which all have a different syntax. We make it a little bit worse by also having $\LaTeX$ commands through MathJax.
+		<li><strong>Cross-referencing</strong>: Cross-referencing is not as easy and consistent as in LaTeX.<br/>
+		For example, you need to add a class to notify css that it is a reference to an image or a table to get the correct count automatically inserted.
+	</ul>
+
+	</section>
+
+	</section>
+
+<!-- = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = -->
+	<section>
+	<h2 class="nonumber">References</h2>
+	
+	<ul>
+		<li>A List Apart, <cite><a href="http://www.alistapart.com/articles/boom">Printing a Book with CSS: Boom!</a></cite>, 2005
+		<li>nettuts+, <cite><a href="http://net.tutsplus.com/tutorials/html-css-techniques/25-html5-features-tips-and-techniques-you-must-know/">28 HTML5 Features, Tips, and Techniques You Must Know</a></cite>, 2011
+		<li>A List Apart, <cite><a href="http://www.alistapart.com/articles/goingtoprint/">Going to print</a></cite>, 2002
+		<li>W3C, <cite><a href="http://www.w3.org/TR/html5/spec.html">HTML5</a></cite>, 2011
+	</ul>
+
+	</section>
+
+	</section>
+	</article>
+
+<!-- = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = -->
+</body>
+</html>
+

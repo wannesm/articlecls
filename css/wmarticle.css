@@ -1,0 +1,393 @@
+/**
+ * WMArticle.css
+ *
+ * Copyright (c), Wannes Meert, 2012.
+ */
+
+
+/** GENERAL LAYOUT **********************************************************/
+
+body {
+	font-family: Georgia, serif;
+	/*font-family:"Times New Roman",Georgia,Serif;*/
+	margin: 0 10% 5em 10%;
+	font-size: 11pt;
+	line-height: 16pt; /* should be 1.5 font-size */
+	color: #333; /* only for web */
+}
+
+body.modern {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+h1, h2, h3, h4 {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-weight: bold;
+	margin-top: 1.5em;
+	margin-bottom: .5em;
+}
+
+h1 {
+	font-size: 200%;
+}
+
+h2 {
+	font-size: 150%;
+}
+
+h3 {
+	font-size: 125%;
+}
+
+p {
+	margin-bottom: .5em;
+	margin-top: .5em;
+	/*-webkit-margin-before: 1em;*/
+	/*-webkit-margin-after: 1em;*/
+	/*-webkit-margin-start: 0px;*/
+	/*-webkit-margin-end: 0px;*/
+}
+
+a {
+	text-decoration: none;
+}
+
+a:after {
+	/*content: " (" attr(href) ")";*/
+}
+
+abbr:after {
+	content: " (" attr(title) ")";
+}
+
+strong, b {
+	font-weight: bolder;
+}
+
+/* Lists */
+
+ul, ol {
+	margin: 0;
+	padding: .5em 0 1em 2em;
+	display: block;
+}
+ul {
+	list-style-type: disc;
+}
+ol {
+	list-style-type: decimal;
+}
+
+/* No spacing around embedded lists */
+li > ul, li > ol {
+	padding: 0 0 0 2em;
+}
+
+li {
+	margin: .4em 0 0 0;
+}
+
+/* Tables */
+
+table {
+	margin: 1em auto;
+	text-align: center;
+}
+
+table td {
+	padding: 0em 1em;
+}
+
+/* Code */
+
+code,
+tt {
+  background-color: #f8f8f8;
+  border: 1px solid #dedede;
+  font-size: 13px;
+  padding: 1px 5px;
+
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px;
+  text-align: left; 
+
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+  padding: 0px;
+}
+
+/** ABSTRACT ****************************************************************/
+
+#abstract {
+	display: block;
+	padding: 1em 3em;
+}
+
+/** NUMBERING SECTIONS ******************************************************/
+
+/*
+ * Does not work with one nested header counter because the header tags
+ * are scoped in section tags which messes up the counter-reset.
+ */
+
+body {
+	counter-reset:headerone headertwo figure table listing;
+}
+
+h1 {
+}
+
+h1:before {
+	/*content: counter(headerone) " ";*/
+	counter-increment:headerone;
+}
+
+h2 {
+	counter-reset:headerthree;
+}
+
+h2:before {
+	content: counter(headertwo) " ";
+	counter-increment: headertwo;
+}
+h3:before {
+	content: counter(headertwo) "." counter(headerthree) " ";
+	counter-increment: headerthree;
+}
+
+h2.notoc:before, h2.nonumber:before {
+	content: "";
+	counter-increment:headertwo 0;
+}
+
+#toc ol {
+	counter-reset: item
+	/*list-style-type: none;*/
+}
+#toc li {
+	display: block
+	/*list-style-type: none;*/
+}
+#toc li:before {
+	content: counters(item, ".") ".  ";
+	counter-increment: item;
+}
+body.modern #toc li:before {
+	content: counter(item) ".  ";
+}
+
+#toc li.nonumber:before,
+body.modern #toc li.nonumber:before {
+	content: "";
+	counter-increment: item 0;
+}
+
+a.h2:after {
+	content: " (" target-counter(attr(href), headertwo) ")";
+}
+
+a.h3:after {
+	content: " (" target-counter(attr(href), headerthree) ")";
+}
+
+/** FLOATS ******************************************************************/
+
+/**
+ * Floats should be created with <figure>.
+ *
+ * Adaptations for floating tables and listing are foreseen by figure classes
+ * .table and .listing.
+ *
+ * http://www.w3.org/TR/html5/tabular-data.html
+ */
+
+
+/* 
+ * Initialization of counters happens in the body tag (see above).
+ */
+
+figure {
+	margin: 1em 0;
+	display: block;
+	counter-increment: figure;
+	text-align: center;
+}
+
+body.modern figure {
+	text-align: left;
+}
+
+figure.table {
+	counter-increment: table;
+}
+
+figure.listing {
+	counter-increment: listing;
+}
+
+figure img {
+}
+
+figure table {
+}
+
+body.modern table {
+	margin: 1em 0;
+}
+
+figure pre { /* For listings */
+	margin-bottom: 0;
+}
+
+figure figcaption {
+	text-align:center;
+	font-size: 0.9em;
+}
+
+body.modern figure {
+	position: relative;
+}
+
+body.modern figure figcaption {
+	width: 10%;
+	text-align: right;
+	/*margin: 0 0 1.2em 0;*/
+	text-align: right;
+	position:absolute;
+	top:0px;
+	left:-12%;
+}
+
+figure figcaption {
+	font-weight: bold;
+}
+
+figure figcaption::before {
+	content: "Figure " counter(figure) ": ";
+}
+
+figure.table figcaption::before {
+	content: "Table " counter(table) ": ";
+}
+
+figure.listing figcaption::before {
+	content: "Listing " counter(listing) ": ";
+}
+
+a.figref {
+	content: " Figure " target-counter(attr(href), figure);
+}
+
+a.tabref {
+	content: " Table " target-counter(attr(href), table);
+}
+
+a.lisref {
+	content: " Listing " target-counter(attr(href), listing);
+}
+
+/** PRINT PAGES *************************************************************/
+
+@page {
+	/*size: 210mm 297mm;*/
+	size: A4;
+	margin: 27mm 16mm 27mm 16mm;
+	/* marks: crop cropss; */
+}
+
+@page:left{}
+@page:right{}
+
+
+div.chapter, div.appendix {
+	page-break-after: always;
+}
+
+h1, h2, h3 {
+	page-break-after: avoid;
+}
+
+h1 {
+	string-set: title content();
+}
+
+h2:first {
+	page-break-before: avoid;
+}
+
+h2 {
+	string-set: header content();
+}
+
+@page :left {
+	@top-left {
+		content: string(title);
+	}
+}
+
+/*@page blank :left {*/
+	/*@top-left {*/
+		/*content: normal;*/
+	/*}*/
+/*}*/
+
+@page :right {
+	@top-right {
+		content: string(header, first);
+	}
+}
+
+@page :left {
+	@bottom-left {
+		content: counter(page);
+	}
+}
+
+@page :right {
+	@bottom-right {
+		content: counter(page);
+	}
+}
+
+@page front-matter :left {
+	@bottom-left {
+		content: counter(page, lower-roman);
+	}
+}
+
+img {
+	page-break-inside: avoid; /* Do not split image over multiple pages. */
+}
+
+figure {
+	page-break-inside: avoid; /* Do not split image over multiple pages. */
+}
+
+/** AUXILIARY ***************************************************************/
+
+#stylemenu {
+	position: fixed;
+	top: 0px;
+	right: 0px;
+	padding: 2px;
+}
+
+#stylemenu select {
+}
+

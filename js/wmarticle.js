@@ -54,6 +54,18 @@ $(document).ready(function(){
 		insertStyleMenu();
 	}
 
+	// Hyphenator
+	if (options["hyphenator"] == true) {
+		$('p').addClass("hyphenate text");
+		$.getScript("js/Hyphenator.js", function() {
+			Hyphenator.config({
+				displaytogglebox : false,
+				minwordlength : 4
+			});
+			Hyphenator.run();
+		});
+	}
+
 	// Add outline for tag <toc>
 	insertOutline();
 

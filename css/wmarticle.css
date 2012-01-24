@@ -42,10 +42,11 @@ h3 {
 p {
 	margin-bottom: .5em;
 	margin-top: .5em;
-	/*-webkit-margin-before: 1em;*/
-	/*-webkit-margin-after: 1em;*/
-	/*-webkit-margin-start: 0px;*/
-	/*-webkit-margin-end: 0px;*/
+	-webkit-hyphens: auto;
+	-webkit-hyphenate-character: '-';
+	-webkit-locale: 'en';
+	-moz-hyphens: auto;
+	text-align: justify;
 }
 
 a {

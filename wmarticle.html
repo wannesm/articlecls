@@ -14,8 +14,7 @@
 	<link rel="stylesheet" href="css/wmarticle.css" type="text/css" />
 
 	<script src="js/jquery-1.7.1.min.js"></script>
-	<!--<script options="modern" src="js/wmarticle.js"></script>-->
-	<script options="stylechooser" src="js/wmarticle.js"></script>
+	<script options="stylechooser, hyphenator" src="js/wmarticle.js"></script>
 </head>
 <body>
 	<script type="text/x-mathjax-config">
@@ -168,7 +167,7 @@
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 	<section>
-	<h3>Crossreferencing</h3>
+	<h3>Cross-referencing</h3>
 	
 	<p>To make a reference from one part of your text to another you can use the id-tag. For example a link to the <a href="#structure" class=secref>parent section</a>.</p>
 
@@ -180,6 +179,16 @@
 ...
 &lt;p&gt;Some text referencing the &lt;a href="#mytitle"&gt;tagged title&lt;/a&gt; and the &lt;a href="#myfig"&gt;tagged figure&lt;/a&gt;.&lt;/p&gt;</code></pre>
 	</figure>
+
+	</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+	<section>
+	<h3>Hyphenation</h3>
+
+	<p>CSS3 supports hyphenation and wmarticle applies it to all paragraphs. A more detailed explanation and an extension in javascript can be found on the website of <a href="http://code.google.com/p/hyphenator/wiki/en_CSS3Hyphenation">Hyphenator.js</a>. The hyphenator.js extension can be activated by giving the <tt>hyphenator</tt> option to the wmarticle.js module.</p>
+
+	<p><strong>Example:</strong> Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
 
 	</section>
 
@@ -417,7 +426,7 @@
 	<h2>Mathematics</h2>
 
 	<section>
-	<h3>Insert equation</h3>
+	<h3>Inserting an equation</h3>
 	<p>wmarticle uses <a href="mathjax.org">MathJax</a> to display mathematical equations with $\LaTeX$ inline $\frac{a}{b}$ and as blocks:</p>
 
 $$\label{eqsimple}\frac{a}{b}$$
@@ -434,7 +443,7 @@ $$\label{eqsimple}\frac{a}{b}$$
 \]
 
 
-<p>And we can reference equations \eqref{eqmaxwell} and \eqref{eqsimple} (only works with MathJax 2.0 which is not yet released).</p>
+<p>And we can reference equations \eqref{eqmaxwell} and \eqref{eqsimple} (only works with MathJax 2.0 which is not yet released but can be found in dpvc's <a href="https://github.com/dpvc/MathJax/tree/v2.0-candidate">v2.0 branch</a>).</p>
 
 	<figure class=listing>
 	<pre><code>&#92;&#91;
@@ -493,6 +502,7 @@ $$\label{eqsimple}\frac{a}{b}$$
 		In html you mix html-commands, css-commands and javascript-commands which all have a different syntax. We make it a little bit worse by also having $\LaTeX$ commands through MathJax.
 		<li><strong>Cross-referencing</strong>: Cross-referencing is not as easy and consistent as in LaTeX.<br/>
 		For example, you need to add a class to notify css that it is a reference to an image or a table to get the correct count automatically inserted.
+		<li><strong>Hyphenation</strong>: Built-in hyphenation for LaTeX gives more robust results (but can be solved by using <a href="http://code.google.com/p/hyphenator/">hyphenator.js</a>).
 	</ul>
 
 	</section>

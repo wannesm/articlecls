@@ -14,7 +14,7 @@
 	<link rel="stylesheet" href="css/wmarticle.css" type="text/css" />
 
 	<script src="js/jquery-1.7.1.min.js"></script>
-	<script data-options="stylechooser, hyphenator" src="js/wmarticle.js"></script>
+	<script data-options="stylechooser, hyphenator, htmlhowtostyle" src="js/wmarticle.js"></script>
 </head>
 <body>
 	<script type="text/x-mathjax-config">
@@ -125,6 +125,23 @@
 
 	<p>The <tt>&lt;section&gt;</tt> tags are not necessary.</p>
 
+	<div class="htmlhowto">
+		<pre><code>/* Start h1 on right page. */
+h1 {
+		page-break-before: right;
+}
+/* Start h2 on a new page. */
+h2 {
+	page-break-before: always;
+}
+/* No breaking paragraphs after 1 or 2 lines. */
+p {
+	widows: 5;
+	orphans: 5;
+}
+</code></pre>
+	</div>
+
 	</section>
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
@@ -162,6 +179,50 @@
 	<p>The wmarticle module adds a header which contains the document title on the left page and the current section on the right page. The footer contains the current page number.</p>
 
 	<p>These features are supported by <a href="#prince">prince</a> but not by all browsers.</p>
+
+	<div class="htmlhowto">
+		<pre><code>/* Create named page */
+@page pagename {
+	/*properties*/
+}
+div.classname {
+	page: pagename;
+}
+/* Set header on left page but not on pages named 'blank' */
+@page :left {
+	@top-left {
+		content: "My header text";
+	}
+}
+@page blank :left {
+	@top-left {
+		content: normal;
+	}
+}
+/* Use named string for the current section */
+h1 {
+	string-set: header content();
+}
+@page :right {
+	@top-right {
+		content: string(header, first);
+	}
+}</code></pre>
+	</div>
+	<div class="htmlhowto">
+		<pre><code>/* Page number in footer */
+@page :left {
+	@bottom-left {
+		content: counter(page);
+	}
+}
+
+@page front-matter :left {
+	@bottom-left {
+		content: counter(page, lower-roman);
+	}
+}</code></pre>
+	</div>
 
 	</section>
 
@@ -257,6 +318,31 @@
 &lt;/figure&gt;</code></pre>
 	<figcaption>Code inserting an image.</figcaption>
 	</figure>
+
+	<div class="htmlhowto">
+		CSS-code for numbering:
+		<pre><code>body {
+	counter-reset: figure;
+	/* Warning: only one counter-reset allowed per tag/class/id. */
+	/* You need to combine different counters in one counter-reset. */
+	/* Warning: counter-reset defines the scope of the counter */
+	/* to the currrent DOM element. */
+}
+figure {
+	counter-increment: figure;
+}
+figure figcaption::before {
+	content: "Figure " counter(figure) ": ";
+}</code></pre>
+	</div>
+
+	<div class="htmlhowto">
+		CSS-code for avoid split over pages:
+		<pre><code>figure {
+	page-break-inside: avoid;
+}</code></pre>
+	</div>
+
 	</section>
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
@@ -274,8 +360,11 @@
 	<section>
 	<h3>Inserting code</h3>
 
+	<p>Some inline <code>code-snippet</code> to show.</p>
+
 	<figure class=listing>
-	<pre><code>&lt;figure class=listing&gt;
+	<pre><code>&lt;p&gt;Inline &lt;code&gt;code-snippet&gt;...&lt;/p&gt;
+&lt;figure class=listing&gt;
 	&lt;pre&gt;&lt;code&gt;
 		&lt;figure class=listing&gt;
 		...
@@ -285,6 +374,16 @@
 &lt;/figure class=listing&gt;</code></pre>
 	<figcaption>Example code.</figcaption>
 	</figure class=listing>
+
+	<div class="htmlhowto">
+		<ul>
+			<li>Inline code samples use the <code>&lt;code&gt;</code> element.
+			<li>Block-level samples of text where whitespace is signficant use the <code>&lt;pre&gt;</code> element.
+			<li>So a block of code with significant whitespace uses <code>&lt;pre&gt;&lt;code&gt;</code>.
+		</ul>
+		<p>[<a target="_new" href="http://projectcerbera.com/web/articles/code-in-pre">source</a>]</p>
+	</div>
+
 	</section>
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
@@ -465,6 +564,25 @@ $$\label{eqsimple}\frac{a}{b}$$
 
 	<section>
 	<h2>Converting to PDF</h2>
+
+	<section>
+	<h3>Page size</h3>
+
+	<p>The output is printed to an A4-pdf.</p>
+
+	<div class="htmlhowto">
+		<pre><code>@page {
+	size: A4;
+	/* size: letter; */
+	/* size: 210mm 297mm; */
+	margin: 27mm 16mm 27mm 16mm;
+	/* marks: crop cropss; */
+}</code></pre>
+	</div>
+
+	</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 
 	<section>
 	<h3>HTML to PDF convertor</h3>

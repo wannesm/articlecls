@@ -8,14 +8,14 @@
 
 /** SETTINGS ****************************************************************/
 
-var styles = Array("modern", "classic");
+var styles = Array("modernstyle", "classicstyle", "htmlhowtostyle");
+var setoptions = {};
 
 /** MAIN ********************************************************************/
 
 $(document).ready(function(){
 
 	// Parse options
-	var setoptions = {};
 	optiontags = $('script').filter(function(index) {
 		src = $(this).first().attr("src")
 		if (src)
@@ -30,7 +30,7 @@ $(document).ready(function(){
 	}
 	optiontags.each(function(k,v) {
 		//console.log(v);
-		optionslist = $(this).first().attr("data-options").replace(" ","").split(",");
+		optionslist = $(this).first().attr("data-options").replace(/ +/g,"").split(",");
 		//console.log(optionslist);
 		$.each(optionslist, function(k,v) {
 			option = v.split("=");
@@ -44,10 +44,16 @@ $(document).ready(function(){
 		});
 
 	});
+	//console.log(setoptions);
 
 	// Modern style
-	if (setoptions["modern"] == true) {
-		switchStyle("modern");
+	if (setoptions["modernstyle"] == true) {
+		//console.log("Style: modernstyle");
+		switchStyle("modernstyle");
+	}
+	if (setoptions["htmlhowtostyle"] == true) {
+		//console.log("Style: htmlhowtostyle");
+		switchStyle("htmlhowtostyle");
 	}
 	if (setoptions["stylechooser"] == true) {
 		insertStyleMenu();
@@ -69,6 +75,9 @@ $(document).ready(function(){
 	// Add outline for tag <toc>
 	insertOutline();
 
+	// How-to
+	// now with master style (see styles).
+
 	// Add references
 	// insert();
 
@@ -86,7 +95,11 @@ function switchStyle(style) {
 }
 
 function insertStyleMenu() {
-	html = "<div id=\"stylemenu\"><select><option value=\"classic\">Classic</option><option value=\"modern\">Modern</option></select></div>"
+	html = "<div id=\"stylemenu\"><select>"
+		+ "<option value=\"classic\">Classic</option>"
+		+ "<option value=\"modernstyle\">Modern</option>"
+		+ "<option value=\"htmlhowtostyle\">How-To HTML</option>"
+		+ "</select></div>"
 	$('body').append(html);
 	$('#stylemenu select').change(function() {
 		switchStyle($(this).val());

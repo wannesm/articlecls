@@ -16,7 +16,7 @@ body {
 	color: #333; /* only for web */
 }
 
-body.modern {
+body.modernstyle {
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
@@ -47,6 +47,10 @@ p {
 	-webkit-locale: 'en';
 	-moz-hyphens: auto;
 	text-align: justify;
+	/* The minimum number of lines that must be left at the bottom of a page */
+	orphans: 5;
+	/* The minimum number of lines that muse be left at the top of a page */
+	widows: 5;
 }
 
 a {
@@ -121,7 +125,6 @@ pre {
   overflow: auto;
   padding: 6px;
   text-align: left; 
-
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   border-radius: 3px;
@@ -189,12 +192,12 @@ h2.notoc:before, h2.nonumber:before {
 	content: counters(item, ".") ".  ";
 	counter-increment: item;
 }
-body.modern #toc li:before {
+body.modernstyle #toc li:before {
 	content: counter(item) ".  ";
 }
 
 #toc li.nonumber:before,
-body.modern #toc li.nonumber:before {
+body.modernstyle #toc li.nonumber:before {
 	content: "";
 	counter-increment: item 0;
 }
@@ -230,7 +233,7 @@ figure {
 	text-align: center;
 }
 
-body.modern figure {
+body.modernstyle figure {
 	text-align: left;
 }
 
@@ -248,7 +251,7 @@ figure img {
 figure table {
 }
 
-body.modern table {
+body.modernstyle table {
 	margin: 1em 0;
 }
 
@@ -261,11 +264,11 @@ figure figcaption {
 	font-size: 0.9em;
 }
 
-body.modern figure {
+body.modernstyle figure {
 	position: relative;
 }
 
-body.modern figure figcaption {
+body.modernstyle figure figcaption {
 	width: 10%;
 	text-align: right;
 	/*margin: 0 0 1.2em 0;*/
@@ -393,5 +396,24 @@ figure {
 }
 
 #stylemenu select {
+}
+
+.htmlhowto {
+	border: #dddfb3 1px solid;
+	background-color: #feffdc;
+	margin: .5em 0;
+	padding: .5em;
+	display: none;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+}
+
+body.htmlhowtostyle .htmlhowto {
+	display: block;
+}
+
+.htmlhowto:before {
+	content: "How-to in HTML/CSS:";
 }
 

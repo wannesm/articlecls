@@ -10,6 +10,7 @@
 
 var styles = Array("modernstyle", "classicstyle", "htmlhowtostyle");
 var setoptions = {};
+var curstyle = "classicstyle";
 
 /** MAIN ********************************************************************/
 
@@ -92,6 +93,7 @@ function switchStyle(style) {
 	$('body').addClass(style);
 	removeOutline();
 	insertOutline();
+	curstyle = style;
 }
 
 function insertStyleMenu() {
@@ -104,6 +106,7 @@ function insertStyleMenu() {
 	$('#stylemenu select').change(function() {
 		switchStyle($(this).val());
 	});
+	$('#stylemenu option').filter('[value='+curstyle+']').first().attr('selected','selected')
 }
 
 /** TABLE OF CONTENTS *******************************************************/

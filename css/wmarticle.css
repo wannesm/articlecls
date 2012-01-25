@@ -398,6 +398,12 @@ figure {
 #stylemenu select {
 }
 
+@media print {
+	#stylemenu {
+		display: none;
+	}
+}
+
 .htmlhowto {
 	border: #dddfb3 1px solid;
 	background-color: #feffdc;

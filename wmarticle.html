@@ -234,7 +234,7 @@ h1 {
 	<section>
 	<h3 id="crossreferences">Cross-referencing</h3>
 	
-	<p>To make a reference from one part of your text to another you can use the id-tag. For example a link to the <a href="#structure" class=secref>parent section</a>.</p>
+	<p>To make a reference from one part of your text to another you can use the id-tag. For example a link to the <a href="#structure" class=secref>parent section</a>. Inserting automatically the section number when cross-referencing to a section can be done with the <code>h2ref</code> and <code>h3ref</code> classes. Cross-referencing to figures and tables is explained further (requires css properties that are not yet implemented in all browswer).</p>
 
 	<figure>
 	<pre><code>...
@@ -242,7 +242,7 @@ h1 {
 ...
 &lt;figure id="myfig"&gt;...&lt;/figure&gt;
 ...
-&lt;p&gt;Some text referencing the &lt;a href="#mytitle"&gt;tagged title&lt;/a&gt; and the &lt;a href="#myfig" class="figref"&gt;tagged figure&lt;/a&gt;.&lt;/p&gt;</code></pre>
+&lt;p&gt;Some text referencing the &lt;a href="#mytitle" class="h3ref"&gt;tagged title&lt;/a&gt; and the &lt;a href="#myfig" class="figref"&gt;tagged figure&lt;/a&gt;.&lt;/p&gt;</code></pre>
 	</figure>
 
 	<div class="htmlhowto">

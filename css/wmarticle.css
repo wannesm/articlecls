@@ -202,11 +202,11 @@ body.modernstyle #toc li.nonumber:before {
 	counter-increment: item 0;
 }
 
-a.h2:after {
+a.h2ref:after {
 	content: " (" target-counter(attr(href), headertwo) ")";
 }
 
-a.h3:after {
+a.h3ref:after {
 	content: " (" target-counter(attr(href), headerthree) ")";
 }
 

@@ -294,6 +294,7 @@ figure.listing figcaption::before {
 	content: "Listing " counter(listing) ": ";
 }
 
+/*a.figref::after {*/
 a.figref {
 	content: " Figure " target-counter(attr(href), figure);
 }
@@ -304,6 +305,14 @@ a.tabref {
 
 a.lisref {
 	content: " Listing " target-counter(attr(href), listing);
+}
+
+/** FOOTNOTES ***************************************************************/
+
+.footnote {
+	float: footnote;
+	font-size: .9em;
+	/*content: target-pull(attr(href, url));*/
 }
 
 /** PRINT PAGES *************************************************************/

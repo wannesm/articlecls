@@ -232,7 +232,7 @@ h1 {
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 	<section>
-	<h3>Cross-referencing</h3>
+	<h3 id="crossreferences">Cross-referencing</h3>
 	
 	<p>To make a reference from one part of your text to another you can use the id-tag. For example a link to the <a href="#structure" class=secref>parent section</a>.</p>
 
@@ -242,18 +242,36 @@ h1 {
 ...
 &lt;figure id="myfig"&gt;...&lt;/figure&gt;
 ...
-&lt;p&gt;Some text referencing the &lt;a href="#mytitle"&gt;tagged title&lt;/a&gt; and the &lt;a href="#myfig"&gt;tagged figure&lt;/a&gt;.&lt;/p&gt;</code></pre>
+&lt;p&gt;Some text referencing the &lt;a href="#mytitle"&gt;tagged title&lt;/a&gt; and the &lt;a href="#myfig" class="figref"&gt;tagged figure&lt;/a&gt;.&lt;/p&gt;</code></pre>
 	</figure>
+
+	<div class="htmlhowto">
+		<p>[<a href="http://www.w3.org/TR/css3-gcpm/#cross-references">source</a>]</p>
+	</div>
 
 	</section>
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 	<section>
-	<h3>Hyphenation</h3>
+	<h3 id="hyphenation">Hyphenation</h3>
 
 	<p>CSS3 supports hyphenation and wmarticle applies it to all paragraphs. A more detailed explanation and an extension in javascript can be found on the website of <a href="http://code.google.com/p/hyphenator/wiki/en_CSS3Hyphenation">Hyphenator.js</a>. The hyphenator.js extension can be activated by giving the <tt>hyphenator</tt> option to the wmarticle.js module.</p>
 
 	<p><strong>Example:</strong> Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+
+	</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+	<section>
+	<h3 id="footnotes">Footnotes</h3>
+
+	<p>Inserting footnotes can be done as follows:<span class="footnote">Example footnote.</span> Note that the necessary CSS properties are not yet supported in most browser.</p>
+
+	<pre><code>&lt;span class="footnote"&gt;Example footnote.&lt;/span&gt;</code></pre>
+
+	<div class="htmlhowto">
+		<p>[<a href="http://www.w3.org/TR/css3-gcpm/#footnotes">source</a>]</p>
+	</div>
 
 	</section>
 
@@ -308,8 +326,10 @@ h1 {
 
 	<section>
 	<h3>Inserting an image</h3>
+	
+	<p>HTML allows to insert image formats like .jpg, .png, .gif. In browsers that support all CSS3 properties you can autonumber references (e.g., <a href="#firstfig" class="figref"></a>). See also the section about <a href="#crossreferences">cross-referencing</a>.</p>
 
-	<figure>
+	<figure id="firstfig">
 	<img src="img/image.jpg" \>
 	<figcaption>Example image.</figcaption>
 	</figure>
@@ -625,7 +645,7 @@ $$\label{eqsimple}\frac{a}{b}$$
 		In html you mix html-commands, css-commands and javascript-commands which all have a different syntax. We make it a little bit worse by also having $\LaTeX$ commands through MathJax.
 		<li><strong>Cross-referencing</strong>: Cross-referencing is not as easy and consistent as in LaTeX.<br/>
 		For example, you need to add a class to notify css that it is a reference to an image or a table to get the correct count automatically inserted.
-		<li><strong>Hyphenation</strong>: Built-in hyphenation for LaTeX gives more robust results (but can be solved by using <a href="http://code.google.com/p/hyphenator/">hyphenator.js</a>).
+		<li><strong>Hyphenation</strong>: Built-in hyphenation for LaTeX gives more robust results (but can be solved by using <a href="http://code.google.com/p/hyphenator/">hyphenator.js</a>, see <a href="#hyphenation">hyphenation section</a>.).
 		<li><strong>Redefinability</strong>: LaTeX allows hooks on all levels. With html you are limited to the hooks defined beforehand.
 	</ul>
 
@@ -638,10 +658,11 @@ $$\label{eqsimple}\frac{a}{b}$$
 	<h2 class="nonumber">References</h2>
 	
 	<ul>
-		<li>A List Apart, <cite><a href="http://www.alistapart.com/articles/boom">Printing a Book with CSS: Boom!</a></cite>, 2005
-		<li>nettuts+, <cite><a href="http://net.tutsplus.com/tutorials/html-css-techniques/25-html5-features-tips-and-techniques-you-must-know/">28 HTML5 Features, Tips, and Techniques You Must Know</a></cite>, 2011
-		<li>A List Apart, <cite><a href="http://www.alistapart.com/articles/goingtoprint/">Going to print</a></cite>, 2002
+		<li>W3C, <cite><a href="http://www.w3.org/TR/css3-gcpm/">CSS Generated Content for Paged Media Module</a>, 2011
 		<li>W3C, <cite><a href="http://www.w3.org/TR/html5/spec.html">HTML5</a></cite>, 2011
+		<li>A List Apart, <cite><a href="http://www.alistapart.com/articles/boom">Printing a Book with CSS: Boom!</a></cite>, 2005
+		<li>A List Apart, <cite><a href="http://www.alistapart.com/articles/goingtoprint/">Going to print</a></cite>, 2002
+		<li>nettuts+, <cite><a href="http://net.tutsplus.com/tutorials/html-css-techniques/25-html5-features-tips-and-techniques-you-must-know/">28 HTML5 Features, Tips, and Techniques You Must Know</a></cite>, 2011
 	</ul>
 
 	</section>

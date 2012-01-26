@@ -71,7 +71,7 @@ strong, b {
 
 /* Lists */
 
-ul, ol {
+ul, ol, dl {
 	margin: 0;
 	padding: .5em 0 1em 2em;
 	display: block;
@@ -81,6 +81,16 @@ ul {
 }
 ol {
 	list-style-type: decimal;
+}
+dl dt {
+	font-weight: bold;
+}
+body.modernstyle dl dt {
+	font-weight: bold;
+	float: left;
+}
+body.modernstyle dl dd {
+	margin: 0 0 0 5em;
 }
 
 /* No spacing around embedded lists */

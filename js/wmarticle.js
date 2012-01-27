@@ -8,7 +8,7 @@
 
 /** SETTINGS ****************************************************************/
 
-var styles = Array("modernstyle", "classicstyle", "htmlhowtostyle");
+var styles = Array("modernstyle", "classicstyle", "twocolumnsstyle", "htmlhowtostyle");
 var setoptions = {};
 var curstyle = "classicstyle";
 
@@ -63,7 +63,7 @@ $(document).ready(function(){
 	// Hyphenator
 	if (setoptions["hyphenator"] == true) {
 		//console.log("Activate hyphenator.js");
-		$('p').addClass("hyphenate text");
+		$('p,li').addClass("hyphenate text");
 		$.getScript("js/Hyphenator.js", function() {
 			Hyphenator.config({
 				displaytogglebox : false,
@@ -77,6 +77,12 @@ $(document).ready(function(){
 	if (setoptions["altfootnotes"]) {
 		//console.log("Activate alternative footnotes");
 		setAlternativeFootnotes();
+	}
+
+	// Twocolumns
+	if (setoptions["twocolumns"]) {
+		//console.log("Activate two columns");
+		setTwoColumns();
 	}
 
 	// Add outline for tag <toc>
@@ -106,6 +112,7 @@ function insertStyleMenu() {
 	html = "<div id=\"stylemenu\"><select>"
 		+ "<option value=\"classic\">Classic</option>"
 		+ "<option value=\"modernstyle\">Modern</option>"
+		+ "<option value=\"twocolumnsstyle\">Two-columns</option>"
 		+ "<option value=\"htmlhowtostyle\">How-To HTML</option>"
 		+ "</select></div>"
 	$('body').append(html);
@@ -185,5 +192,9 @@ function setAlternativeFootnotes() {
 		$(this).before("<sup>"+footnotecount+"</sup>");
 		$(this).prepend("<b>"+footnotecount+"</b> ");
 	});
+}
+
+function setTwoColumns() {
+	$('body').addClass('twocolumnsstyle');
 }
 

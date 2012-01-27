@@ -73,6 +73,12 @@ $(document).ready(function(){
 		});
 	}
 
+	// Footnotes
+	if (setoptions["altfootnotes"]) {
+		//console.log("Activate alternative footnotes");
+		setAlternativeFootnotes();
+	}
+
 	// Add outline for tag <toc>
 	insertOutline();
 
@@ -169,5 +175,15 @@ function createOutline(base) {
 
 	html += "</ol>"
 	return html
+}
+
+function setAlternativeFootnotes() {
+	var footnotecount = 0;
+	$('.footnote').each(function(k,v) {
+		footnotecount += 1;
+		$(this).addClass("inline-footnote");
+		$(this).before("<sup>"+footnotecount+"</sup>");
+		$(this).prepend("<b>"+footnotecount+"</b> ");
+	});
 }
 

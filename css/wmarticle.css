@@ -319,10 +319,29 @@ a.lisref {
 
 /** FOOTNOTES ***************************************************************/
 
+sup {
+	color: #444;
+}
+
 .footnote {
 	float: footnote;
 	font-size: .9em;
 	/*content: target-pull(attr(href, url));*/
+}
+
+.inline-footnote {
+	border-left: 1px solid #CCC;
+	color: #888;
+	display: block;
+	float: right;
+	font-size: .9em;
+	line-height: 149%;
+	margin-left: .9em;
+	margin-right: -5px;
+	margin-top: 4px;
+	padding-left: .8em;
+	position: relative;
+	width: 300px;
 }
 
 /** PRINT PAGES *************************************************************/

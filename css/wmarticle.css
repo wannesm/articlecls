@@ -2,6 +2,9 @@
  * WMArticle.css
  *
  * Copyright (c), Wannes Meert, 2012.
+ *
+ * wmarticle by Wannes Meert is licensed under a Creative Commons Attribution
+ * 3.0 Unported License.
  */
 
 
@@ -157,6 +160,21 @@ pre code, pre tt {
   background-color: transparent;
   border: none;
   padding: 0px;
+}
+
+/* Quotes */
+
+blockquote {
+	border-left: 3px #cccccc  solid;
+	padding-left: 1em;
+}
+
+blockquote footer {
+	color: #999999;
+}
+
+blockquote footer:before {
+	content: "– ";
 }
 
 /** HEADER ******************************************************************/

@@ -4,6 +4,9 @@
  * Copyright (c), Wannes Meert, 2012.
  *
  * Requires: jQuery
+ *
+ * wmarticle by Wannes Meert is licensed under a Creative Commons Attribution
+ * 3.0 Unported License.
  */
 
 /** SETTINGS ****************************************************************/

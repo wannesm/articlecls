@@ -39,6 +39,11 @@ h3 {
 	font-size: 125%;
 }
 
+body.modernstyle h2,
+body.modernstyle h3 {
+	color: #104a84;
+}
+
 p {
 	margin-bottom: .5em;
 	margin-top: .5em;
@@ -55,6 +60,7 @@ p {
 
 a {
 	text-decoration: none;
+	color: #104a84;
 }
 
 a:after {
@@ -330,14 +336,17 @@ body.modernstyle figure figcaption {
 	width: 10%;
 	text-align: right;
 	/*margin: 0 0 1.2em 0;*/
-	text-align: right;
 	position:absolute;
 	top:0px;
 	left:-12%;
 }
 
-figure figcaption {
+figure figcaption::before {
 	font-weight: bold;
+}
+
+body.modernstyle figure figcaption::before {
+	color: #104a84;
 }
 
 figure figcaption::before {

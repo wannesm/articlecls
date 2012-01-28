@@ -180,9 +180,7 @@ p {
 	<section>
 	<h3>Headers and footers</h3>
 	
-	<p>The wmarticle module adds a header which contains the document title on the left page and the current section on the right page. The footer contains the current page number.</p>
-
-	<p>These features are supported by <a href="#prince">prince</a> but not by all browsers.</p>
+	<p>The wmarticle module adds a header which contains the document title on the left page and the current section on the right page. The footer contains the current page number. These features are supported by <a href="#prince">prince</a> but not by all browsers.</p>
 
 	<div class="htmlhowto">
 		<pre><code>/* Create named page */
@@ -410,10 +408,15 @@ figure figcaption::before {
 	<h3>Inserting a pdf</h3>
 
 	<p>Next to image files, you can also include pdfs as images.</p>
+
+	<figure>
+		<object data="img/results.pdf" type="application/pdf" title="results" width="460pt" height="189pt">
+			<p>Insert your error message here, if the PDF cannot be displayed.</p>;
+		</object>
+		<figcaption>Example pdf.</figcaption>
+	</figure>
 	
-	<pre><code>&lt;object data="filename.pdf" type="application/pdf" title="samplepdf" width="100%" height="100px"&gt;
-	&lt;p&gt;Insert your error message here, if the PDF cannot be displayed.&lt;/p&gt;
-&lt;/object&gt;</code></pre>
+	<pre><code>&lt;object data="filename.pdf" type="application/pdf" title="samplepdf" width="100%" height="100px"&gt;&lt;/object&gt;</code></pre>
 	</section>
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->

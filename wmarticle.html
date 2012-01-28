@@ -261,16 +261,6 @@ h1 {
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 	<section>
-	<h3 id="hyphenation">Hyphenation</h3>
-
-	<p>CSS3 supports hyphenation and wmarticle applies it to all paragraphs. A more detailed explanation and an extension in javascript can be found on the website of <a href="http://code.google.com/p/hyphenator/wiki/en_CSS3Hyphenation">Hyphenator.js</a>. The hyphenator.js extension can be activated by giving the <tt>hyphenator</tt> option to the wmarticle.js module.</p>
-
-	<p><strong>Example:</strong> Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-
-	</section>
-
-<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-	<section>
 	<h3 id="footnotes">Footnotes</h3>
 
 	<p>Inserting footnotes can be done as follows:<span class="footnote">Example footnote.</span> Note that the necessary CSS properties are not yet supported in most browser and wmarticle uses an extra option <code>altfootnotes</code> to cope with that.</p>
@@ -299,6 +289,53 @@ h1 {
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 	<section>
+	<h3>Glossary</h3>
+
+	<p>Example:</p>
+	<dl>
+		<dt><dfn>HTML
+		<dd>HyperText Markup Language.
+		<dt><dfn>CSS
+		<dd>Cascading Style Sheets
+	</dl>
+
+	<pre><code>&lt;dl&gt;
+	&lt;dt&gt;&lt;dfn&gt;HTML
+	&lt;dd&gt;HyperText Markup Language.
+	&lt;dt&gt;&lt;dfn&gt;CSS
+	&lt;dd&gt;Cascading Style Sheets
+&lt;/dl&gt;</code></pre>
+
+	</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+	<section>
+	<h3>Page breaks</h3>
+
+	<p>You can force a line break by inserting the following snippet:</p>
+
+	<pre><code>&lt;div class="page-break"&gt;&lt/div&gt;</code></pre>
+
+	</section>
+
+	</section>
+
+<!-- = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = -->
+
+	<section>
+	<h2>Formatting</h2>
+
+	<section>
+	<h3 id="hyphenation">Hyphenation</h3>
+
+	<p>CSS3 supports hyphenation and wmarticle applies it to all paragraphs. A more detailed explanation and an extension in javascript can be found on the website of <a href="http://code.google.com/p/hyphenator/wiki/en_CSS3Hyphenation">Hyphenator.js</a>. The hyphenator.js extension can be activated by giving the <tt>hyphenator</tt> option to the wmarticle.js module.</p>
+
+	<p><strong>Example:</strong> Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+
+	</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+	<section>
 	<h3>Quotes</h3>
 
 	<blockquote cite="http://en.wikiquote.org/wiki/Richard_Feynman">
@@ -317,6 +354,28 @@ h1 {
 	</div>
 
 	</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+	<section>
+	<h3>Aside box</h3>
+
+	<aside>
+		<p>Some extra information on the side. Or a quote?</p>
+	</aside>
+	<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+	<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+
+	<pre><code>&lt;aside&gt;
+	&lt;p&gt;Some extra information on the side. Or a quote?&lt;/p&gt;
+&lt;/aside&gt;
+&lt;p&gt;Lorem ...</code></pre>
+
+	<div class="htmlhowto">
+		<p>[<a href="http://www.alistapart.com/articles/previewofhtml5">source</a>][<a href="http://html5doctor.com/aside-revisited/">source</a>]</p>
+	</div>
+
+	</section>
+
 
 	</section>
 

@@ -291,12 +291,14 @@ h1 {
 	<section>
 	<h3>Glossary</h3>
 	
-	<p>While writing a text, you can introduce glossary items like <span data-glossary="HyperText Markup Language">HTML</span> and <span data-glossary="Cascading Style Sheets">CSS</span> with <code>&lt;span data-glossary="My explanation"&gt;ME&lt;/span&gt;</code>. A list is generated where you insert the following code:</p>
+	<p>While writing a text, you can introduce glossary items like <span data-glossary="HyperText Markup Language">HTML</span> and <span data-glossary="Cascading Style Sheets">CSS</span> with <code>&lt;span data-glossary="My explanation"&gt;ME&lt;/span&gt;</code>. A list is generated where you insert a section with id <code>glossary</code>:</p>
 
-	<pre><code>&lt;div class="glossary"&gt;&lt;/div&gt;</code></pre>
+	<pre><code>&lt;section id="glossary"&gt;
+	&lt;h2&gt;Glossary&lt;/h2&gt;
+&lt;/section&gt;</code></pre>
 
 	<p>Example:</p>
-	<div class="glossary"></div>
+	<section id="glossary"><h4 class="notoc">Glossary</h4></section>
 
 	</section>
 

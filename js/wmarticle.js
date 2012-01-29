@@ -205,7 +205,7 @@ function setTwoColumns() {
 }
 
 function insertGlossary() {
-	if ($('.glossary').length == 0)
+	if ($('#glossary').length == 0)
 		return;
 	
 	gloss = [];
@@ -230,9 +230,10 @@ function insertGlossary() {
 	console.log(gloss);
 
 	// And insert
-	$('.glossary').each(function(i) {
+	$('#glossary').each(function(i) {
 		$(this).append("<dl></dl>");
-		root = $(this).children();
+		console.log($(this));
+		root = $(this).children().filter('dl');
 		console.log(root);
 		$.each(gloss, function(k,v) {
 			root.append("<dt>"+v[0]+"<dd>"+v[1]);

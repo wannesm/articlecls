@@ -24,7 +24,7 @@
 			displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
 			processEscapes: false,
 		},
-		TeX: { 
+		TeX: {
 			equationNumbers: {  autoNumber: "all"  },
 			extensions: ["AMSmath.js", "AMSsymbols.js"],
 			TagSide: "right"
@@ -44,7 +44,7 @@
 <!-- = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = -->
 	<section id="abstract">
 
-	<p>The wmarticle stylesheet and javascript module are an attempt to create a nicely looking style for print. It is inspired by the features found in LaTeX and triggered by the idea that most of these features are also supported in today's CSS3 and HTML5. A live version is available on <a href="http://wannesm.be/wmarticle/">http://wannesm.be/wmarticle/</a> and the sources can be found at <a href="https://github.com/wannesm/wmarticle">https://github.com/wannesm/wmarticle</a>. This is very much work in progress and any feedback is appreciated.</p>
+	<p>The wmarticle stylesheet and javascript module are an attempt to create a nicely looking style for print. It is inspired by the features found in LaTeX and triggered by the idea that most of these features are also supported in today's CSS3 and HTML5. A live version is available on <a href="http://wannesm.be/wmarticle/">http://wannesm.be/wmarticle/</a> and the sources (including this text) can be found at <a href="https://github.com/wannesm/wmarticle">https://github.com/wannesm/wmarticle</a>. This is very much work in progress and any feedback is appreciated.</p>
 
 	<div class="htmlhowto">
 		<p>The internal html used will be showed in boxes like this one.</p>
@@ -61,7 +61,7 @@
 <!-- = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = -->
 	<section>
 	<h2 id=structure>Structure</h2>
-	
+
 	<section>
 	<h3>Doctype</h3>
 
@@ -290,21 +290,13 @@ h1 {
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 	<section>
 	<h3>Glossary</h3>
+	
+	<p>While writing a text, you can introduce glossary items like <span data-glossary="HyperText Markup Language">HTML</span> and <span data-glossary="Cascading Style Sheets">CSS</span> with <code>&lt;span data-glossary="My explanation"&gt;ME&lt;/span&gt;</code>. A list is generated where you insert the following code:</p>
+
+	<pre><code>&lt;div class="glossary"&gt;&lt;/div&gt;</code></pre>
 
 	<p>Example:</p>
-	<dl>
-		<dt><dfn>HTML
-		<dd>HyperText Markup Language.
-		<dt><dfn>CSS
-		<dd>Cascading Style Sheets
-	</dl>
-
-	<pre><code>&lt;dl&gt;
-	&lt;dt&gt;&lt;dfn&gt;HTML
-	&lt;dd&gt;HyperText Markup Language.
-	&lt;dt&gt;&lt;dfn&gt;CSS
-	&lt;dd&gt;Cascading Style Sheets
-&lt;/dl&gt;</code></pre>
+	<div class="glossary"></div>
 
 	</section>
 
@@ -333,6 +325,37 @@ h1 {
 	<p><strong>Example:</strong> Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
 
 	</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+	<section>
+	<h3>Fonts</h3>
+
+	<style>
+		@import url(http://fonts.googleapis.com/css?family=Vollkorn);
+		.otherfont {
+			font-family: 'Gill Sans', 'Vollkorn', sans-serif;
+		}
+	</style>
+
+	<p>All fonts installed on your computer can also be used by setting the css <code>font-family</code> property. The following paragraph, for example, uses your local Gill Sans font (if that is not available the Vollkorn font will be used):</p>
+	<p class="otherfont">
+		Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+	</p>
+
+	<pre><code>&lt;style&gt;
+	.otherfont {
+		font-family: 'Gill Sans', 'Vollkorn', sans-serif;
+	}
+&lt;/style&gt;
+&lt;p class="otherfont"&gt;...</code></pre>
+
+	<div class="htmlhowto">
+		<p>wmarticle only uses the local fonts but you can easily use <a href="http://www.google.com/webfonts">Google Web Fonts</a> or <a href="https://typekit.com/">Typekit</a> if you want to publish online.</p>
+		<p>[<a href="http://hellohappy.org/beautiful-web-type/">source</a>]</p>
+	</div>
+
+	</section>
+
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 	<section>

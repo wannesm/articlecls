@@ -88,6 +88,9 @@ $(document).ready(function(){
 		setTwoColumns();
 	}
 
+	// Add glossary
+	insertGlossary();
+
 	// Add outline for tag <toc>
 	insertOutline();
 
@@ -199,5 +202,41 @@ function setAlternativeFootnotes() {
 
 function setTwoColumns() {
 	$('body').addClass('twocolumnsstyle');
+}
+
+function insertGlossary() {
+	if ($('.glossary').length == 0)
+		return;
+	
+	gloss = [];
+
+	// Find glossary items
+	$('span').filter(function(k,v) {
+		dg = $(this).first().attr("data-glossary");
+		if (dg) {
+			txt = $(this).first().text();
+			gloss.push([txt,dg]);
+			$(this).addClass("inglossary");
+		}
+	});
+	console.log(gloss);
+
+	// Sort glossary by abbrevation
+	gloss.sort(function(a,b) {
+		x = a[0];
+		y = b[0];
+		return x < y ? -1 : (x > y ? 1 : 0);
+	});
+	console.log(gloss);
+
+	// And insert
+	$('.glossary').each(function(i) {
+		$(this).append("<dl></dl>");
+		root = $(this).children();
+		console.log(root);
+		$.each(gloss, function(k,v) {
+			root.append("<dt>"+v[0]+"<dd>"+v[1]);
+		});
+	});
 }
 

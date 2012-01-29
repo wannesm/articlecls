@@ -200,6 +200,19 @@ body.modernstyle > article > header > hgroup > p {
 	text-align: left;
 }
 
+.authors .name {
+	margin-left: 2em;
+}
+.authors .name:before {
+	content: ", ";
+}
+.authors .name:first-child {
+	margin-left: 0;
+}
+.authors .name:first-child:before {
+	content: "";
+}
+
 /** COLUMNS *****************************************************************/
 
 body.twocolumnsstyle {

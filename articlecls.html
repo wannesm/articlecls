@@ -7,14 +7,14 @@
 	<meta name="author" content="Wannes Meert" />
 	<meta name="date" content="January 2012" />
 	<link rel="author" href="mailto:wannes.meert@cs.kuleuven.be" />
-	<link rel="tags" href="http://wannesm.be/wmarticle/tags/example+html5" />
-	<link rel="license" href="http://wannesm.be/wmarticle/license/" />
+	<link rel="tags" href="http://wannesm.be/articlecls/tags/example+html5" />
+	<link rel="license" href="http://wannesm.be/articlecls/license/" />
 
 	<link rel="stylesheet" href="css/normalize.css" type="text/css" />
-	<link rel="stylesheet" href="css/wmarticle.css" type="text/css" />
+	<link rel="stylesheet" href="css/articlecls.css" type="text/css" />
 
 	<script src="js/jquery-1.7.1.min.js"></script>
-	<script data-options="stylechooser, hyphenator, altfootnotes" src="js/wmarticle.js"></script>
+	<script data-options="stylechooser, hyphenator, altfootnotes" src="js/articlecls.js"></script>
 </head>
 <body>
 	<script type="text/x-mathjax-config">
@@ -37,7 +37,7 @@
 	<article>
 	<header><hgroup>
 		<h1>WMArticle</h1>
-		<p>Wannes Meert</p>
+		<div class=authors><span class=name>Wannes Meert</span></div>
 		<time datetime="2012-01-17" pubdate>January 17, 2012</time>
 	</hgroup></header>
 
@@ -112,7 +112,10 @@
 &lt;article&gt;
 	&lt;header&gt;
 		&lt;h1&gt;Title&lt;/h1&gt;
-		&lt;p&gt;Author and stuff&lt;/p&gt;
+		&lt;div class=authors&gt;
+			&lt;span class=name&gt;Firstname1 Lastname1&lt;/span&gt;
+			&lt;span class=name&gt;Firstname2 Lastname2&lt;/span&gt;
+		&lt;/div&gt;
 		&lt;time datetime="2012-01-17" pubdate&gt;January 17, 2012&lt;/time&gt;
 	&lt;/header&gt;
 	&lt;section&gt;

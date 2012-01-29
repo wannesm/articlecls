@@ -1,11 +1,11 @@
 /**
- * WMArticle.js
+ * articlecls.js
  *
  * Copyright (c), Wannes Meert, 2012.
  *
  * Requires: jQuery
  *
- * wmarticle by Wannes Meert is licensed under a Creative Commons Attribution
+ * articlecls by Wannes Meert is licensed under a Creative Commons Attribution
  * 3.0 Unported License.
  */
 
@@ -23,14 +23,14 @@ $(document).ready(function(){
 	optiontags = $('script').filter(function(index) {
 		src = $(this).first().attr("src")
 		if (src)
-			return src.indexOf('wmarticle.js') >= 0;
+			return src.indexOf('articlecls.js') >= 0;
 		return false;
 	});
 	if (optiontags.length == 0) {
-		console.log("Did not find script tag that includes wmarticle.js");
+		console.log("Did not find script tag that includes articlecls.js");
 	}
 	if (optiontags.length > 1) {
-		console.log("Found multiple script tags that includes wmarticle.js");
+		console.log("Found multiple script tags that includes articlecls.js");
 	}
 	optiontags.each(function(k,v) {
 		//console.log(v);
@@ -190,6 +190,8 @@ function createOutline(base) {
 	return html
 }
 
+/** OTHER *******************************************************************/
+
 function setAlternativeFootnotes() {
 	var footnotecount = 0;
 	$('.footnote').each(function(k,v) {
@@ -219,7 +221,6 @@ function insertGlossary() {
 			$(this).addClass("inglossary");
 		}
 	});
-	console.log(gloss);
 
 	// Sort glossary by abbrevation
 	gloss.sort(function(a,b) {
@@ -227,14 +228,11 @@ function insertGlossary() {
 		y = b[0];
 		return x < y ? -1 : (x > y ? 1 : 0);
 	});
-	console.log(gloss);
 
 	// And insert
 	$('#glossary').each(function(i) {
 		$(this).append("<dl></dl>");
-		console.log($(this));
 		root = $(this).children().filter('dl');
-		console.log(root);
 		$.each(gloss, function(k,v) {
 			root.append("<dt>"+v[0]+"<dd>"+v[1]);
 		});

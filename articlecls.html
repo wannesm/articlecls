@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>WMArticle</title>
+	<title>Article.cls</title>
 	<meta charset="utf-8" />
-	<meta name="generator" content="wmarticle" />
+	<meta name="generator" content="articlecls" />
 	<meta name="author" content="Wannes Meert" />
 	<meta name="date" content="January 2012" />
 	<link rel="author" href="mailto:wannes.meert@cs.kuleuven.be" />
@@ -36,7 +36,7 @@
 
 	<article>
 	<header><hgroup>
-		<h1>WMArticle</h1>
+		<h1>Article.cls</h1>
 		<div class=authors><span class=name>Wannes Meert</span></div>
 		<time datetime="2012-01-17" pubdate>January 17, 2012</time>
 	</hgroup></header>
@@ -44,7 +44,7 @@
 <!-- = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = -->
 	<section id="abstract">
 
-	<p>The wmarticle stylesheet and javascript module are an attempt to create a nicely looking style for print. It is inspired by the features found in LaTeX and triggered by the idea that most of these features are also supported in today's CSS3 and HTML5. A live version is available on <a href="http://wannesm.be/wmarticle/">http://wannesm.be/wmarticle/</a> and the sources (including this text) can be found at <a href="https://github.com/wannesm/wmarticle">https://github.com/wannesm/wmarticle</a>. This is very much work in progress and any feedback is appreciated.</p>
+	<p>The articlecls stylesheet and javascript module are an attempt to create a nicely looking style for print. It is inspired by the features found in LaTeX and triggered by the idea that most of these features are also supported in today's CSS3 and HTML5. A live version is available on <a href="http://wannesm.be/articlecls/">http://wannesm.be/articlecls/</a> and the sources (including this text) can be found at <a href="https://github.com/wannesm/articlecls">https://github.com/wannesm/articlecls</a>. This is very much work in progress and any feedback is appreciated.</p>
 
 	<div class="htmlhowto">
 		<p>The internal html used will be showed in boxes like this one.</p>
@@ -73,24 +73,24 @@
 	<h3>Header</h3>
 
 	<pre><code>&lt;head&gt;
-	&lt;title&gt;WMArticle&lt;/title&gt;
+	&lt;title&gt;Article.cls&lt;/title&gt;
 	&lt;meta charset="utf-8" /&gt;
-	&lt;meta name="generator" content="wmarticle" /&gt;
+	&lt;meta name="generator" content="articlecls" /&gt;
 	&lt;meta name="author" content="Wannes Meert" /&gt;
 	&lt;meta name="date" content="January 2012" /&gt;
 	&lt;link rel="author" href="mailto:wannes.meert@cs.kuleuven.be" /&gt;
 
 	&lt;link rel="stylesheet" href="css/normalize.css" type="text/css" /&gt;
-	&lt;link rel="stylesheet" href="css/wmarticle.css" type="text/css" /&gt;
+	&lt;link rel="stylesheet" href="css/articlecls.css" type="text/css" /&gt;
 
 	&lt;script src="js/jquery-1.7.1.min.js"&gt;&lt;/script&gt;
-	&lt;script src="js/wmarticle.js"&gt;&lt;/script&gt;
+	&lt;script src="js/articlecls.js"&gt;&lt;/script&gt;
 &lt;/head&gt;
 </code></pre>
 
 	<p>If you want a modern version of the style you can use the following line:</p>
 
-	<pre><code>	&lt;script data-options="modern" src="js/wmarticle.js"&gt;&lt;/script&gt;</code></pre>
+	<pre><code>	&lt;script data-options="modern" src="js/articlecls.js"&gt;&lt;/script&gt;</code></pre>
 
 	<p>All options that are available (comma separated):</p>
 	<ul>
@@ -190,7 +190,7 @@ p {
 	<section>
 	<h3>Headers and footers</h3>
 	
-	<p>The wmarticle module adds a header which contains the document title on the left page and the current section on the right page. The footer contains the current page number. These features are supported by <a href="#prince">prince</a> but not by all browsers.</p>
+	<p>The articlecls module adds a header which contains the document title on the left page and the current section on the right page. The footer contains the current page number. These features are supported by <a href="#prince">prince</a> but not by all browsers.</p>
 
 	<div class="htmlhowto">
 		<pre><code>/* Create named page */
@@ -266,7 +266,7 @@ h1 {
 	<section>
 	<h3 id="footnotes">Footnotes</h3>
 
-	<p>Inserting footnotes can be done as follows:<span class="footnote">Example footnote.</span> Note that the necessary CSS properties are not yet supported in most browser and wmarticle uses an extra option <code>altfootnotes</code> to cope with that.</p>
+	<p>Inserting footnotes can be done as follows:<span class="footnote">Example footnote.</span> Note that the necessary CSS properties are not yet supported in most browser and articlecls uses an extra option <code>altfootnotes</code> to cope with that.</p>
 
 	<pre><code>&lt;span class="footnote"&gt;Example footnote.&lt;/span&gt;</code></pre>
 
@@ -280,9 +280,9 @@ h1 {
 	<section>
 	<h3>Two columns</h3>
 
-	<p>If you prefer a two-column layout you can add the <code>twocolumns</code> option to the wmarticle module.</p>
+	<p>If you prefer a two-column layout you can add the <code>twocolumns</code> option to the articlecls module.</p>
 
-	<pre><code>&lt;script data-options="twocolumns" src="js/wmarticle.js"&gt;&lt;/script&gt;</code></pre>
+	<pre><code>&lt;script data-options="twocolumns" src="js/articlecls.js"&gt;&lt;/script&gt;</code></pre>
 
 	<div class="htmlhowto">
 		<p>[<a href="http://www.quirksmode.org/css/multicolumn.html">source</a>]</p>
@@ -325,7 +325,7 @@ h1 {
 	<section>
 	<h3 id="hyphenation">Hyphenation</h3>
 
-	<p>CSS3 supports hyphenation and wmarticle applies it to all paragraphs. A more detailed explanation and an extension in javascript can be found on the website of <a href="http://code.google.com/p/hyphenator/wiki/en_CSS3Hyphenation">Hyphenator.js</a>. The hyphenator.js extension can be activated by giving the <tt>hyphenator</tt> option to the wmarticle.js module.</p>
+	<p>CSS3 supports hyphenation and articlecls applies it to all paragraphs. A more detailed explanation and an extension in javascript can be found on the website of <a href="http://code.google.com/p/hyphenator/wiki/en_CSS3Hyphenation">Hyphenator.js</a>. The hyphenator.js extension can be activated by giving the <tt>hyphenator</tt> option to the articlecls.js module.</p>
 
 	<p><strong>Example:</strong> Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
 
@@ -355,7 +355,7 @@ h1 {
 &lt;p class="otherfont"&gt;...</code></pre>
 
 	<div class="htmlhowto">
-		<p>wmarticle only uses the local fonts but you can easily use <a href="http://www.google.com/webfonts">Google Web Fonts</a> or <a href="https://typekit.com/">Typekit</a> if you want to publish online.</p>
+		<p>articlecls only uses the local fonts but you can easily use <a href="http://www.google.com/webfonts">Google Web Fonts</a> or <a href="https://typekit.com/">Typekit</a> if you want to publish online.</p>
 		<p>[<a href="http://hellohappy.org/beautiful-web-type/">source</a>]</p>
 	</div>
 
@@ -714,7 +714,7 @@ figure figcaption::before {
 
 	<section>
 	<h3>Inserting an equation</h3>
-	<p>wmarticle uses <a href="http://mathjax.org">MathJax</a> to display mathematical equations with $\LaTeX$ inline $\frac{a}{b}$ and as blocks:</p>
+	<p>articlecls uses <a href="http://mathjax.org">MathJax</a> to display mathematical equations with $\LaTeX$ inline $\frac{a}{b}$ and as blocks:</p>
 
 $$\label{eqsimple}\frac{a}{b}$$
 
@@ -780,7 +780,7 @@ $$\label{eqsimple}\frac{a}{b}$$
 	<p>
 	Usage:
 	</p>
-	<pre><code>$ prince wmarticle.html -o wmarticle.pdf</code></pre>
+	<pre><code>$ prince articlecls.html -o articlecls.pdf</code></pre>
 	</section>
 	</section>
 

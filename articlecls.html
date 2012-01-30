@@ -489,7 +489,7 @@ h1 {
 	&lt;img alt="image" src="image.jpg" /&gt;
 	&lt;figcaption&gt;Example image.&lt;/figcaption&gt;
 &lt;/figure&gt;</code></pre>
-	<figcaption>Code inserting an image.</figcaption>
+	<figcaption>Code to insert an image.</figcaption>
 	</figure>
 
 	<div class="htmlhowto">
@@ -531,7 +531,13 @@ figure figcaption::before {
 		<figcaption>Example pdf.</figcaption>
 	</figure>
 	
-	<pre><code>&lt;object data="filename.pdf" type="application/pdf" title="samplepdf" width="100%" height="100px"&gt;&lt;/object&gt;</code></pre>
+	<figure>
+		<pre><code>&lt;figure&gt;
+	&lt;object data="img/results.pdf" type="application/pdf" title="results" width="460pt" height="189pt"&gt;&lt;/object&gt;
+	&lt;figcaption&gt;Example pdf.&lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
+		<figcaption>Code to insert pdf.</figcaption>
+	</figure>
 	</section>
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
@@ -549,7 +555,7 @@ figure figcaption::before {
 		&lt;/figure class=listing&gt;
 	&lt;/code&gt;&lt;/pre&gt;
 	&lt;figcaption&gt;Example code.&lt;/figcaption&gt;
-&lt;/figure class=listing&gt;</code></pre>
+&lt;/figure&gt;</code></pre>
 	<figcaption>Example code.</figcaption>
 	</figure class=listing>
 
@@ -594,23 +600,14 @@ figure figcaption::before {
 	<figcaption>Tabular caption text.</figcaption>
 	</figure>
 
-<pre><code>&lt;figure&gt;
+<pre><code>&lt;figure class=table&gt;
 &lt;table&gt;
 	&lt;caption&gt;Table title.&lt;/caption&gt;
 	&lt;thead&gt;
-		&lt;tr&gt;
-			&lt;th&gt; Col1
-			&lt;th&gt; Col2
-			&lt;th&gt; Col3
+		&lt;tr&gt; &lt;th&gt; Col1 &lt;th&gt; Col2 &lt;th&gt; Col3
 	&lt;tbody&gt;
-		&lt;tr&gt;
-			&lt;td&gt; Item 1 1
-			&lt;td&gt; Item 1 2
-			&lt;td&gt; Item 1 3
-		&lt;tr&gt;
-			&lt;td&gt; Item 2 1
-			&lt;td&gt; Item 2 2
-			&lt;td&gt; Item 2 3
+		&lt;tr&gt; &lt;td&gt; Item 1 1 &lt;td&gt; Item 1 2 &lt;td&gt; Item 1 3
+		&lt;tr&gt; &lt;td&gt; Item 2 1 &lt;td&gt; Item 2 2 &lt;td&gt; Item 2 3
 &lt;/table&gt;
 &lt;figcaption&gt;Tabular caption text.&lt;/figcaption&gt;
 &lt;/figure&gt;
@@ -632,6 +629,9 @@ figure figcaption::before {
 			font-weight: bold;
 			border: 1px #cccccc solid;
 		}
+		table.styledtable .col2 {
+			background-color: #ffffb7;
+		}
 		table.styledtable thead {
 			background-color: #cccccc;
 		}
@@ -646,6 +646,11 @@ figure figcaption::before {
 	<figure class=table>
 	<table class="styledtable">
 		<caption>Table title.</caption>
+		<colgroup>
+			<col class=col1 \>
+			<col class=col2 \>
+			<col class=col3 \>
+		</colgroup>
 		<thead>
 			<tr>
 				<th> Col1
@@ -671,6 +676,9 @@ figure figcaption::before {
 	table.styledtable caption {
 		font-weight: bold;
 		border: 1px #cccccc solid;
+	}
+	table.styledtable .col2 {
+		background-color: #ffffb7;
 	}
 	table.styledtable thead {
 		background-color: #cccccc;

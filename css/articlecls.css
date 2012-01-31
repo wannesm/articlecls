@@ -75,6 +75,10 @@ strong, b {
 	font-weight: bolder;
 }
 
+abbr {
+	cursor: help;
+}
+
 /* Lists */
 
 ul, ol, dl {
@@ -546,8 +550,12 @@ sup {
 		max-width: 100% !important;
 	}
 
-	abbr[title]:after {
-		content: " (" attr(title) ")";
+	/*abbr[title]:after {*/
+		/*content: " (" attr(title) ")";*/
+	/*}*/
+
+	abbr {
+		text-decoration: none;
 	}
 
 	.page-break {

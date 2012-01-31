@@ -218,8 +218,8 @@ function insertGlossary() {
 	gloss = [];
 
 	// Find glossary items
-	$('span').filter(function(k,v) {
-		dg = $(this).first().attr("data-glossary");
+	$('abbr').each(function(k,v) {
+		dg = $(this).first().attr("title");
 		if (dg) {
 			txt = $(this).first().text();
 			gloss.push([txt,dg]);

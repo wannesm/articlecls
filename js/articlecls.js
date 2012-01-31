@@ -88,6 +88,11 @@ $(document).ready(function(){
 		setTwoColumns();
 	}
 
+	// Open Typography
+	if (setoptions["opentypography"]) {
+		useOpenTypography();
+	}
+
 	// Add glossary
 	insertGlossary();
 
@@ -235,6 +240,17 @@ function insertGlossary() {
 		root = $(this).children().filter('dl');
 		$.each(gloss, function(k,v) {
 			root.append("<dt>"+v[0]+"<dd>"+v[1]);
+		});
+	});
+}
+
+function useOpenTypography() {
+	$('head').append('<link rel="stylesheet" href="css/typography_extra.css" type="text/css" />');
+	$.getScript("js/charReplacements.js", function() {
+		$.getScript("js/typography.js", function() {
+
+			$('p, li').addClass("typo");
+			smallcapsReplacement();
 		});
 	});
 }

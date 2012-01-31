@@ -17,6 +17,7 @@ body {
 	font-size: 11pt;
 	line-height: 16pt; /* should be 1.5 font-size */
 	color: #333; /* only for web */
+	text-rendering: optimizeLegibility;
 }
 
 body.modernstyle {

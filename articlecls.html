@@ -38,7 +38,7 @@
 	<header><hgroup>
 		<h1>Article.cls</h1>
 		<div class=authors><span class=name>Wannes Meert</span></div>
-		<time datetime="2012-01-17" pubdate>January 17, 2012</time>
+		<time datetime="2012-02-01" pubdate>February 1, 2012</time>
 	</hgroup></header>
 
 <!-- = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = -->
@@ -294,14 +294,14 @@ h1 {
 	<section>
 	<h3>Glossary</h3>
 	
-	<p>While writing a text, you can introduce glossary items like <abbr title="HyperText Markup Language">HTML</abbr> and <abbr title="Cascading Style Sheets">CSS</abbr> with <code>&lt;abbr title="My explanation"&gt;ME&lt;/abbr&gt;</code>. A list is generated where you insert a section with id <code>glossary</code>:</p>
+	<p>While writing a text, you can introduce glossary items like <abbr title="HyperText Markup Language">HTML</abbr> and <abbr title="Cascading Style Sheets">CSS</abbr> with the <code>abbr</code> tag. If you add the <code>noglossary</code> class, the abbreviated term will not appear in the glossary. The class <code>hidden</code> can be used to introduce a term into the glossary without showing it in the main text. A glossary is automatically inserted into the section with id <code>glossary</code>:</p>
 
-	<pre><code>&lt;section id="glossary"&gt;
+	<pre><code>Introducing the term &lt;abbr title="HyperText Markup Language"&gt;HTML&lt;/abbr&gt; in a text.
+&lt;section id="glossary"&gt;
 	&lt;h2&gt;Glossary&lt;/h2&gt;
 &lt;/section&gt;</code></pre>
 
-	<p>Example:</p>
-	<section id="glossary"><h4 class="notoc">Glossary</h4></section>
+	<p>For an example, see the <a href="#glossary">glossary section</a>.</p>
 
 	</section>
 
@@ -838,12 +838,18 @@ $$\label{eqsimple}\frac{a}{b}$$
 	</section>
 
 <!-- = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = -->
+	<section id="glossary">
+	<h2 class="nonumber">Glossary</h2>
+	</section>
+
+<!-- = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = -->
 	<section>
 	<h2 class="nonumber">References</h2>
 	
 	<ul>
 		<li>W3C, <cite><a href="http://www.w3.org/TR/css3-gcpm/">CSS Generated Content for Paged Media Module</a>, 2011
 		<li>W3C, <cite><a href="http://www.w3.org/TR/html5/spec.html">HTML5</a></cite>, 2011
+		<li>WhatWG, <cite><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/index.html">HTML Standard</a></cite>, 2012
 		<li>A List Apart, <cite><a href="http://www.alistapart.com/articles/boom">Printing a Book with CSS: Boom!</a></cite>, 2005
 		<li>A List Apart, <cite><a href="http://www.alistapart.com/articles/goingtoprint/">Going to print</a></cite>, 2002
 		<li>nettuts+, <cite><a href="http://net.tutsplus.com/tutorials/html-css-techniques/25-html5-features-tips-and-techniques-you-must-know/">28 HTML5 Features, Tips, and Techniques You Must Know</a></cite>, 2011

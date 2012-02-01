@@ -218,7 +218,11 @@ function insertGlossary() {
 	gloss = [];
 
 	// Find glossary items
-	$('abbr').each(function(k,v) {
+	$('abbr').filter(function(i) {
+		if ($(this).hasClass('noglossary'))
+			return false;
+		return true;
+	}).each(function(k,v) {
 		dg = $(this).first().attr("title");
 		if (dg) {
 			txt = $(this).first().text();

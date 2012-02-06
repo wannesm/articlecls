@@ -11,10 +11,14 @@ Open `articlecls.html` in a webbrowser or have a look at the online version at <
 Credits
 -------
 
-- MathJax, <http://www.mathjax.org/>
-- Normalize.css, <http://necolas.github.com/normalize.css/>
-- jQuery, <http://jquery.com/>
-- Hyphenator.js, <http://code.google.com/p/hyphenator/>
+- MathJax, <http://www.mathjax.org/>  
+  Uses online version
+- Normalize.css, <http://necolas.github.com/normalize.css/>  
+  Install in `css`
+- jQuery, <http://jquery.com/>  
+  Install in `js`
+- Hyphenator.js, <http://code.google.com/p/hyphenator/>  
+  Install in `js/hyphenator`
 
 Author
 ------

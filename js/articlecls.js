@@ -71,7 +71,7 @@ $(document).ready(function(){
 	if (setoptions["hyphenator"] == true) {
 		//console.log("Activate hyphenator.js");
 		$('p,li').addClass("hyphenate text");
-		$.getScript("js/Hyphenator.js", function() {
+		$.getScript("js/hyphenator/Hyphenator.js", function() {
 			Hyphenator.config({
 				displaytogglebox : false,
 				minwordlength : 4
@@ -290,12 +290,12 @@ function insertGlossary() {
 }
 
 function useOpenTypography() {
-	$('head').append('<link rel="stylesheet" href="css/typography_extra.css" type="text/css" />');
-	$.getScript("js/charReplacements.js", function() {
-		$.getScript("js/typography.js", function() {
+	//$('head').append('<link rel="stylesheet" href="css/typography_extra.css" type="text/css" />');
+	$.getScript("js/opentypography/DOMhelp.js", function() {
+		$.getScript("js/opentypography/typesetter.js", function() {
 
 			$('p, li').addClass("typo");
-			smallcapsReplacement();
+			charReplacements();
 		});
 	});
 }

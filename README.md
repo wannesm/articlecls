@@ -11,6 +11,7 @@ Open `articlecls.html` in a webbrowser or have a look at the online version at <
 Credits
 -------
 
+- MathJax, <http://www.mathjax.org/>
 - Normalize.css, <http://necolas.github.com/normalize.css/>
 - jQuery, <http://jquery.com/>
 - Hyphenator.js, <http://code.google.com/p/hyphenator/>

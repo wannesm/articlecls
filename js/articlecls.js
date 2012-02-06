@@ -14,6 +14,7 @@
 var styles = Array("modernstyle", "classicstyle", "twocolumnsstyle", "htmlhowtostyle");
 var setoptions = {};
 var curstyle = "classicstyle";
+var months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
 
 /** MAIN ********************************************************************/
 
@@ -49,6 +50,9 @@ $(document).ready(function(){
 
 	});
 	//console.log(setoptions);
+
+	// Insert header
+	insertTitle();
 
 	// Modern style
 	if (setoptions["modernstyle"] == true) {
@@ -106,6 +110,43 @@ $(document).ready(function(){
 	// insert();
 
 });
+
+/** TITLE AND HEADER ********************************************************/
+
+function insertTitle() {
+	
+	title = "";
+	authors = [];
+	date = "";
+	
+	$('meta').each(function(k,v) {
+		if ($(this).attr('name') == 'author')
+			authors.push($(this).attr('content'))
+		if ($(this).attr('name') == 'date')
+			date = $(this).attr('content');
+	});
+	$('title').each(function(k,v) {
+		title = $(this).text()
+	});
+
+	authorsstr = ""
+	$.each(authors, function(k,v) {
+		authorsstr += "<span class=name>Wannes Meert</span>"
+	});
+
+	fields = date.match(/(\d+)/g);
+	date = new Date(fields[0], fields[1]-1, fields[2]);
+
+	headerstr = "<header><hgroup>"
+		+ "<h1>Article.cls</h1>"
+		+ "<div class=authors>"
+		+ authorsstr
+		+ "</div>"
+		+ "<time datetime=\""+date.getFullYear()+"-"+date.getMonth()+"-"+date.getDate()+"\" pubdate>"+months[date.getMonth()]+" "+date.getDate()+", "+date.getFullYear()+"</time>"
+		+ "</hgroup></header>"
+
+	$('article').prepend(headerstr)
+}
 
 /** STYLES ******************************************************************/
 

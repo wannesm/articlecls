@@ -144,6 +144,7 @@ pre {
 	line-height: 19px;
 	overflow: auto;
 	padding: 6px;
+	margin: 1em 0;
 	text-align: left; 
 	-moz-border-radius: 3px;
 	-webkit-border-radius: 3px;
@@ -220,7 +221,7 @@ body.modernstyle > article > header > hgroup > p {
 
 /** COLUMNS *****************************************************************/
 
-body.twocolumnsstyle {
+body.twocolumns article {
 	-moz-column-count: 2;
 	-moz-column-gap: 2em;
 	-webkit-column-count: 2;
@@ -229,7 +230,7 @@ body.twocolumnsstyle {
 	column-gap: 2em;
 }
 
-body.twocolumnsstyle > article > header {
+body.twocolumns > article > header {
 	-moz-column-span: all;
 	-webkit-column-span: all;
 	column-span: all;
@@ -581,41 +582,4 @@ h3 { bookmark-level: 3 }
 h4 { bookmark-level: 4 }
 h5 { bookmark-level: 5 }
 h6 { bookmark-level: 6 }
-
-/** AUXILIARY ***************************************************************/
-
-#stylemenu {
-	position: fixed;
-	top: 0px;
-	right: 0px;
-	padding: 2px;
-}
-
-#stylemenu select {
-}
-
-@media print {
-	#stylemenu {
-		display: none;
-	}
-}
-
-.htmlhowto {
-	border: #dddfb3 1px solid;
-	background-color: #feffdc;
-	margin: .5em 0;
-	padding: .5em;
-	display: none;
-	-moz-border-radius: 3px;
-	-webkit-border-radius: 3px;
-	border-radius: 3px;
-}
-
-body.htmlhowtostyle .htmlhowto {
-	display: block;
-}
-
-.htmlhowto:before {
-	content: "How-to in HTML/CSS:";
-}
 

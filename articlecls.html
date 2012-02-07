@@ -12,9 +12,11 @@
 
 	<link rel="stylesheet" href="css/normalize.css" type="text/css" />
 	<link rel="stylesheet" href="css/articlecls.css" type="text/css" />
+	<link rel="stylesheet" href="css/articlecls_extra.css" type="text/css" />
 
 	<script src="js/jquery-1.7.1.min.js"></script>
-	<script data-options="stylechooser, hyphenator, altfootnotes" src="js/articlecls.js"></script>
+	<script data-options="hyphenator, altfootnotes" src="js/articlecls.js"></script>
+	<script data-options="stylechooser" src="js/articlecls_extra.js"></script>
 </head>
 <body>
 	<script type="text/x-mathjax-config">
@@ -34,16 +36,23 @@
 	<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 	<!--<script type="text/javascript" src="/Users/wannes/Projects/programming/MathJaxV2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>-->
 
+	<div id="latexcmpbar"></div>
+
 	<article>
 
 <!-- = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = -->
 	<section id="abstract">
+
+	<div class="latexcmpline"><div class="latexcmp">
+		<p>On the right side, the equivalent LaTeX commands are shown.</p>
+	</div></div>
 
 	<p>The articlecls stylesheet and javascript module are an attempt to create a nicely looking style for print and summarize the typographical advancements made for html. It is inspired by the features found in LaTeX and triggered by the idea that most of these features are also supported in today's CSS3 and HTML5. A live version is available on <a href="http://wannesm.be/articlecls/">http://wannesm.be/articlecls/</a> and the sources (including this text) can be found at <a href="https://github.com/wannesm/articlecls">https://github.com/wannesm/articlecls</a>. This is very much work in progress and any feedback is appreciated.</p>
 
 	<div class="htmlhowto">
 		<p>The internal html used will be showed in boxes like this one.</p>
 	</div>
+
 
 	</section>
 
@@ -57,17 +66,19 @@
 	<section>
 	<h2 id=structure>Structure</h2>
 
-	<section>
-	<h3>Doctype</h3>
-
-	<pre><code>&lt;!DOCTYPE html&gt;</code></pre>
-	</section>
-
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 	<section>
 	<h3>Header</h3>
 
-	<pre><code>&lt;head&gt;
+	<div class="latexcmpline"><div class="latexcmp">
+		<pre><code>\documentclass[11pt]{article}
+	\title{Article.cls}
+	\author{Wannes Meert}
+	\date{2012-02-6}</code></pre>
+	</div></div>
+
+	<pre><code>&lt;!DOCTYPE html&gt;
+&lt;head&gt;
 	&lt;title&gt;Article.cls&lt;/title&gt;
 	&lt;meta charset="utf-8" /&gt;
 	&lt;meta name="generator" content="articlecls" /&gt;
@@ -83,7 +94,12 @@
 &lt;/head&gt;
 </code></pre>
 
+
 	<p>If you want a modern version of the style you can use the following line:</p>
+
+	<div class="latexcmpline"><div class="latexcmp">
+		<pre><code>	\usepackage{modern}</code></pre>
+	</div></div>
 
 	<pre><code>	&lt;script data-options="modern" src="js/articlecls.js"&gt;&lt;/script&gt;</code></pre>
 
@@ -102,6 +118,22 @@
 	<h3>Body</h3>
 
 	<p>Overview:</p>
+
+	<div class="latexcmpline"><div class="latexcmp">
+		<pre><code>\begin{document}
+	\section{Introduction}
+		Some introductionary text.
+
+	\section{Another section}
+		Some more text.
+
+		\subsection{A subsection}
+		Some subsection text.
+
+	\bibliography{references}
+\end{document}
+		</code></pre>
+	</div></div>
 
 	<pre><code>&lt;body&gt;
 &lt;article&gt;
@@ -148,6 +180,11 @@ p {
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 	<section>
 	<h3>Title</h3>
+
+	<div class="latexcmpline"><div class="latexcmp">
+		<pre><code>\maketitle</code></pre>
+	</div></div>
+
 	<p>The title, authors and date are automatically inserted at the beginning of the article based on the meta-information found in the header.</p>
 
 	<div class="htmlhowto">
@@ -170,6 +207,13 @@ p {
 
 	<p>Add an id to the abstract section named <tt>abstract</tt></p>
 
+	<div class="latexcmpline"><div class="latexcmp">
+		<pre><code>\begin{abstract}
+	My abstract ...
+\end{abstract}</code></pre>
+	</div></div>
+
+
 	<figure class=listing>
 	<pre><code>&lt;section id="abstract"&gt;
 	My abstract ...
@@ -183,6 +227,10 @@ p {
 	<h3>Table of Contents</h3>
 
 	<p>Add the id <tt>toc</tt> to the section where you want your table of contents. Headers having as class <tt>notoc</tt> will not be included in the table of contents and header with the class <tt>nonumber</tt> will be unnumbered but included into the table of contents.</p>
+
+	<div class="latexcmpline"><div class="latexcmp">
+		<pre><code>\tableofcontents</code></pre>
+	</div></div>
 
 	<figure class=listing>
 	<pre><code>&lt;section id="toc"&gt;
@@ -250,6 +298,16 @@ h1 {
 	
 	<p>To make a reference from one part of your text to another you can use the id-tag. For example a link to the <a href="#structure" class=secref>parent section</a>. Inserting automatically the section number when cross-referencing to a section can be done with the <code>h2ref</code> and <code>h3ref</code> classes. Cross-referencing to figures and tables is explained further (requires css properties that are not yet implemented in all browswer).</p>
 
+	<div class="latexcmpline"><div class="latexcmp">
+		<pre><code>...
+\section{Tagged title}\label{mytitle}
+...
+\begin{figure}\label{myfig}...\end{figure}
+...
+Some text referencing the tagged title \ref{mytitle} and the tagged figure \ref{myfig}.
+</code></pre>
+	</div></div>
+
 	<figure>
 	<pre><code>...
 &lt;h3 id="mytitle"&gt;Tagged title&lt;/h3&gt;
@@ -274,6 +332,10 @@ h1 {
 
 	<p>Inserting footnotes can be done as follows:<span class="footnote">Example footnote.</span> Note that the necessary CSS properties are not yet supported in most browser and articlecls uses an extra option <code>altfootnotes</code> to cope with that.</p>
 
+	<div class="latexcmpline"><div class="latexcmp">
+		<pre><code>\footnote{Example footnote.}</code></pre>
+	</div></div>
+
 	<pre><code>&lt;span class="footnote"&gt;Example footnote.&lt;/span&gt;</code></pre>
 
 	<div class="htmlhowto">
@@ -287,6 +349,10 @@ h1 {
 	<h3>Two columns</h3>
 
 	<p>If you prefer a two-column layout you can add the <code>twocolumns</code> option to the articlecls module.</p>
+
+	<div class="latexcmpline"><div class="latexcmp">
+		<pre><code>\documentclass[twocolumn]{article}</code></pre>
+	</div></div>
 
 	<pre><code>&lt;script data-options="twocolumns" src="js/articlecls.js"&gt;&lt;/script&gt;</code></pre>
 
@@ -433,6 +499,13 @@ h1 {
 	<section>
 	<h3>Inserting a numbered list</h3>
 
+	<div class="latexcmpline"><div class="latexcmp">
+		<pre><code>\begin{enumerate}
+	\li Item 1
+	\li Item 2
+\end{enumerate}</code></pre>
+	</div></div>
+
 	<figure class=listing>
 	<pre><code>&lt;ol&gt;
 	&lt;li&gt;Item 1
@@ -452,6 +525,13 @@ h1 {
 	<section>
 	<h3>Inserting a bullet list</h3>
 
+	<div class="latexcmpline"><div class="latexcmp">
+		<pre><code>\begin{itemize}
+	\li Item 1
+	\li Item 2
+\end{itemize}</code></pre>
+	</div></div>
+
 	<figure class=listing>
 	<pre><code>&lt;ul&gt;
 	&lt;li&gt;Item 1
@@ -470,6 +550,13 @@ h1 {
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 	<section>
 	<h3>Inserting a description list</h3>
+
+	<div class="latexcmpline"><div class="latexcmp">
+		<pre><code>\begin{itemize}
+	\li[Label 1] Item 1
+	\li[Label 2] Item 2
+\end{itemize}</code></pre>
+	</div></div>
 
 	<figure class=listing>
 	<pre><code>&lt;dl&gt;
@@ -500,6 +587,15 @@ h1 {
 	<img src="img/image.jpg" \>
 	<figcaption>Example image.</figcaption>
 	</figure>
+
+	<div class="latexcmpline"><div class="latexcmp">
+		<pre><code>Reference this figure \ref{firstfig}.
+\begin{figure}
+	\includegraphic{image.jpg}
+	\caption{Example image.
+	\label{firstfig}
+\end{figure}</code></pre>
+	</div></div>
 
 	<figure class=listing>
 	<pre><code>&lt;p&gt;Reference &lt;a class="figref" href="#firstfig"&gt;this figure&lt;/a&gt;.&lt;/p&gt;
@@ -548,7 +644,14 @@ figure figcaption::before {
 		</object>
 		<figcaption>Example pdf.</figcaption>
 	</figure>
-	
+
+	<div class="latexcmpline"><div class="latexcmp">
+		<pre><code>\begin{figure}
+	\includegraphic{results.pdf}
+	\caption{Example pdf.}
+\end{figure}</code></pre>
+	</div></div>
+
 	<figure>
 		<pre><code>&lt;figure&gt;
 	&lt;object data="img/results.pdf" type="application/pdf" title="results" width="460pt" height="189pt"&gt;&lt;/object&gt;
@@ -563,6 +666,18 @@ figure figcaption::before {
 	<h3>Inserting code</h3>
 
 	<p>Some inline <code>code-snippet</code> to show how it looks like.</p>
+
+	<div class="latexcmpline"><div class="latexcmp">
+		<pre><code>Inline \textrm{code-snippet}...
+\begin{listing}
+	&lt;pre&gt;&lt;code&gt;
+		&lt;figure class=listing&gt;
+		...
+		&lt;/figure class=listing&gt;
+	&lt;/code&gt;&lt;/pre&gt;
+	\caption{Example code.}
+\end{listing}</code></pre>
+	</div></div>
 
 	<figure class=listing>
 	<pre><code>&lt;p&gt;Inline &lt;code&gt;code-snippet&lt;/code&gt;...&lt;/p&gt;
@@ -617,6 +732,17 @@ figure figcaption::before {
 	</table>
 	<figcaption>Tabular caption text.</figcaption>
 	</figure>
+
+	<div class="latexcmpline"><div class="latexcmp">
+		<pre><code>\begin{table}
+	\begin{tabular}{ccc}
+		\textbf{Col1} &amp; \textbf{Col2} &amp; \textbf{Col3} \\
+		Item 1 1 &amp; Item 1 2 &amp; Item 1 3\\
+		Item 2 1 &amp; Item 2 2 &amp; Item 2 3
+	\end{tabular}
+	\caption{Tabular caption text.}
+\end{table}</code></pre>
+	</div></div>
 
 <pre><code>&lt;figure class=table&gt;
 &lt;table&gt;
@@ -683,6 +809,14 @@ figure figcaption::before {
 				<td> Item 2 1
 				<td> Item 2 2
 				<td> Item 2 3
+			<tr>
+				<td> Item 3 1
+				<td> Item 3 2
+				<td> Item 3 3
+			<tr>
+				<td> Item 4 1
+				<td> Item 4 2
+				<td> Item 4 3
 	</table>
 	<figcaption>Stylized table</figcaption>
 	</figure>
@@ -721,6 +855,10 @@ figure figcaption::before {
 
 	<p>Add <code>top</code> or <code>bottom</code> class to your figure environment to position the figure at the top or botton of a page (requires css properties not yet supported in all browsers).</p>
 
+	<div class="latexcmpline"><div class="latexcmp">
+		<pre><code>\begin{figure}[t]...</code></pre>
+	</div></div>
+
 	<pre><code>&lt;figure class="top"&gt;...</code></pre>
 
 	<div class="htmlhowto">
@@ -757,6 +895,20 @@ $$\label{eqsimple}\frac{a}{b}$$
 
 
 <p>And we can reference equations \eqref{eqmaxwell} and \eqref{eqsimple} (only works with MathJax 2.0 which is not yet released but can be found in dpvc's <a href="https://github.com/dpvc/MathJax/tree/v2.0-candidate">v2.0 branch</a>).</p>
+
+	<div class="latexcmpline"><div class="latexcmp">
+		<pre><code>&#92;&#91;
+&#92;begin{aligned}
+&#92;label{eqmaxwell}
+&#92;nabla &#92;times &#92;vec{&#92;mathbf{B}} -&#92;, &#92;frac1c&#92;, &#92;frac{&#92;partial&#92;vec{&#92;mathbf{E}}}{&#92;partial t} &amp; = &#92;frac{4&#92;pi}{c}&#92;vec{&#92;mathbf{j}} &#92;&#92;
+&#92;nabla &#92;cdot &#92;vec{&#92;mathbf{E}} &amp; = 4 &#92;pi &#92;rho &#92;&#92;
+&#92;nabla &#92;times &#92;vec{&#92;mathbf{E}}&#92;, +&#92;, &#92;frac1c&#92;, &#92;frac{&#92;partial&#92;vec{&#92;mathbf{B}}}{&#92;partial t} &amp; = &#92;vec{&#92;mathbf{0}} &#92;&#92;
+&#92;nabla &#92;cdot &#92;vec{&#92;mathbf{B}} &amp; = 0
+&#92;end{aligned}
+&#92;&#93;
+And we can reference equations &#92;ref{eqmaxwell}.
+</code></pre>
+	</div></div>
 
 	<figure class=listing>
 	<pre><code>&#92;&#91;

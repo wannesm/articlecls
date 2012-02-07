@@ -11,9 +11,7 @@
 
 /** SETTINGS ****************************************************************/
 
-var styles = Array("modernstyle", "classicstyle", "twocolumnsstyle", "htmlhowtostyle");
 var setoptions = {};
-var curstyle = "classicstyle";
 var months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
 
 /** MAIN ********************************************************************/
@@ -53,19 +51,6 @@ $(document).ready(function(){
 
 	// Insert header
 	insertTitle();
-
-	// Modern style
-	if (setoptions["modernstyle"] == true) {
-		//console.log("Style: modernstyle");
-		switchStyle("modernstyle");
-	}
-	if (setoptions["htmlhowtostyle"] == true) {
-		//console.log("Style: htmlhowtostyle");
-		switchStyle("htmlhowtostyle");
-	}
-	if (setoptions["stylechooser"] == true) {
-		insertStyleMenu();
-	}
 
 	// Hyphenator
 	if (setoptions["hyphenator"] == true) {
@@ -148,32 +133,6 @@ function insertTitle() {
 	$('article').prepend(headerstr)
 }
 
-/** STYLES ******************************************************************/
-
-function switchStyle(style) {
-	$.each(styles, function(k,v) {
-		$('body').removeClass(v);
-	});
-	$('body').addClass(style);
-	removeOutline();
-	insertOutline();
-	curstyle = style;
-}
-
-function insertStyleMenu() {
-	html = "<div id=\"stylemenu\"><select>"
-		+ "<option value=\"classic\">Classic</option>"
-		+ "<option value=\"modernstyle\">Modern</option>"
-		+ "<option value=\"twocolumnsstyle\">Two-columns</option>"
-		+ "<option value=\"htmlhowtostyle\">How-To HTML</option>"
-		+ "</select></div>"
-	$('body').append(html);
-	$('#stylemenu select').change(function() {
-		switchStyle($(this).val());
-	});
-	$('#stylemenu option').filter('[value='+curstyle+']').first().attr('selected','selected')
-}
-
 /** TABLE OF CONTENTS *******************************************************/
 
 function insertOutline() {
@@ -249,7 +208,7 @@ function setAlternativeFootnotes() {
 }
 
 function setTwoColumns() {
-	$('body').addClass('twocolumnsstyle');
+	$('body').addClass('twocolumns');
 }
 
 function insertGlossary() {

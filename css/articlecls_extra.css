@@ -1,0 +1,85 @@
+
+#stylemenu {
+	position: fixed;
+	top: 0px;
+	right: 0px;
+	padding: 2px;
+}
+
+#stylemenu select {
+}
+
+@media print {
+	#stylemenu {
+		display: none;
+	}
+}
+
+.htmlhowto {
+	border: #dddfb3 1px solid;
+	background-color: #feffdc;
+	margin: .5em 0;
+	padding: .5em;
+	display: none;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+}
+
+body.htmlhowtostyle .htmlhowto {
+	display: block;
+}
+
+.htmlhowto:before {
+	content: "How-to in HTML/CSS:";
+}
+
+section {
+	position: relative;
+}
+
+.latexcmp {
+	/*border: #dddfb3 1px solid;*/
+	/*background-color: #feffdc;*/
+	margin: 0;
+	padding: 0 .5em;
+	display: none;
+	/*-moz-border-radius: 3px;*/
+	/*-webkit-border-radius: 3px;*/
+	/*border-radius: 3px;*/
+	width: 100%;
+	position: absolute;
+	/*bottom:0px;*/
+	top:0em;
+	left:110%;
+}
+
+#abstract .latexcmp {
+	left:130%;
+}
+
+.latexcmpline {
+	position: relative;
+	clear: both;
+	display: block;
+	height: 1px;
+}
+
+body.latexcmpstyle .latexcmp {
+	display: block;
+}
+
+body.latexcmpstyle article {
+	width: 50%;
+}
+
+body.latexcmpstyle #latexcmpbar {
+	background-color: #feffdc;
+	border-left: #dddfb3 1px solid;
+	height: 100%;
+	width: 47%;
+	position: fixed;
+	top: 0;
+	right: 0;
+}
+

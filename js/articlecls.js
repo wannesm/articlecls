@@ -107,7 +107,7 @@ function insertTitle() {
 	$('meta').each(function(k,v) {
 		if ($(this).attr('name') == 'author')
 			authors.push($(this).attr('content'))
-		if ($(this).attr('name') == 'date')
+		if ($(this).attr('name') == 'dcterms.issued')
 			date = $(this).attr('content');
 	});
 	$('title').each(function(k,v) {

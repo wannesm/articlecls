@@ -191,6 +191,15 @@ aside {
 	font: italic bold #ff0000 ;
 }
 
+/* Footer */
+
+article > footer {
+	font-size: .8em;
+	color: #cccccc;
+	width: 100%;
+	margin-top: 3em;
+}
+
 /** HEADER ******************************************************************/
 
 body > article > header > hgroup,

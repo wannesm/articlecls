@@ -31,6 +31,12 @@ $(document).ready(function(){
 	if (optiontags.length > 1) {
 		console.log("Found multiple script tags that includes articlecls.js");
 	}
+	// Setoptions defaults
+	setoptions["nomathjax"]  = false;
+	setoptions["notoc"]      = false;
+	setoptions["noglossary"] = false;
+
+	// Process given options
 	optiontags.each(function(k,v) {
 		//console.log(v);
 		optionslist = $(this).first().attr("data-options").replace(/ +/g,"").split(",");
@@ -83,16 +89,25 @@ $(document).ready(function(){
 	}
 
 	// Add glossary
-	insertGlossary();
+	if (!setoptions["noglossary"]) {
+		insertGlossary();
+	}
 
 	// Add outline for tag <toc>
-	insertOutline();
+	if (!setoptions["notoc"]) {
+		insertOutline();
+	}
 
 	// How-to
 	// now with master style (see styles).
 
 	// Add references
 	// insert();
+	
+	// Add MathJax
+	if (!setoptions["nomathjax"]) {
+		insertMathJax();
+	}
 
 });
 
@@ -193,6 +208,27 @@ function createOutline(base) {
 
 	html += "</ol>"
 	return html
+}
+
+/** MATHJAX *****************************************************************/
+
+function insertMathJax() {
+  var script = document.createElement("script");
+  script.type = "text/javascript";
+  script.src  = "http://cdn.mathjax.org/mathjax/2.0-beta/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+
+  var config = 'MathJax.Hub.Config({' +
+                 'extensions: ["tex2jax.js"],' +
+                 'jax: ["input/TeX","output/HTML-CSS"],' +
+                 'tex2jax: { inlineMath: [["$","$"],["\\\\(","\\\\)"]], displayMath: [["$$","$$"],["\\\\[","\\\\]"]],},' +
+                 'TeX: {equationNumbers: { autoNumber: "all" }},' +
+               '});' +
+               'MathJax.Hub.Startup.onload();';
+
+  if (window.opera) {script.innerHTML = config}
+               else {script.text = config}
+
+  document.getElementsByTagName("head")[0].appendChild(script);
 }
 
 /** OTHER *******************************************************************/

@@ -131,14 +131,14 @@ function insertTitle() {
 
 	authorsstr = ""
 	$.each(authors, function(k,v) {
-		authorsstr += "<span class=name>Wannes Meert</span>"
+		authorsstr += "<span class=name>"+v+"</span>"
 	});
 
 	fields = date.match(/(\d+)/g);
 	date = new Date(fields[0], fields[1]-1, fields[2]);
 
 	headerstr = "<header><hgroup>"
-		+ "<h1>Article.cls</h1>"
+		+ "<h1>"+title+"</h1>"
 		+ "<div class=authors>"
 		+ authorsstr
 		+ "</div>"

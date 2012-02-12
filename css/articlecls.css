@@ -216,13 +216,13 @@ body.modernstyle > article > header > hgroup > p {
 }
 
 .authors .name {
-	margin-left: 2em;
+	margin: 0;
 }
 .authors .name:before {
 	content: ", ";
 }
 .authors .name:first-child {
-	margin-left: 0;
+	margin: 0;
 }
 .authors .name:first-child:before {
 	content: "";

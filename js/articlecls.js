@@ -13,7 +13,6 @@
 
 var setoptions = {};
 var months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
-
 /** MAIN ********************************************************************/
 
 $(document).ready(function(){
@@ -32,9 +31,10 @@ $(document).ready(function(){
 		console.log("Found multiple script tags that includes articlecls.js");
 	}
 	// Setoptions defaults
-	setoptions["nomathjax"]  = false;
-	setoptions["notoc"]      = false;
-	setoptions["noglossary"] = false;
+	setoptions["nomathjax"]    = false;
+	setoptions["notoc"]        = false;
+	setoptions["noglossary"]   = false;
+	setoptions['bibliography'] = ''
 
 	// Process given options
 	optiontags.each(function(k,v) {
@@ -53,7 +53,7 @@ $(document).ready(function(){
 		});
 
 	});
-	//console.log(setoptions);
+	console.log(setoptions);
 
 	// Insert header
 	insertTitle();
@@ -63,6 +63,7 @@ $(document).ready(function(){
 		//console.log("Activate hyphenator.js");
 		$('p,li').addClass("hyphenate text");
 		$.getScript("js/hyphenator/Hyphenator.js", function() {
+			//console.log("Configuring hyphenator");
 			Hyphenator.config({
 				displaytogglebox : false,
 				minwordlength : 4
@@ -102,7 +103,7 @@ $(document).ready(function(){
 	// now with master style (see styles).
 
 	// Add references
-	// insert();
+	 insertBibliography();
 	
 	// Add MathJax
 	if (!setoptions["nomathjax"]) {
@@ -275,6 +276,43 @@ function insertMathJax() {
                else {script.text = config}
 
   document.getElementsByTagName("head")[0].appendChild(script);
+}
+
+/** BIBLIOGRAPHY ************************************************************/
+
+function insertBibliography() {
+	if (setoptions['bibliography'] == '')
+		return;
+	console.log("Start bibliograply");
+	$.getScript("js/citeproc/xmle4x.js", function() {
+	console.log("1");
+	$.getScript("js/citeproc/xmldom.js", function() {
+	console.log("2");
+	$.getScript("js/citeproc/loadlocale.js", function() {
+	console.log("3");
+	$.getScript("js/citeproc/loadsys.js", function() {
+	console.log("4");
+	$.getScript("js/citeproc/loadcsl.js", function() {
+	console.log("5");
+	$.getScript(setoptions['bibliography'], function() {
+	
+		console.log("Start building bibliography");
+		var sys = new Sys(abbreviations);
+		var citeproc = new CSL.Engine(sys, ieee);
+		citeproc.setAbbreviations("default");
+		citeproc.updateItems(["Meert2012"]);
+		output = citeproc.makeBibliography();
+		if (output && output.length && output[1].length){
+			$("#bibliography").append(output);
+		}
+
+	})
+	})})})})}).fail(function(jqxhr, settings, exception) {
+		console.log("ERROR");
+		console.log(jqhxr);
+		console.log(settings);
+		console.log(exception);
+	})
 }
 
 /** OTHER *******************************************************************/

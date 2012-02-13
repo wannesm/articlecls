@@ -116,11 +116,12 @@ li {
 
 table {
 	margin: 1em auto;
-	text-align: center;
+	text-align: left;
 }
 
 table td {
-	padding: 0em 1em;
+	padding: 0 0 1em 0;
+	vertical-align: baseline;
 }
 
 /* Code */

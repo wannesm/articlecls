@@ -665,9 +665,7 @@ figure figcaption::before {
 	<p>Next to image files, you can also include pdfs as images.</p>
 
 	<figure>
-		<object data="img/results.pdf" type="application/pdf" title="results" width="460" height="189">
-			<p>Insert your error message here, if the PDF cannot be displayed.</p>;
-		</object>
+		<img src="img/results.pdf" title="results" width="60%" />
 		<figcaption>Example pdf.</figcaption>
 	</figure>
 
@@ -680,11 +678,20 @@ figure figcaption::before {
 
 	<figure>
 		<pre><code>&lt;figure&gt;
-	&lt;object data="img/results.pdf" type="application/pdf" title="results" width="460pt" height="189pt"&gt;&lt;/object&gt;
+	&lt;img src="img/results.pdf" title="results" width="60%" &gt;
 	&lt;figcaption&gt;Example pdf.&lt;/figcaption&gt;
 &lt;/figure&gt;</code></pre>
 		<figcaption>Code to insert pdf.</figcaption>
 	</figure>
+
+	<div class=htmlhowto>
+		<p>This can also be achieved by using the <code>object</code> tag.</p>
+		<pre><code>&lt;figure&gt;
+	&lt;object data="img/results.pdf" type="application/pdf" title="results" width="460pt" height="189pt"&gt;&lt;/object&gt;
+	&lt;figcaption&gt;Example pdf.&lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
+	</div>
+
 	</section>
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->

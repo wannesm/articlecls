@@ -201,6 +201,14 @@ article > footer {
 	margin-top: 3em;
 }
 
+/* Address */
+
+address {
+	font-style: normal;
+	padding: 0 0 0 1em;
+	margin: 0 0 0 2em;
+}
+
 /** HEADER ******************************************************************/
 
 body > article > header > hgroup,
@@ -302,11 +310,11 @@ h2 {
 }
 
 h2:before {
-	content: counter(headertwo) " ";
+	content: counter(headertwo) ". ";
 	counter-increment: headertwo;
 }
 h3:before {
-	content: counter(headertwo) "." counter(headerthree) " ";
+	content: counter(headertwo) "." counter(headerthree) ". ";
 	counter-increment: headerthree;
 }
 

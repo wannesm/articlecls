@@ -280,6 +280,11 @@ function insertMathJax() {
 
 /** BIBLIOGRAPHY ************************************************************/
 
+/**
+ * Add bibliography using citeproc-js
+ *
+ * http://gsl-nagoya-u.net/http/pub/citeproc-doc.html
+ */
 function insertBibliography() {
 	if (setoptions['bibliography'] == '')
 		return;

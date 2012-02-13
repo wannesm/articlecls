@@ -210,6 +210,52 @@ function createOutline(base) {
 	return html
 }
 
+/** ADDRESS *****************************************************************/
+
+/**
+ * Insert an address in hCard format.
+ *
+ * http://microformats.org/wiki/hcard
+ */
+function insertAddress(data) {
+	//console.log(data);
+	addr = "<div class=vcard>";
+	if ("fn" in data)
+		addr += "<span class=fn>"+data["fn"]+"</span>";
+	if ("fn n" in data) {
+		addr += "<span class=\"fn n\">";
+		if ("given-name" in data["fn n"])
+			addr += "<span class=given-name>"+data["fn n"]["given-name"]+"</span>";
+		if ("additional-name" in data["fn n"])
+			addr += "<span class=additional-name>"+data["fn n"]["additional-name"]+"</span>";
+		if ("family-name" in data["fn n"])
+			addr += "<span class=family-name>"+data["fn n"]["family-name"]+"</span>";
+		addr += "</span>";
+	}
+	if ("org" in data)
+		addr += "<div class=org>"+data["org"]+"</div>";
+	if ("adr" in data) {
+		addr += "<div class=adr>";
+		if ("street-address" in data["adr"])
+			addr += "<div class=street-address>"+data["adr"]["street-address"]+"</div>";
+		if ("postal-code" in data["adr"])
+			addr += "<div class=postal-code>"+data["adr"]["postal-code"]+"</div>";
+		if ("locality" in data["adr"])
+			addr += "<div class=locality>"+data["adr"]["locality"]+"</div>";
+		if ("region" in data["adr"])
+			addr += "<div class=region>"+data["adr"]["region"]+"</div>";
+		if ("country-name" in data["adr"])
+			addr += "<div class=country-name>"+data["adr"]["country-name"]+"</div>";
+		addr += "</div>"
+	}
+	if ("email" in data)
+		addr += "<a class=email href=\"mailto:"+data["email"]+"\">"+data["email"]+"</a>";
+	if ("url" in data)
+		addr += "<a class=url href=\"mailto:"+data["url"]+"\">"+data["url"]+"</a>";
+	addr += "</div>";
+	document.write(addr);
+}
+
 /** MATHJAX *****************************************************************/
 
 function insertMathJax() {

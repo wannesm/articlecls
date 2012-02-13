@@ -253,6 +253,30 @@ body.twocolumns > article > header {
 	columns: 2;
 }
 
+/** ADDRESS *****************************************************************/
+
+.vcard {
+	margin: 0 0 0 2em;
+	padding: 0 0 0 1em;
+}
+
+.vcard .postal-code {
+	display: inline-block;
+	padding: 0 1ex 0 0;
+}
+
+.vcard .locality {
+	display: inline-block;
+}
+
+.vcard .email {
+	display: block;
+}
+
+.vcard .url {
+	display: block;
+}
+
 /** NUMBERING SECTIONS ******************************************************/
 
 /*

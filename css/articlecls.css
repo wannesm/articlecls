@@ -119,8 +119,9 @@ table {
 	text-align: left;
 }
 
-table td {
-	padding: 0 0 1em 0;
+table td, table th {
+	margin: 0;
+	padding: .1em .3em 0em .3em;
 	vertical-align: baseline;
 }
 

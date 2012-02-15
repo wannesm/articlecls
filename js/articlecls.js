@@ -16,7 +16,10 @@ var months = ["January","February","March","April","May","June","July","August",
 /** MAIN ********************************************************************/
 
 $(document).ready(function(){
+	initArticleCls();
+});
 
+function initArticleCls() {
 	// Parse options
 	optiontags = $('script').filter(function(index) {
 		src = $(this).first().attr("src")
@@ -56,6 +59,7 @@ $(document).ready(function(){
 	console.log(setoptions);
 
 	// Insert header
+	insertGenerator();
 	insertTitle();
 
 	// Hyphenator
@@ -109,8 +113,13 @@ $(document).ready(function(){
 	if (!setoptions["nomathjax"]) {
 		insertMathJax();
 	}
+}
 
-});
+/** GENERATOR ***************************************************************/
+
+function insertGenerator() {
+	$('head').prepend("<meta name=\"generator\" content=\"Article.cls\" />");
+}
 
 /** TITLE AND HEADER ********************************************************/
 

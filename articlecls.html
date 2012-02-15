@@ -3,16 +3,13 @@
 <head>
 	<title>Article.cls</title>
 	<meta charset="utf-8" />
-	<meta name="generator" content="articlecls" />
 	<meta name="author" content="Wannes Meert" />
 	<meta name="dcterms.issued" content="2012-02-06" />
 	<meta name="keywords" content="html5,css3,print,latex" />
 	<meta name="description" content="HTML5/CSS3 template to be used for print media" />
-	<meta name="generator" content="Article.cls" />
 	<link rel="author" href="mailto:wannes.meert@cs.kuleuven.be" />
 	<link rel="license" href="http://wannesm.be/articlecls/license/" />
 
-	<link rel="stylesheet" href="css/normalize.css" type="text/css" />
 	<link rel="stylesheet" href="css/articlecls.css" type="text/css" />
 	<link rel="stylesheet" href="css/articlecls_extra.css" type="text/css" />
 
@@ -798,23 +795,23 @@ figure figcaption::before {
 	<style scoped>
 		table.styledtable {
 			width: 40%;
+			border: 1px rgba(10%, 10%, 10%, 0.5) solid;
 		}
 		table.styledtable caption {
 			font-weight: bold;
-			border: 1px #cccccc solid;
 		}
-		table.styledtable .col2 {
-			background-color: #ffffb7;
+		table.styledtable .col1 {
+			background-color: #ffffda;
 		}
 		table.styledtable thead {
-			background-color: #cccccc;
+			background-color: rgba(10%, 10%, 10%, 0.5);
+			color: white;
 		}
 		table.styledtable thead,
 		table.styledtable tbody {
-			border: 1px #cccccc solid;
 		}
-		table.styledtable td {
-			border-right: 1px #cccccc solid;
+		table.styledtable tbody tr:nth-child(even) {
+			background-color: rgba(85%, 85%, 85%, 0.5);
 		}
 	</style>
 
@@ -824,7 +821,7 @@ figure figcaption::before {
 	
 	<figure class=table>
 	<table class="styledtable">
-		<caption>Table title.</caption>
+		<caption>Table title</caption>
 		<colgroup>
 			<col class=col1 />
 			<col class=col2 />
@@ -858,27 +855,24 @@ figure figcaption::before {
 
 	<pre><code>&lt;style&gt;
 	table.styledtable {
-		width: 30%;
+		width: 40%;
+		border: 1px rgba(10%, 10%, 10%, 0.5) solid;
 	}
 	table.styledtable caption {
 		font-weight: bold;
-		border: 1px #cccccc solid;
 	}
-	table.styledtable .col2 {
-		background-color: #ffffb7;
+	table.styledtable .col1 {
+		background-color: #ffffda;
 	}
 	table.styledtable thead {
-		background-color: #cccccc;
+		background-color: rgba(10%, 10%, 10%, 0.5);
+		color: white;
 	}
-	table.styledtable thead,
-	table.styledtable tbody {
-		border: 1px #cccccc solid;
-	}
-	table.styledtable td {
-		border-right: 1px #cccccc solid;
+	table.styledtable tbody tr:nth-child(even) {
+		background-color: rgba(85%, 85%, 85%, 0.5);
 	}
 &lt;/style&gt;
-&lt;table class="styledtable"&gt;
+&lt;table class=styledtable&gt;
 ...
 </code></pre>
 

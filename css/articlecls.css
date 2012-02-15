@@ -128,6 +128,10 @@ table td, table th {
 	vertical-align: baseline;
 }
 
+table.left {
+	margin: 0;
+}
+
 /* Code */
 
 code,
@@ -629,3 +633,8 @@ h4 { bookmark-level: 4 }
 h5 { bookmark-level: 5 }
 h6 { bookmark-level: 6 }
 
+/** MEETING MINUTES *********************************************************/
+
+.at {
+	background-color: #ffff66;
+}

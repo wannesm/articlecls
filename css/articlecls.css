@@ -7,6 +7,9 @@
  * 3.0 Unported License.
  */
 
+/** NORMALIZE ***************************************************************/
+
+@import url("normalize.css");
 
 /** GENERAL LAYOUT **********************************************************/
 
@@ -121,7 +124,7 @@ table {
 
 table td, table th {
 	margin: 0;
-	padding: .1em .3em 0em .3em;
+	padding: 0 .5em .5em 0;
 	vertical-align: baseline;
 }
 

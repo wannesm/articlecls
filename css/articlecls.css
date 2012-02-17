@@ -30,6 +30,7 @@ body.modernstyle {
 h1, h2, h3, h4 {
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-weight: bold;
+	/* Headers should be closer to their content than the previous part. */
 	margin-top: 1.5em;
 	margin-bottom: .5em;
 }

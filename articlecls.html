@@ -367,6 +367,10 @@ Some text referencing the tagged title \ref{mytitle} and the tagged figure \ref{
 
 	<p>You can force a line break by inserting the following snippet:</p>
 
+	<div class="latexcmpline"><div class="latexcmp">
+		<pre><code>\newpage</code></pre>
+	</div></div>
+
 	<pre><code>&lt;div class="page-break"&gt;&lt;/div&gt;</code></pre>
 
 	</section>
@@ -989,10 +993,10 @@ And we can reference equations &#92;ref{eqmaxwell}.
 	</p>
 
 	<div class="latexcmpline"><div class="latexcmp">
-		<pre><code>$ latex articlecls
+		<pre><code>$ latex  articlecls
 $ bibtex articlecls
-$ latex articlecls
-$ latex articlecls</code></pre>
+$ latex  articlecls
+$ latex  articlecls</code></pre>
 	</div></div>
 
 	<pre><code>$ prince articlecls.html -o articlecls.pdf</code></pre>

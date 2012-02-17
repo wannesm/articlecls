@@ -313,6 +313,7 @@ function insertBibliography() {
 		//type: "text/javascript; e4x=1",
 		//success: function() {
 	$.getScript("js/citeproc/xmldom.js", function() {
+	$.getScript("js/citeproc/citeproc.js", function() {
 	$.getScript("js/citeproc/loadlocale.js", function() {
 	$.getScript("js/citeproc/loadsys.js", function() {
 	$.getScript("js/citeproc/loadcsl.js", function() {
@@ -337,7 +338,7 @@ function insertBibliography() {
 		console.log(settings);
 		console.log(exception);
 	})
-	})})})})
+	})})})})})
 	//}}).fail(function(jqxhr, settings, exception) {
 		//console.log("ERROR loading xmle4x.js");
 		//console.log(jqxhr);

@@ -306,17 +306,17 @@ function insertMathJax() {
 function insertBibliography() {
 	if (setoptions['bibliography'] == '')
 		return;
-	console.log("Start bibliograply");
-	$.getScript("js/citeproc/xmle4x.js", function() {
-	console.log("1");
+	// Can't get dataType to work with e4x=1
+	//$.ajax({
+		//url:"js/citeproc/xmle4x.js",
+		//dataType: "text/javascript; e4x=1",
+		//type: "text/javascript; e4x=1",
+		//success: function() {
 	$.getScript("js/citeproc/xmldom.js", function() {
-	console.log("2");
 	$.getScript("js/citeproc/loadlocale.js", function() {
-	console.log("3");
 	$.getScript("js/citeproc/loadsys.js", function() {
-	console.log("4");
 	$.getScript("js/citeproc/loadcsl.js", function() {
-	console.log("5");
+		console.log("Loading bibfile "+setoptions['bibliography']);
 	$.getScript(setoptions['bibliography'], function() {
 	
 		console.log("Start building bibliography");
@@ -328,14 +328,22 @@ function insertBibliography() {
 		if (output && output.length && output[1].length){
 			$("#bibliography").append(output);
 		}
+		$("#bibliography").append("<div>End of BIB</div>");
+		console.log("End building bibliography");
 
-	})
-	})})})})}).fail(function(jqxhr, settings, exception) {
-		console.log("ERROR");
-		console.log(jqhxr);
+	}).fail(function(jqxhr, settings, exception) {
+		console.log("ERROR loading "+setoptions['bibliography']);
+		console.log(jqxhr);
 		console.log(settings);
 		console.log(exception);
 	})
+	})})})})
+	//}}).fail(function(jqxhr, settings, exception) {
+		//console.log("ERROR loading xmle4x.js");
+		//console.log(jqxhr);
+		//console.log(settings);
+		//console.log(exception);
+	//})
 }
 
 /** MEETING MINUTES *********************************************************/

@@ -336,13 +336,19 @@ function insertBibliography() {
 		console.log(settings);
 		console.log(exception);
 	})
+}
 
 /** MEETING MINUTES *********************************************************/
 
+/**
+ * Todos in meeting minutes appointed to someone with the @name syntax are
+ * highlighted.
+ */
 function applyMeetingMinutes() {
-	match = /( )(@\w+)/ig;
+	//console.log("Applying meeting minutes");
+	match = /([^a-zA-Z0-9])(@\w+)/ig;
 	replacement = "$1<span class=at>$2</span>";
-	$('li').each(function(k,v) {
+	$('li,p').each(function(k,v) {
 		$(this).html($(this).html().replace(match,replacement))
 	});
 }

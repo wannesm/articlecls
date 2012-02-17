@@ -295,12 +295,62 @@ function insertMathJax() {
   document.getElementsByTagName("head")[0].appendChild(script);
 }
 
+<<<<<<< Updated upstream
+=======
+/** BIBLIOGRAPHY ************************************************************/
+
+/**
+ * Add bibliography using citeproc-js
+ *
+ * http://gsl-nagoya-u.net/http/pub/citeproc-doc.html
+ */
+function insertBibliography() {
+	if (setoptions['bibliography'] == '')
+		return;
+	console.log("Start bibliograply");
+	$.getScript("js/citeproc/xmle4x.js", function() {
+	console.log("1");
+	$.getScript("js/citeproc/xmldom.js", function() {
+	console.log("2");
+	$.getScript("js/citeproc/loadlocale.js", function() {
+	console.log("3");
+	$.getScript("js/citeproc/loadsys.js", function() {
+	console.log("4");
+	$.getScript("js/citeproc/loadcsl.js", function() {
+	console.log("5");
+	$.getScript(setoptions['bibliography'], function() {
+	
+		console.log("Start building bibliography");
+		var sys = new Sys(abbreviations);
+		var citeproc = new CSL.Engine(sys, ieee);
+		citeproc.setAbbreviations("default");
+		citeproc.updateItems(["Meert2012"]);
+		output = citeproc.makeBibliography();
+		if (output && output.length && output[1].length){
+			$("#bibliography").append(output);
+		}
+
+	})
+	})})})})}).fail(function(jqxhr, settings, exception) {
+		console.log("ERROR");
+		console.log(jqhxr);
+		console.log(settings);
+		console.log(exception);
+	})
+}
+
+>>>>>>> Stashed changes
 /** MEETING MINUTES *********************************************************/
 
+/**
+ * Todos in meeting minutes appointed to someone with the @name syntax are
+ * highlighted.
+ */
 function applyMeetingMinutes() {
-	match = /( )(@\w+)/ig;
+	//console.log("Applying meeting minutes");
+	match = /([^a-zA-Z0-9])(@\w+)/ig;
 	replacement = "$1<span class=at>$2</span>";
-	$('li').each(function(k,v) {
+	$('li,p').each(function(k,v) {
 		$(this).html($(this).html().replace(match,replacement))
 	});
 }

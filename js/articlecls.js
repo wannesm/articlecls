@@ -38,6 +38,7 @@ function initArticleCls() {
 	setoptions["notoc"]        = false;
 	setoptions["noglossary"]   = false;
 	setoptions['bibliography'] = ''
+	setoptions["meeting"]      = false;
 
 	// Process given options
 	optiontags.each(function(k,v) {
@@ -113,6 +114,11 @@ function initArticleCls() {
 	if (!setoptions["nomathjax"]) {
 		insertMathJax();
 	}
+	
+	// Apply meeting minutes
+	if (setoptions["meeting"]) {
+		applyMeetingMinutes();
+	}
 }
 
 /** GENERATOR ***************************************************************/
@@ -124,7 +130,6 @@ function insertGenerator() {
 /** TITLE AND HEADER ********************************************************/
 
 function insertTitle() {
-	
 	title = "";
 	authors = [];
 	date = "";
@@ -155,7 +160,11 @@ function insertTitle() {
 		+ "<time datetime=\""+date.getFullYear()+"-"+date.getMonth()+"-"+date.getDate()+"\" pubdate>"+months[date.getMonth()]+" "+date.getDate()+", "+date.getFullYear()+"</time>"
 		+ "</hgroup></header>"
 
-	$('article').prepend(headerstr)
+	article = $('article')
+	if (article.length > 0)
+		article.prepend(headerstr);
+	else
+		$('body').prepend(headerstr);
 }
 
 /** TABLE OF CONTENTS *******************************************************/
@@ -327,6 +336,15 @@ function insertBibliography() {
 		console.log(settings);
 		console.log(exception);
 	})
+
+/** MEETING MINUTES *********************************************************/
+
+function applyMeetingMinutes() {
+	match = /( )(@\w+)/ig;
+	replacement = "$1<span class=at>$2</span>";
+	$('li').each(function(k,v) {
+		$(this).html($(this).html().replace(match,replacement))
+	});
 }
 
 /** OTHER *******************************************************************/

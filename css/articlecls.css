@@ -625,6 +625,24 @@ abbr.noglossary {
 
 }
 
+/** CITEPROC-JS *************************************************************/
+
+#bibliography {
+}
+
+#bibliography .csl-bib-body {
+	margin-left: 2em;
+}
+
+#bibliography .csl-left-margin {
+	position: absolute;
+	left: 0;
+}
+
+#bibliography .csl-right-inline {
+	margin-left: 2em;
+}
+
 /** BOOKMARKS ***************************************************************/
 
 h1 { bookmark-level: 1 }

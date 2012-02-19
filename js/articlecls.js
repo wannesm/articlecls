@@ -39,6 +39,7 @@ function initArticleCls() {
 	setoptions["noglossary"]   = false;
 	setoptions['bibliography'] = ''
 	setoptions["meeting"]      = false;
+	setoptions['citationstyle']= 'ieee';
 
 	// Process given options
 	optiontags.each(function(k,v) {
@@ -57,7 +58,7 @@ function initArticleCls() {
 		});
 
 	});
-	console.log(setoptions);
+	//console.log(setoptions);
 
 	// Insert header
 	insertGenerator();
@@ -317,20 +318,32 @@ function insertBibliography() {
 	$.getScript("js/citeproc/loadlocale.js", function() {
 	$.getScript("js/citeproc/loadsys.js", function() {
 	$.getScript("js/citeproc/loadcsl.js", function() {
-		console.log("Loading bibfile "+setoptions['bibliography']);
+		//console.log("Loading bibfile "+setoptions['bibliography']);
 	$.getScript(setoptions['bibliography'], function() {
-	
-		console.log("Start building bibliography");
-		var sys = new Sys(abbreviations);
-		var citeproc = new CSL.Engine(sys, ieee);
+		//console.log("Using bibstyle "+setoptions['citationstyle']);
+		var sys = new Sys(bibabbr);
+		//var citeproc = new CSL.Engine(sys, bibstyles['myieee']);
+		var citeproc = new CSL.Engine(sys, citationstyles[setoptions['citationstyle']]);
 		citeproc.setAbbreviations("default");
-		citeproc.updateItems(["Meert2012"]);
+		keys = [];
+		$('a.cite').each(function(k,v) {
+			key = $(this).attr('href').substr(1);
+			keys.push(key);
+		});
+		citeproc.updateItems(keys);
 		output = citeproc.makeBibliography();
 		if (output && output.length && output[1].length){
-			$("#bibliography").append(output);
+			htmloutput = output[0].bibstart + output[1].join("") + output[0].bibend;
+			$("#bibliography").append(htmloutput);
 		}
-		$("#bibliography").append("<div>End of BIB</div>");
-		console.log("End building bibliography");
+		$('a.cite').each(function(k,v) {
+			key = $(this).attr('href').substr(1);
+			citation_object = {"citationItems": [{"id": key}],"properties": {"noteIndex": 0}}
+			ref = citeproc.appendCitationCluster(citation_object,true);
+			$(this).html(ref[0][1]);
+			$('#bibliography .csl-entry').eq(ref[0][0]).attr('id',key);
+		});
+		$('#bibliography .csl-bib-body').css('margin-left', output.maxoffset+1+'em');
 
 	}).fail(function(jqxhr, settings, exception) {
 		console.log("ERROR loading "+setoptions['bibliography']);

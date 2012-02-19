@@ -15,7 +15,7 @@
 
 	<script type="text/javascript; e4x=1" src="js/citeproc/xmle4x.js"></script>
 	<script src="js/jquery-1.7.1.min.js"></script>
-	<script data-options="hyphenator, altfootnotes, bibliography=articlecls_bib.js" src="js/articlecls.js"></script>
+	<script data-options="hyphenator, altfootnotes, bibliography=articlecls_bib.js, citationstyle=springer-author-date" src="js/articlecls.js"></script>
 	<script data-options="stylechooser" src="js/articlecls_extra.js"></script>
 </head>
 <body>
@@ -88,6 +88,7 @@
 
 	<p>All options that are available (comma separated):</p>
 	<ul>
+		<li><code>bibliography=filename</code>
 		<li><code>altfootnotes</code>
 		<li><code>hyphenator</code>
 		<li><code>noglossary</code>
@@ -364,6 +365,40 @@ Some text referencing the tagged title \ref{mytitle} and the tagged figure \ref{
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 	<section>
+	<h3>Bibliography</h3>
+	
+	<p><code>Article.cls</code> uses <a href="http://gsl-nagoya-u.net/http/pub/citeproc-doc.html#retrieveitem">citeproc-js</a> to handle citations. Citations can be added to a Javascript file that is included as an option (<code>bibliography=articlecls_bib.js</code>) and citing within the document can be done as follows: see reference <a href="#Meert2012" class=cite></a> and <a href="#Meert2011" class=cite></a>. The necessary html-code is the following:</p>
+
+	<pre><code>see reference &lt;a href="#Meert2012" class=cite&gt;&lt;/a&gt;.
+&lt;section id=bibliography&gt;
+	&lt;h2&gt;Bibliography&lt;/&gt;
+&lt;/section&gt;</code></pre>
+
+	<p>The bib entries themselves are entered as Javascript. The file <code>articlecls_bib.js</code>, for example, contains the following:
+
+	<pre><code>var bibdata = {
+	"Meert2012" : {
+		"id": "Meert2012",
+		"title": "Some example reference title",
+		"author": [
+			{"family": "Meert", "given": "Wannes"},
+			{"family": "Lastname", "given": "Firstname"},
+		],
+		"issued": {
+			"date-parts": [
+				[2012]
+			],
+		},
+		"type": "article"
+	},
+	...</code></pre>
+
+	<p>For an example, see the <a href="#bibliography">bibliography section</a>.</p>
+
+	</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+	<section>
 	<h3>Page breaks</h3>
 
 	<p>You can force a line break by inserting the following snippet:</p>
@@ -519,6 +554,7 @@ Some text referencing the tagged title \ref{mytitle} and the tagged figure \ref{
 
 	<!--</section>-->
 
+	</section>
 <!-- = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = -->
 
 	<section>
@@ -1058,8 +1094,12 @@ $ latex  articlecls</code></pre>
 
 	</section>
 <!-- = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = -->
-	<section>
-	<h2 class="nonumber" id=bibliography>Bibliography</h2>
+	<section id=bibliography>
+	<h2 class="nonumber">Bibliography</h2>
+
+	<div class="htmlhowto">
+		<p>More information about cite-proc: <a href="http://gsl-nagoya-u.net/http/pub/citeproc-doc.html">cite-proc documentation</a>.</p>
+	</div>
 
 	</section>
 <!-- = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = -->

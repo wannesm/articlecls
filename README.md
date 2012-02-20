@@ -19,6 +19,8 @@ Credits
   Install in `js`
 - Hyphenator.js, <http://code.google.com/p/hyphenator/>  
   Install in `js/hyphenator`
+- Citeproc-js, <https://bitbucket.org/fbennett/citeproc-js/>  
+  Install in `js/citeproc`
 
 Author
 ------

@@ -13,7 +13,17 @@
 
 var setoptions = {};
 var months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+
 /** MAIN ********************************************************************/
+
+// Make sure that calling console.log does not cause an error
+if (!("console" in window) || !("firebug" in console)) {
+	var names = ["log", "debug", "info", "warn", "error", "assert", "dir", "dirxml", "group", "groupEnd", "time", "timeEnd", "count", "trace", "profile", "profileEnd"];
+	window.console = {};
+	for (var i = 0, len = names.length; i < len; ++i) {
+		window.console[names[i]] = function(){};
+	}
+}
 
 $(document).ready(function(){
 	initArticleCls();
@@ -35,6 +45,7 @@ function initArticleCls() {
 	}
 	// Setoptions defaults
 	setoptions["nomathjax"]    = false;
+	setoptions["notitle"]      = false;
 	setoptions["notoc"]        = false;
 	setoptions["noglossary"]   = false;
 	setoptions['bibliography'] = ''
@@ -131,6 +142,9 @@ function insertGenerator() {
 /** TITLE AND HEADER ********************************************************/
 
 function insertTitle() {
+	if (setoptions['notitle'])
+		return;
+
 	title = "";
 	authors = [];
 	date = "";
@@ -321,10 +335,17 @@ function insertBibliography() {
 		//console.log("Loading bibfile "+setoptions['bibliography']);
 	$.getScript(setoptions['bibliography'], function() {
 		//console.log("Using bibstyle "+setoptions['citationstyle']);
+		if (typeof bibabbr == "undefined") {
+			console.log("Expected the variable bibarr to exist.");
+			bibarr = {"default": {}}
+		}
 		var sys = new Sys(bibabbr);
-		//var citeproc = new CSL.Engine(sys, bibstyles['myieee']);
-		var citeproc = new CSL.Engine(sys, citationstyles[setoptions['citationstyle']]);
+		var citationstyle = citationstyles['ieee']
+		if (typeof citationstyles != "undefined" && citationstyles[setoptions['citationsstyle']] != "undefined")
+			citationstyle = citationstyles[setoptions['citationstyle']]
+		var citeproc = new CSL.Engine(sys, citationstyle);
 		citeproc.setAbbreviations("default");
+		// Collect all citations and update citeproc
 		keys = [];
 		$('a.cite').each(function(k,v) {
 			key = $(this).attr('href').substr(1);
@@ -336,6 +357,7 @@ function insertBibliography() {
 			htmloutput = output[0].bibstart + output[1].join("") + output[0].bibend;
 			$("#bibliography").append(htmloutput);
 		}
+		// Replace all a.cite instances with their respective reference.
 		$('a.cite').each(function(k,v) {
 			key = $(this).attr('href').substr(1);
 			citation_object = {"citationItems": [{"id": key}],"properties": {"noteIndex": 0}}
@@ -347,9 +369,9 @@ function insertBibliography() {
 
 	}).fail(function(jqxhr, settings, exception) {
 		console.log("ERROR loading "+setoptions['bibliography']);
-		console.log(jqxhr);
-		console.log(settings);
-		console.log(exception);
+		//console.log(jqxhr);
+		//console.log(settings);
+		//console.log(exception);
 	})
 	})})})})})
 	//}}).fail(function(jqxhr, settings, exception) {

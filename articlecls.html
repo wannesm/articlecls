@@ -30,7 +30,7 @@
 		<p>On the right side, the equivalent LaTeX commands are shown.</p>
 	</div></div>
 
-	<p>The articlecls stylesheet and javascript module are an attempt to create a nicely looking style for print and summarize the typographical advancements made for html. It is inspired by the features found in LaTeX and triggered by the idea that most of these features are also supported in today's CSS3 and HTML5. A live version is available on <a href="http://wannesm.be/articlecls/">http://wannesm.be/articlecls/</a> and the sources (including this text) can be found at <a href="https://github.com/wannesm/articlecls">https://github.com/wannesm/articlecls</a>. This is very much work in progress and any feedback is appreciated.</p>
+	<p>The articlecls stylesheet and javascript module are an attempt to create a nicely looking style for print and summarize the typographical advancements made for html. It is inspired by the features found in LaTeX and triggered by the idea that most of these features are also supported in today's CSS3 and HTML5. A live version is available on <a href="http://wannesm.be/articlecls/">http://wannesm.be/articlecls/</a> and the sources (including this text) can be found at <a href="https://github.com/wannesm/articlecls">https://github.com/wannesm/articlecls</a>. This is very much work in progress and all feedback is appreciated.</p>
 
 	<div class="htmlhowto">
 		<p>The internal html used will be showed in boxes like this one.</p>
@@ -88,11 +88,13 @@
 
 	<p>All options that are available (comma separated):</p>
 	<ul>
-		<li><code>bibliography=filename</code>
 		<li><code>altfootnotes</code>
+		<li><code>bibliography=filename</code>
+		<li><code>citationstyle=stylename</code>
 		<li><code>hyphenator</code>
 		<li><code>noglossary</code>
 		<li><code>nomathjax</code>
+		<li><code>notitle</code>
 		<li><code>notoc</code>
 		<li><code>twocolumns</code>
 	</ul>
@@ -116,7 +118,6 @@
 		\subsection{A subsection}
 		Some subsection text.
 
-	\bibliography{references}
 \end{document}
 		</code></pre>
 	</div></div>
@@ -171,7 +172,7 @@ p {
 		<pre><code>\maketitle</code></pre>
 	</div></div>
 
-	<p>The title, authors and date are automatically inserted at the beginning of the article based on the meta-information found in the header.</p>
+	<p>The title, authors and date are automatically inserted at the beginning of the article based on the meta-information found in the header unless the <code>notitle</code> option is given in the header.</p>
 
 	<div class="htmlhowto">
 		<p>The code added automatically follows the following tempate and is insert right after the <code>article</code> tag.</p>
@@ -367,7 +368,23 @@ Some text referencing the tagged title \ref{mytitle} and the tagged figure \ref{
 	<section>
 	<h3>Bibliography</h3>
 	
-	<p><code>Article.cls</code> uses <a href="http://gsl-nagoya-u.net/http/pub/citeproc-doc.html#retrieveitem">citeproc-js</a> to handle citations. Citations can be added to a Javascript file that is included as an option (<code>bibliography=articlecls_bib.js</code>) and citing within the document can be done as follows: see reference <a href="#Meert2012" class=cite></a> and <a href="#Meert2011" class=cite></a>. The necessary html-code is the following:</p>
+	<p><code>Article.cls</code> uses <a href="http://gsl-nagoya-u.net/http/pub/citeproc-doc.html#retrieveitem">citeproc-js</a>, which is an implementation of the <a href="http://citationstyles.org/">Citation Style Language (CSL)</a>, to handle citations. Citations can be added to a Javascript file that is included as an option together with the citation style: <code>bibliography=articlecls_bib.js, citationstyle=ieee</code>. Citing within the document has the following result: see reference <a href="#Meert2012" class=cite></a> and <a href="#Meert2011" class=cite></a>. The necessary html-code is the following:</p>
+
+	<div class="latexcmpline"><div class="latexcmp">
+	<pre><code>see reference \ref{Meert2012}.
+
+# BibTeX
+\bibliographystyle{ieee}
+\bibliography{articlecls_bib}
+
+# BibLaTeX
+# header
+\usepackage[bibstyle=ieee]{biblatex}
+\bibliography{articlecls_bib}
+# body
+\printbibliogaphy
+</code></pre>
+	</div></div>
 
 	<pre><code>see reference &lt;a href="#Meert2012" class=cite&gt;&lt;/a&gt;.
 &lt;section id=bibliography&gt;
@@ -393,7 +410,20 @@ Some text referencing the tagged title \ref{mytitle} and the tagged figure \ref{
 	},
 	...</code></pre>
 
-	<p>For an example, see the <a href="#bibliography">bibliography section</a>.</p>
+	<p>Extra citation styles can be found at the <a href="http://citationstyles.org/styles/">CLS: citation styles website</a> and copied into the citationstyles variable as follows:</p>
+
+	<pre><code>citationstyles['myieee'] = "&lt;style xmlns=\"http://purl.org/net/xbiblio/csl\" class=\"in-text\"&gt;&lt;info&gt;...</code></pre>
+
+	<p>The new style is now available with the name 'myieee'. The result can be seen in the <a href="#bibliography">bibliography section</a>.</p>
+
+	<div class=htmlhowto>
+		<p>More information about CSL:</p>
+		<ul>
+			<li>CSL is used by Mendeley, Zotero, Pages2, ...
+			<li>The input language is based upon MODS (for citeproc-js, a JSON version of MODS is used).
+			<li>Generating your own style: <a href="http://csleditor.quist.de/csleditor/show/1/example-citation-style">CSL Editor</a> or <a href="http://csleditor.wordpress.com/">New CSL Editor</a>.
+		</ul>
+	</div>
 
 	</section>
 

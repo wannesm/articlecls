@@ -55,6 +55,10 @@ var Sys = function(abbreviations){
 };
 
 Sys.prototype.retrieveItem = function(id){
+	if (typeof bibdata == "undefined") {
+		console.log("Expected the variable bibdata to exist.");
+		return "";
+	}
 	return bibdata[id];
 };
 

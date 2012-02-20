@@ -23,10 +23,6 @@ body {
 	text-rendering: optimizeLegibility;
 }
 
-body.modernstyle {
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-
 h1, h2, h3, h4 {
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-weight: bold;
@@ -45,11 +41,6 @@ h2 {
 
 h3 {
 	font-size: 125%;
-}
-
-body.modernstyle h2,
-body.modernstyle h3 {
-	color: #104a84;
 }
 
 p {
@@ -98,13 +89,6 @@ ol {
 }
 dl dt {
 	font-weight: bold;
-}
-body.modernstyle dl dt {
-	font-weight: bold;
-	float: left;
-}
-body.modernstyle dl dd {
-	margin: 0 0 0 5em;
 }
 
 /* No spacing around embedded lists */
@@ -159,13 +143,6 @@ pre {
 	-moz-border-radius: 3px;
 	-webkit-border-radius: 3px;
 	border-radius: 3px;
-}
-
-body.modernstyle pre {
-	margin-left: -233px;
-	padding-left: 233px;
-	padding-right: 233px;
-	width: 100%;
 }
 
 pre code, pre tt {
@@ -226,11 +203,6 @@ body > article > header > hgroup > p {
 }
 body > article > header > hgroup {
 	margin-bottom: 2em;
-}
-
-body.modernstyle > article > header > hgroup,
-body.modernstyle > article > header > hgroup > p {
-	text-align: left;
 }
 
 .authors .name {
@@ -344,12 +316,7 @@ h2.notoc:before, h2.nonumber:before {
 	content: counters(item, ".") ".  ";
 	counter-increment: item;
 }
-body.modernstyle #toc li:before {
-	content: counter(item) ".  ";
-}
-
-#toc li.nonumber:before,
-body.modernstyle #toc li.nonumber:before {
+#toc li.nonumber:before {
 	content: "";
 	counter-increment: item 0;
 }
@@ -393,10 +360,6 @@ figure .bottom {
 	float: bottom;
 }
 
-body.modernstyle figure {
-	text-align: left;
-}
-
 figure.table {
 	counter-increment: table;
 }
@@ -411,10 +374,6 @@ figure img {
 figure table {
 }
 
-body.modernstyle table {
-	margin: 1em 0;
-}
-
 figure pre { /* For listings */
 	margin-bottom: 0;
 }
@@ -424,25 +383,8 @@ figure figcaption {
 	font-size: 0.9em;
 }
 
-body.modernstyle figure {
-	position: relative;
-}
-
-body.modernstyle figure figcaption {
-	width: 10%;
-	text-align: right;
-	/*margin: 0 0 1.2em 0;*/
-	position:absolute;
-	top:0px;
-	left:-12%;
-}
-
 figure figcaption::before {
 	font-weight: bold;
-}
-
-body.modernstyle figure figcaption::before {
-	color: #104a84;
 }
 
 figure figcaption::before {

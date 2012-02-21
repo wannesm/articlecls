@@ -4,7 +4,7 @@
 	<title>Article.cls</title>
 	<meta charset="utf-8" />
 	<meta name="author" content="Wannes Meert" />
-	<meta name="dcterms.issued" content="2012-02-06" />
+	<meta name="dcterms.issued" content="2012-02-21" />
 	<meta name="keywords" content="html5,css3,print,latex" />
 	<meta name="description" content="HTML5/CSS3 template to be used for print media" />
 	<link rel="author" href="mailto:wannes.meert@cs.kuleuven.be" />
@@ -1076,27 +1076,37 @@ $ latex  articlecls</code></pre>
 	<h2>Final thoughts</h2>
 
 	<section>
+	<h3>Dependencies</h3>
+
+	<ul>
+	<li><a href="http://necolas.github.com/normalize.css/">Normalize.css</a>: Start from a normalized CSS state.
+	<li><a href="http://jquery.com/">jQuery</a>: More easily alter the DOM-tree using Javascript.
+	<li><a href="http://www.mathjax.org/">MathJax</a>: For displaying mathematical equations.
+	<li><a href="http://code.google.com/p/hyphenator/">Hyphenator.js</a>: Improved hyphenation.
+	<li><a href="https://bitbucket.org/fbennett/citeproc-js/">Citeproc-js</a>: Citation formatting.
+	</ul>
+
+	</section>
+
+	<section>
 	<h3>Comparison to LaTeX</h3>
 
-	<h4>Advantages to LaTeX</h4>
+	<h4>Advantages of HTML to LaTeX</h4>
 	<ul>
-		<li><strong>Future-proof</strong>: HTML becomes more and more important as a format for traditional and ebook publishing. It serves as the basis for the <a href="http://en.wikipedia.org/wiki/EPUB">.epub</a> format and the <a href="http://www.apple.com/ibooks-author/">.ibooks</a> format. Also, it is used for online word processors like <a href="http://docs.google.com">Google Docs</a>, <a href="https://writer.zoho.com">Zoho Writer</a>.
+		<li><strong>Future-proof</strong>: HTML becomes more and more important as a format for traditional and ebook publishing. It serves as the basis for the <a href="http://en.wikipedia.org/wiki/EPUB">.epub</a> format and the <a href="http://www.apple.com/ibooks-author/">.ibooks</a> format. Also, it is used for online word processors like <a href="http://docs.google.com">Google Docs</a> and <a href="https://writer.zoho.com">Zoho Writer</a>.
 		<li><strong>Online</strong>: Easy distribution of articles over the web (native).
 		<li><strong>Debugging</strong>: Easy css and javascript debugging with advanced tools (in-browser tools, htmllint, jslint, csslint, ...).
 		<li><strong>Stylize</strong>: It is more easy to make visually appealing layouts with html and css.
 		<li><strong>Interactive</strong>: In html it is easy to incorporate dynamic content for ebooks and online articles.
 	</ul>
 
-	<h4>Disadvantages to LaTeX</h4>
+	<h4>Disadvantages of HTML to LaTeX</h4>
 	<ul>
-		<li><strong>References</strong>: Not yet easy referencing.<br/>
-		Although there is the <a href="http://citationstyles.org/">Citation Style Language</a>.
 		<li><strong>Consistency</strong>: LaTeX has more consistent commands.<br/>
-		In html you mix html-commands, css-commands and javascript-commands which all have a different syntax. We make it a little bit worse by also having $\LaTeX$ commands through MathJax.
+		In html you mix html-commands, css-commands, javascript-commands, and, in our case, MathJax-commands which all have a different syntax.
 		<li><strong>Cross-referencing</strong>: Cross-referencing is not as easy and consistent as in LaTeX.<br/>
-		For example, you need to add a class to notify css that it is a reference to an image or a table to get the correct count automatically inserted.
-		<li><strong>Hyphenation</strong>: Built-in hyphenation for LaTeX gives more robust results (but can be solved by using <a href="http://code.google.com/p/hyphenator/">hyphenator.js</a>, see <a href="#hyphenation">hyphenation section</a>.).
-		<li><strong>Redefinability</strong>: LaTeX allows hooks on all levels. With html you are limited to the hooks defined beforehand.
+		For example, you need to add a class to notify css that it is a reference to an image or a table to get the correct count automatically inserted (although this is probably solvable with some Javascript pre-processing).
+		<li><strong>Redefinability</strong>: LaTeX allows hooks on all levels. With html you are limited to the hooks defined beforehand (although powerful things are possible as is proven by the MathJax library).
 	</ul>
 
 	</section>

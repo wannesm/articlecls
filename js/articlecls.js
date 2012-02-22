@@ -17,7 +17,7 @@ var months = ["January","February","March","April","May","June","July","August",
 /** MAIN ********************************************************************/
 
 // Make sure that calling console.log does not cause an error
-if (!("console" in window) || !("firebug" in console)) {
+if (!("console" in window) && !("firebug" in console)) {
 	var names = ["log", "debug", "info", "warn", "error", "assert", "dir", "dirxml", "group", "groupEnd", "time", "timeEnd", "count", "trace", "profile", "profileEnd"];
 	window.console = {};
 	for (var i = 0, len = names.length; i < len; ++i) {
@@ -165,15 +165,27 @@ function insertTitle() {
 	});
 
 	fields = date.match(/(\d+)/g);
-	date = new Date(fields[0], fields[1]-1, fields[2]);
+	if (fields != null) {
+		if (fields.length < 3) {
+			fields[2] = 0;
+			if (fields.length < 2) {
+				fields[1] = 0;
+			}
+		}
+		date = new Date(fields[0], fields[1]-1, fields[2]);
+	}
 
-	headerstr = "<header><hgroup>"
-		+ "<h1>"+title+"</h1>"
-		+ "<div class=authors>"
-		+ authorsstr
-		+ "</div>"
-		+ "<time datetime=\""+date.getFullYear()+"-"+date.getMonth()+"-"+date.getDate()+"\" pubdate>"+months[date.getMonth()]+" "+date.getDate()+", "+date.getFullYear()+"</time>"
-		+ "</hgroup></header>"
+	headerstr = '';
+	if (title != '' || date != '' || authorsstr != '') {
+		headerstr += "<header><hgroup>";
+		if (title != '')
+			headerstr += "<h1>"+title+"</h1>";
+		if (authorstr != '')
+			headerstr += "<div class=authors>"+authorsstr+"</div>";
+		if (date != '')
+			headerstr += "<time datetime=\""+date.getFullYear()+"-"+date.getMonth()+"-"+date.getDate()+"\" pubdate>"+months[date.getMonth()]+" "+date.getDate()+", "+date.getFullYear()+"</time>";
+		headerstr += "</hgroup></header>";
+	}
 
 	article = $('article')
 	if (article.length > 0)

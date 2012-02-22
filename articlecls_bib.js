@@ -38,7 +38,7 @@ var bibdata = {
 		"page": "463-509",
 		"issued": {
 			"date-parts": [
-				[2012]
+				[2012, 1]
 			],
 		},
 		"type": "article-journal"

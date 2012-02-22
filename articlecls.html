@@ -391,7 +391,7 @@ Some text referencing the tagged title \ref{mytitle} and the tagged figure \ref{
 	&lt;h2&gt;Bibliography&lt;/&gt;
 &lt;/section&gt;</code></pre>
 
-	<p>The bib entries themselves are entered as Javascript. The file <code>articlecls_bib.js</code>, for example, contains the following:
+	<p>The bib entries themselves are entered as Javascript according to the <a href="http://gsl-nagoya-u.net/http/pub/citeproc-doc.html#data-input">citeproc-js format</a>. The file <code>articlecls_bib.js</code>, for example, contains the following:
 
 	<pre><code>var bibdata = {
 	"Meert2012" : {
@@ -401,12 +401,15 @@ Some text referencing the tagged title \ref{mytitle} and the tagged figure \ref{
 			{"family": "Meert", "given": "Wannes"},
 			{"family": "Lastname", "given": "Firstname"},
 		],
+		"container-title":"One or Another Journal",
+		"volume": "18",
+		"page": "463-509",
 		"issued": {
 			"date-parts": [
-				[2012]
+				[2012, 1]
 			],
 		},
-		"type": "article"
+		"type": "article-journal"
 	},
 	...</code></pre>
 

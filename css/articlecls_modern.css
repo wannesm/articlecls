@@ -1,0 +1,75 @@
+/**
+ * articlecls_extra.css
+ *
+ * Adaptations to the default style to make it more modern. Is applied when
+ * the body tag has the class "modernstyle".
+ *
+ * Copyright (c), Wannes Meert, 2012.
+ *
+ * wmarticle by Wannes Meert is licensed under a Creative Commons Attribution
+ * 3.0 Unported License.
+ */
+
+body.modernstyle {
+	font-family: 'PT Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+body.modernstyle h2,
+body.modernstyle h3 {
+	color: #104a84;
+}
+
+body.modernstyle dl dt {
+	font-weight: bold;
+	float: left;
+}
+body.modernstyle dl dd {
+	margin: 0 0 0 5em;
+}
+
+body.modernstyle pre {
+	margin-left: -233px;
+	padding-left: 233px;
+	padding-right: 233px;
+	width: 100%;
+}
+
+body.modernstyle > article > header > hgroup,
+body.modernstyle > article > header > hgroup > p {
+	text-align: left;
+}
+
+body.modernstyle #toc li:before {
+	content: counter(item) ".  ";
+}
+
+body.modernstyle #toc li.nonumber:before {
+	content: "";
+	counter-increment: item 0;
+}
+
+body.modernstyle figure {
+	text-align: left;
+}
+
+body.modernstyle table {
+	margin: 1em 0;
+}
+
+body.modernstyle figure {
+	position: relative;
+}
+
+body.modernstyle figure figcaption {
+	width: 10%;
+	text-align: right;
+	/*margin: 0 0 1.2em 0;*/
+	position:absolute;
+	top:0px;
+	left:-12%;
+}
+
+body.modernstyle figure figcaption::before {
+	color: #104a84;
+}
+

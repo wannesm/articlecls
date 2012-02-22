@@ -95,6 +95,18 @@ function initArticleCls() {
 		setAlternativeFootnotes();
 	}
 
+	// Modernstyle
+	if (setoptions["modern"]) {
+		var link = $('<link>');
+		link.attr({
+			type: 'text/css',
+			rel: 'stylesheet',
+			href: 'css/articlecls_modern.css'
+		});
+		$('head').append(link); 
+		$('body').addClass('modernstyle')
+	}
+
 	// Twocolumns
 	if (setoptions["twocolumns"]) {
 		//console.log("Activate two columns");
@@ -180,7 +192,7 @@ function insertTitle() {
 		headerstr += "<header><hgroup>";
 		if (title != '')
 			headerstr += "<h1>"+title+"</h1>";
-		if (authorstr != '')
+		if (authorsstr != '')
 			headerstr += "<div class=authors>"+authorsstr+"</div>";
 		if (date != '')
 			headerstr += "<time datetime=\""+date.getFullYear()+"-"+date.getMonth()+"-"+date.getDate()+"\" pubdate>"+months[date.getMonth()]+" "+date.getDate()+", "+date.getFullYear()+"</time>";

@@ -78,7 +78,7 @@ function switchStyle(style) {
 
 function insertStyleMenu() {
 	html = "<div id=\"stylemenu\"><select>"
-		+ "<option value=\"classic\">Classic</option>"
+		+ "<option value=\"classicstyle\">Classic</option>"
 		+ "<option value=\"modernstyle\">Modern</option>"
 		+ "<option value=\"twocolumnsstyle\">Two-columns</option>"
 		+ "<option value=\"htmlhowtostyle\">How-To HTML</option>"

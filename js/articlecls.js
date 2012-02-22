@@ -78,15 +78,7 @@ function initArticleCls() {
 	// Hyphenator
 	if (setoptions["hyphenator"] == true) {
 		//console.log("Activate hyphenator.js");
-		$('p,li').addClass("hyphenate text");
-		$.getScript("js/hyphenator/Hyphenator.js", function() {
-			//console.log("Configuring hyphenator");
-			Hyphenator.config({
-				displaytogglebox : false,
-				minwordlength : 4
-			});
-			Hyphenator.run();
-		});
+		applyHyphenator();
 	}
 
 	// Footnotes
@@ -268,6 +260,20 @@ function createOutline(base) {
 
 	html += "</ol>"
 	return html
+}
+
+/** HYPHENATOR **************************************************************/
+
+function applyHyphenator() {
+	$('p,li').addClass("hyphenate text");
+	$.getScript("js/hyphenator/Hyphenator.js", function() {
+		//console.log("Configuring hyphenator");
+		Hyphenator.config({
+			displaytogglebox : false,
+			minwordlength : 4
+		});
+		Hyphenator.run();
+	});
 }
 
 /** ADDRESS *****************************************************************/

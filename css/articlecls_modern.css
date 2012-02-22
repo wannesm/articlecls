@@ -17,6 +17,7 @@ body.modernstyle {
 body.modernstyle h2,
 body.modernstyle h3 {
 	color: #104a84;
+	border-bottom: 3px solid rgba(16, 74, 131, 0.1);
 }
 
 body.modernstyle dl dt {

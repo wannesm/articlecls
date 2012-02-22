@@ -97,11 +97,13 @@ function initArticleCls() {
 
 	// Modernstyle
 	if (setoptions["modern"]) {
+		scriptpath = $("script").last().attr("src").split('?')[0].split('/').slice(0, -1).join('/')+'/';
+		//console.log("Setting modern");
 		var link = $('<link>');
 		link.attr({
 			type: 'text/css',
 			rel: 'stylesheet',
-			href: 'css/articlecls_modern.css'
+			href: scriptpath+'../css/articlecls_modern.css'
 		});
 		$('head').append(link); 
 		$('body').addClass('modernstyle')

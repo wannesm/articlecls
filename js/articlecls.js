@@ -327,7 +327,7 @@ function insertAddress(data) {
 function insertMathJax() {
   var script = document.createElement("script");
   script.type = "text/javascript";
-  script.src  = "http://cdn.mathjax.org/mathjax/2.0-beta/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+  script.src  = "http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
 
   var config = 'MathJax.Hub.Config({' +
                  'extensions: ["tex2jax.js"],' +

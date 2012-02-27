@@ -1108,7 +1108,8 @@ $ latex  articlecls</code></pre>
 	<h4>Disadvantages of HTML to LaTeX</h4>
 	<ul>
 		<li><strong>Consistency</strong>: LaTeX has more consistent commands.<br/>
-		In html you mix html-commands, css-commands, javascript-commands, and, in our case, MathJax-commands which all have a different syntax.
+		In html you mix html-commands, css-commands, javascript-commands, and, in our case, MathJax-commands which all have a different syntax.<br>
+		Applying <a href="http://handlebarsjs.com/">Handlebars.js</a> would make the syntax more consistent but at the cost of introducing yet another (non-standard) style.
 		<li><strong>Cross-referencing</strong>: Cross-referencing is not as easy and consistent as in LaTeX.<br/>
 		For example, you need to add a class to notify css that it is a reference to an image or a table to get the correct count automatically inserted (although this is probably solvable with some Javascript pre-processing).
 		<li><strong>Redefinability</strong>: LaTeX allows hooks on all levels. With html you are limited to the hooks defined beforehand (although powerful things are possible as is proven by the MathJax library).

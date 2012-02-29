@@ -422,10 +422,12 @@ function insertBibliography() {
  */
 function applyMeetingMinutes() {
 	//console.log("Applying meeting minutes");
-	match = /([^a-zA-Z0-9])(@\w+)/ig;
-	replacement = "$1<span class=at>$2</span>";
+	match1 = /([^a-zA-Z0-9])(@\w+)/ig;
+	replacement1 = "$1<span class=at>$2</span>";
+	match2 = /^(@\w+)/ig;
+	replacement2 = "<span class=at>$1</span>";
 	$('li,p').each(function(k,v) {
-		$(this).html($(this).html().replace(match,replacement))
+		$(this).html($(this).html().replace(match1,replacement1).replace(match2,replacement2))
 	});
 }
 

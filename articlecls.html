@@ -995,11 +995,28 @@ And we can reference equations &#92;ref{eqmaxwell}.
 	</div></div>
 
 	<pre><code>see reference &lt;a href="#Meert2012" class=cite&gt;&lt;/a&gt;.
+
 &lt;section id=bibliography&gt;
 	&lt;h2&gt;Bibliography&lt;/&gt;
 &lt;/section&gt;</code></pre>
 
-	<p>The bib entries themselves are entered as Javascript according to the <a href="http://gsl-nagoya-u.net/http/pub/citeproc-doc.html#data-input">citeproc-js format</a>. The file <code>articlecls_bib.js</code>, for example, contains the following:
+	<p>The bib entries themselves are entered as Javascript according to the <a href="http://gsl-nagoya-u.net/http/pub/citeproc-doc.html#data-input">citeproc-js format</a> and is based on the <a href="http://www.loc.gov/standards/mods/">MODS</a> bibliography metadata format. The file <code>articlecls_bib.js</code>, for example, contains the following:
+
+	<div class="latexcmpline"><div class="latexcmp">
+	<pre><code>% BibTeX
+@article{Meert2012
+	title = {Some example reference title},
+	author = {
+		Meert, Wannes and
+		Lastname, Firstname
+	},
+	journal = {One or Another Journal},
+	volume = {18},
+	pages = {463--509},
+	year = {2012}
+}
+...</code></pre>
+	</div></div>
 
 	<pre><code>var bibdata = {
 	"Meert2012" : {

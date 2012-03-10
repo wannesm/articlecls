@@ -86,7 +86,7 @@
 		<pre><code>	\usepackage{modern}</code></pre>
 	</div></div>
 
-	<pre><code>	&lt;script data-options="modern" src="js/articlecls.js"&gt;&lt;/script&gt;</code></pre>
+	<pre><code>&lt;script data-options="modern" src="js/articlecls.js"&gt;&lt;/script&gt;</code></pre>
 
 	<p>All options that are available (comma separated):</p>
 	<ul>
@@ -363,72 +363,6 @@ Some text referencing the tagged title \ref{mytitle} and the tagged figure \ref{
 &lt;/section&gt;</code></pre>
 
 	<p>For an example, see the <a href="#glossary">glossary section</a>.</p>
-
-	</section>
-
-<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-	<section>
-	<h3>Bibliography</h3>
-	
-	<p><code>Article.cls</code> uses <a href="http://gsl-nagoya-u.net/http/pub/citeproc-doc.html#retrieveitem">citeproc-js</a>, which is an implementation of the <a href="http://citationstyles.org/">Citation Style Language (CSL)</a>, to handle citations. Citations can be added to a Javascript file that is included as an option together with the citation style: <code>bibliography=articlecls_bib.js, citationstyle=ieee</code>. Citing within the document has the following result: see reference <a href="#Meert2012" class=cite></a> and <a href="#Meert2011" class=cite></a>. The necessary html-code is the following:</p>
-
-	<div class="latexcmpline"><div class="latexcmp">
-	<pre><code>see reference \ref{Meert2012}.
-
-# BibTeX
-\bibliographystyle{ieee}
-\bibliography{articlecls_bib}
-
-# BibLaTeX
-# header
-\usepackage[bibstyle=ieee]{biblatex}
-\bibliography{articlecls_bib}
-# body
-\printbibliogaphy
-</code></pre>
-	</div></div>
-
-	<pre><code>see reference &lt;a href="#Meert2012" class=cite&gt;&lt;/a&gt;.
-&lt;section id=bibliography&gt;
-	&lt;h2&gt;Bibliography&lt;/&gt;
-&lt;/section&gt;</code></pre>
-
-	<p>The bib entries themselves are entered as Javascript according to the <a href="http://gsl-nagoya-u.net/http/pub/citeproc-doc.html#data-input">citeproc-js format</a>. The file <code>articlecls_bib.js</code>, for example, contains the following:
-
-	<pre><code>var bibdata = {
-	"Meert2012" : {
-		"id": "Meert2012",
-		"title": "Some example reference title",
-		"author": [
-			{"family": "Meert", "given": "Wannes"},
-			{"family": "Lastname", "given": "Firstname"},
-		],
-		"container-title":"One or Another Journal",
-		"volume": "18",
-		"page": "463-509",
-		"issued": {
-			"date-parts": [
-				[2012, 1]
-			],
-		},
-		"type": "article-journal"
-	},
-	...</code></pre>
-
-	<p>Extra citation styles can be found at the <a href="http://citationstyles.org/styles/">CLS: citation styles website</a> and copied into the citationstyles variable as follows:</p>
-
-	<pre><code>citationstyles['myieee'] = "&lt;style xmlns=\"http://purl.org/net/xbiblio/csl\" class=\"in-text\"&gt;&lt;info&gt;...</code></pre>
-
-	<p>The new style is now available with the name 'myieee'. The result can be seen in the <a href="#bibliography">bibliography section</a>.</p>
-
-	<div class=htmlhowto>
-		<p>More information about CSL:</p>
-		<ul>
-			<li>CSL is used by Mendeley, Zotero, Pages2, ...
-			<li>The input language is based upon MODS (for citeproc-js, a JSON version of MODS is used).
-			<li>Generating your own style: <a href="http://csleditor.quist.de/csleditor/show/1/example-citation-style">CSL Editor</a> or <a href="http://csleditor.wordpress.com/">New CSL Editor</a>.
-		</ul>
-	</div>
 
 	</section>
 
@@ -1034,6 +968,92 @@ And we can reference equations &#92;ref{eqmaxwell}.
 <!-- = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = -->
 
 	<section>
+	<h2>Bibliography</h2>
+
+	<p><code>Article.cls</code> uses <a href="http://gsl-nagoya-u.net/http/pub/citeproc-doc.html#retrieveitem">citeproc-js</a>, which is an implementation of the <a href="http://citationstyles.org/">Citation Style Language (CSL)</a>, to handle citations.</p>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+	<section>
+	<h3>Inserting citations</h3>
+	
+	<p>Citations can be added to a Javascript file that is included as an option to the <code>article.cls</code> class: <code>bibliography=articlecls_bib.js</code>. Citing within the document has the following result: see reference <a href="#Meert2012" class=cite></a> and <a href="#Meert2011" class=cite></a>. The necessary html-code is the following:</p>
+
+	<div class="latexcmpline"><div class="latexcmp">
+	<pre><code>see reference \ref{Meert2012}.
+
+# BibTeX
+\bibliographystyle{ieee}
+\bibliography{articlecls_bib}
+
+# BibLaTeX
+# header
+\usepackage[bibstyle=ieee]{biblatex}
+\bibliography{articlecls_bib}
+# body
+\printbibliogaphy
+</code></pre>
+	</div></div>
+
+	<pre><code>see reference &lt;a href="#Meert2012" class=cite&gt;&lt;/a&gt;.
+&lt;section id=bibliography&gt;
+	&lt;h2&gt;Bibliography&lt;/&gt;
+&lt;/section&gt;</code></pre>
+
+	<p>The bib entries themselves are entered as Javascript according to the <a href="http://gsl-nagoya-u.net/http/pub/citeproc-doc.html#data-input">citeproc-js format</a>. The file <code>articlecls_bib.js</code>, for example, contains the following:
+
+	<pre><code>var bibdata = {
+	"Meert2012" : {
+		"id": "Meert2012",
+		"title": "Some example reference title",
+		"author": [
+			{"family": "Meert", "given": "Wannes"},
+			{"family": "Lastname", "given": "Firstname"},
+		],
+		"container-title":"One or Another Journal",
+		"volume": "18",
+		"page": "463-509",
+		"issued": {
+			"date-parts": [
+				[2012, 1]
+			],
+		},
+		"type": "article-journal"
+	},
+	...</code></pre>
+
+	<p>The result can be seen in the <a href="#bibliography">bibliography section</a>.</p>
+
+	<div class=htmlhowto>
+		<p>More information about CSL:</p>
+		<ul>
+			<li>CSL is used by Mendeley, Zotero, Pages2, ...
+			<li>The input language is based upon MODS (for citeproc-js, a JSON version of MODS is used).
+			<li>Generating your own style: <a href="http://csleditor.quist.de/csleditor/show/1/example-citation-style">CSL Editor</a> or <a href="http://csleditor.wordpress.com/">New CSL Editor</a>.
+		</ul>
+	</div>
+
+	</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+	<section>
+	<h3>Using bibliography styles</h3>
+	
+	<p>Citation styles can be set as an <code>article.cls</code> option:</p>
+
+	<pre><code>&lt;script data-options="bibliography=articlecls_bib.js, citationstyle=ieee" src="js/articlecls.js"&gt;&lt;/script&gt;</code></pre>
+
+	<p>Extra citation and bibliography styles can be found at the <a href="http://citationstyles.org/styles/">CLS: citation styles website</a> and copied into the citationstyles variable (e.g., in your bibliography javascript file) as follows:</p>
+
+	<pre><code>citationstyles['myieee'] = "&lt;style xmlns=\"http://purl.org/net/xbiblio/csl\" class=\"in-text\"&gt;&lt;info&gt;...</code></pre>
+
+	<p>The new style is now available with the name 'myieee' to the <code>citationstyle</code> option. The result can be seen in the <a href="#bibliography">bibliography section</a>.</p>
+
+	</section>
+
+	</section>
+<!-- = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = -->
+
+	<section>
 	<h2>Converting to PDF</h2>
 
 	<section>
@@ -1089,6 +1109,8 @@ $ latex  articlecls</code></pre>
 	<li><a href="http://www.mathjax.org/">MathJax</a>: For displaying mathematical equations.
 	<li><a href="http://code.google.com/p/hyphenator/">Hyphenator.js</a>: Improved hyphenation.
 	<li><a href="https://bitbucket.org/fbennett/citeproc-js/">Citeproc-js</a>: Citation formatting.
+	<li>CSS3: The CSS standard that contains the paged media options.
+	<li>HTML5: HTML with more semantic tags usable for print
 	</ul>
 
 	</section>

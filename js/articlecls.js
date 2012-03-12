@@ -47,6 +47,7 @@ function initArticleCls() {
 	setoptions["nomathjax"]    = false;
 	setoptions["notitle"]      = false;
 	setoptions["notoc"]        = false;
+	setoptions['tocsearch']    = false;
 	setoptions["noglossary"]   = false;
 	setoptions['bibliography'] = ''
 	setoptions["meeting"]      = false;
@@ -119,7 +120,7 @@ function initArticleCls() {
 
 	// Add outline for tag <toc>
 	if (!setoptions["notoc"]) {
-		insertOutline();
+		insertOutline(setoptions["tocsearch"]);
 	}
 
 	// How-to
@@ -202,9 +203,23 @@ function insertTitle() {
 
 /** TABLE OF CONTENTS *******************************************************/
 
-function insertOutline() {
+function insertOutline(livesearch) {
 	outlinehtml = createOutline($('article'));
 	if ($('#toc').length > 0) {
+		if (livesearch) {
+			$('#toc').append("<input id='tocsearchneedle' type='search' placeholder='Search table of contents' results='0' incremental='true'>");
+			$('#tocsearchneedle').keyup(function(){
+				needle = $(this).val().toLowerCase();
+				//console.log("Search TOC for "+needle);
+				lis = $('#toc li');
+				lis.filter(function() {
+					return $(this).text().toLowerCase().indexOf(needle) >= 0
+				}).show();
+				lis.filter(function() {
+					return $(this).text().toLowerCase().indexOf(needle) == -1
+				}).hide();
+			});
+		}
 		$('#toc').append(outlinehtml);
 	}
 }

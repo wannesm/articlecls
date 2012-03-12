@@ -80,7 +80,7 @@
 </code></pre>
 
 
-	<p>If you want a modern version of the style you can use the following line:</p>
+	<p>You can pass options to the <code>article.cls</code> class. For example, if you want a modern version of the style you can use the following line:</p>
 
 	<div class="latexcmpline"><div class="latexcmp">
 		<pre><code>	\usepackage{modern}</code></pre>
@@ -88,7 +88,7 @@
 
 	<pre><code>&lt;script data-options="modern" src="js/articlecls.js"&gt;&lt;/script&gt;</code></pre>
 
-	<p>All options that are available (comma separated):</p>
+	<p>All options that are available (pass multiple options to <code>data-options</code> as a comma separated list):</p>
 	<ul>
 		<li><code>altfootnotes</code>
 		<li><code>bibliography=filename</code>
@@ -146,7 +146,7 @@
 &lt;/article&gt;
 &lt;/body&gt;</code></pre>
 
-	<p>The <code>&lt;section&gt;</code> tags are not necessary.</p>
+	<p>The <code>&lt;section&gt;</code> tags are not necessary but are good HTML5 style.</p>
 
 	<div class="htmlhowto">
 		<pre><code>/* Start h1 on right page. */
@@ -177,8 +177,19 @@ p {
 
 	<p>The title, authors and date are automatically inserted at the beginning of the article based on the meta-information found in the header unless the <code>notitle</code> option is given in the header.</p>
 
+	<p>If you want to avoid Javascript you can add the title block manually within the <code>article</code> tags as follows:</p>
+
+		<pre><code>&lt;header&gt;
+	&lt;h1&gt;Title&lt;/h1&gt;
+	&lt;div class=authors&gt;
+		&lt;span class=name&gt;Firstname1 Lastname1&lt;/span&gt;
+		&lt;span class=name&gt;Firstname2 Lastname2&lt;/span&gt;
+	&lt;/div&gt;
+	&lt;time datetime="2012-01-17" pubdate&gt;January 17, 2012&lt;/time&gt;
+&lt;/header&gt;</code></pre>
+
 	<div class="htmlhowto">
-		<p>The code added automatically follows the following tempate and is insert right after the <code>article</code> tag.</p>
+		<p>The code added automatically follows the following tempate and is inserted right after the <code>article</code> tag.</p>
 		<pre><code>&lt;header&gt;
 	&lt;h1&gt;Title&lt;/h1&gt;
 	&lt;div class=authors&gt;
@@ -236,7 +247,7 @@ p {
 	<section>
 	<h3>Headers and footers</h3>
 	
-	<p>The articlecls module adds a header which contains the document title on the left page and the current section on the right page. The footer contains the current page number. These features are supported by <a href="#prince">prince</a> but not by all browsers.</p>
+	<p>The <code>articlecls</code> module adds a header which contains the document title on the left page and the current section on the right page. The footer contains the current page number. These features are supported by <a href="#prince">prince</a> but not by all browsers.</p>
 
 	<div class="htmlhowto">
 		<pre><code>/* Create named page */
@@ -1141,8 +1152,9 @@ $ latex  articlecls</code></pre>
 	<h4>Advantages of HTML to LaTeX</h4>
 	<ul>
 		<li><strong>Future-proof</strong>: HTML becomes more and more important as a format for traditional and ebook publishing. It serves as the basis for the <a href="http://en.wikipedia.org/wiki/EPUB">.epub</a> format and the <a href="http://www.apple.com/ibooks-author/">.ibooks</a> format. Also, it is used for online word processors like <a href="http://docs.google.com">Google Docs</a> and <a href="https://writer.zoho.com">Zoho Writer</a>.
+		<li><strong>Mobile</strong>: Easy reformatting for mobile usage.
 		<li><strong>Online</strong>: Easy distribution of articles over the web (native).
-		<li><strong>Debugging</strong>: Easy css and javascript debugging with advanced tools (in-browser tools, htmllint, jslint, csslint, ...).
+		<li><strong>Debugging</strong>: Easy css and javascript debugging with advanced tools (in-browser tools, Firebug, Web inspector, htmllint, jslint, csslint, ...).
 		<li><strong>Stylize</strong>: It is more easy to make visually appealing layouts with html and css.
 		<li><strong>Interactive</strong>: In html it is easy to incorporate dynamic content for ebooks and online articles.
 	</ul>

@@ -548,7 +548,9 @@ sup {
 	/**
 	 * Avoid figure environments to be split over multiple pages.
 	 */
-	figure {
+	figure,
+	figure img,
+	figure table {
 		page-break-inside: avoid;
 	}
 

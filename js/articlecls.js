@@ -284,7 +284,7 @@ function createOutline(base) {
 /** HYPHENATOR **************************************************************/
 
 function applyHyphenator() {
-	console.log("starting hyphenator");
+	//console.log("starting hyphenator");
 	$('p,li').addClass("hyphenate text");
 	$.getScript(thispath+"js/hyphenator/Hyphenator.js").done(function(script, textStatus) {
 		//console.log("Configuring hyphenator");

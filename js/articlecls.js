@@ -12,6 +12,7 @@
 /** SETTINGS ****************************************************************/
 
 var setoptions = {};
+var thispath = '';
 var months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
 
 /** MAIN ********************************************************************/
@@ -58,6 +59,9 @@ function initArticleCls() {
 		//console.log(v);
 		optionslist = $(this).first().attr("data-options").replace(/ +/g,"").split(",");
 		//console.log(optionslist);
+		thispath = $(this).first().attr("src").split("/").slice(0,-1).join("/")
+		if (thispath != "") thispath += "/";
+		thispath += "../";
 		$.each(optionslist, function(k,v) {
 			option = v.split("=");
 			if (option.length == 1) {
@@ -280,14 +284,19 @@ function createOutline(base) {
 /** HYPHENATOR **************************************************************/
 
 function applyHyphenator() {
+	console.log("starting hyphenator");
 	$('p,li').addClass("hyphenate text");
-	$.getScript("js/hyphenator/Hyphenator.js", function() {
+	$.getScript(thispath+"js/hyphenator/Hyphenator.js").done(function(script, textStatus) {
 		//console.log("Configuring hyphenator");
 		Hyphenator.config({
 			displaytogglebox : false,
 			minwordlength : 4
 		});
 		Hyphenator.run();
+	}).fail(function(jqhxr, settings, exception) {
+		console.log("Loading hyphenator failed");
+		console.log(settings);
+		console.log(exception);
 	});
 }
 
@@ -374,11 +383,11 @@ function insertBibliography() {
 		//dataType: "text/javascript; e4x=1",
 		//type: "text/javascript; e4x=1",
 		//success: function() {
-	$.getScript("js/citeproc/xmldom.js", function() {
-	$.getScript("js/citeproc/citeproc.js", function() {
-	$.getScript("js/citeproc/loadlocale.js", function() {
-	$.getScript("js/citeproc/loadsys.js", function() {
-	$.getScript("js/citeproc/loadcsl.js", function() {
+	$.getScript(thispath+"js/citeproc/xmldom.js", function() {
+	$.getScript(thispath+"js/citeproc/citeproc.js", function() {
+	$.getScript(thispath+"js/citeproc/loadlocale.js", function() {
+	$.getScript(thispath+"js/citeproc/loadsys.js", function() {
+	$.getScript(thispath+"js/citeproc/loadcsl.js", function() {
 		//console.log("Loading bibfile "+setoptions['bibliography']);
 	$.getScript(setoptions['bibliography'], function() {
 		//console.log("Using bibstyle "+setoptions['citationstyle']);
@@ -501,8 +510,8 @@ function insertGlossary() {
 
 function useOpenTypography() {
 	//$('head').append('<link rel="stylesheet" href="css/typography_extra.css" type="text/css" />');
-	$.getScript("js/opentypography/DOMhelp.js", function() {
-		$.getScript("js/opentypography/typesetter.js", function() {
+	$.getScript(thispath+"js/opentypography/DOMhelp.js", function() {
+		$.getScript(thispath+"js/opentypography/typesetter.js", function() {
 
 			$('p, li').addClass("typo");
 			charReplacements();

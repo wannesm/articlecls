@@ -364,6 +364,13 @@ figure {
 	text-align: center;
 }
 
+figure.span {
+	/*-moz-column-span: all;*/
+	/*-webkit-column-span: all;*/
+	/*float: left;*/
+	/*position: absolute;*/
+}
+
 figure .top {
 	float: top;
 }

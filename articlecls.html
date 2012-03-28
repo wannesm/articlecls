@@ -404,9 +404,14 @@ Some text referencing the tagged title \ref{mytitle} and the tagged figure \ref{
 	<section>
 	<h3 id="hyphenation">Hyphenation</h3>
 
-	<p>CSS3 supports hyphenation and articlecls applies it to all paragraphs. A more detailed explanation and an extension in javascript can be found on the website of <a href="http://code.google.com/p/hyphenator/wiki/en_CSS3Hyphenation">Hyphenator.js</a>. The hyphenator.js extension can be activated by giving the <code>hyphenator</code> option to the articlecls.js module.</p>
+	<p>CSS3 supports hyphenation and articlecls applies it to all paragraphs. A more detailed explanation and an extension in javascript can be found on the website of <a href="http://code.google.com/p/hyphenator/wiki/en_CSS3Hyphenation">Hyphenator.js</a> which is a Javascript solution for browser that do not yet support advanced hyphenation. The hyphenator.js extension can be activated by giving the <code>hyphenator</code> option to the articlecls.js module.</p>
 
-	<p><strong>Example:</strong> Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+	<p><strong>Example:</strong>Once upon a midnight dreary, while I pondered, weak and weary,
+Over many a quaint and curious volume of forgotten lore &mdash;
+While I nodded, nearly napping, suddenly there came a tapping,
+As of some one gently rapping, rapping at my chamber door.
+&ldquo;&lsquo;Tis some visiter,&rdquo; I muttered, &ldquo;tapping at my chamber door &mdash;
+Only this and nothing more.&rdquo; (Edgar Allan Poe)</p>
 
 	</section>
 
@@ -630,7 +635,7 @@ Some text referencing the tagged title \ref{mytitle} and the tagged figure \ref{
 	
 	<p>HTML allows to insert image formats like .jpg, .png, .gif. In browsers that support all CSS3 properties you can autonumber references (e.g., <a href="#firstfig" class="figref"></a>). See also the section about <a href="#crossreferences">cross-referencing</a>.</p>
 
-	<figure id="firstfig">
+	<figure id="firstfig" class=span>
 	<img src="img/image.jpg" />
 	<figcaption>Example image.</figcaption>
 	</figure>

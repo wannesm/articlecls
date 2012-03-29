@@ -239,7 +239,7 @@ body.twocolumns > article > header {
 
 #abstract {
 	display: block;
-	padding: 1em 3em;
+	padding: 0 3em;
 	columns: 2;
 }
 
@@ -470,7 +470,12 @@ sup {
 
 /** PRINT PAGES *************************************************************/
 
+/*body {*/
+	/*width: 210mm; [> A4 <]*/
+/*}*/
+
 @media print {
+
 	@page {
 		/*size: 210mm 297mm;*/
 		size: A4;

@@ -446,6 +446,35 @@ Only this and nothing more.&rdquo; (Edgar Allan Poe)</p>
 
 	</section>
 
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+	<section>
+	<style scoped>
+		@font-face { 
+			font-family: "articlecls";
+			src: url(fonts/articlecls.svg#articlecls) format("svg");
+		}
+		.customfont {
+			font-family: "articlecls";
+		}
+	</style>
+
+	<h3>Customized symbols</h3>
+	<p>You can create your own fontfile with customized symbols by using, for example, Inkscape or SVG directly. Such fontfiles can be loaded with css and used in your documents. As an example, the font described in <code>fonts/articlecls.svg</code> contains a customized star symbol: <span class=customfont>s</span>. It can be called as follows:
+
+	<pre><code>&lt;style scoped&gt;
+	@font-face { 
+		font-family: "articlecls";
+		src: url(fonts/articlecls.svg#articlecls) format("svg");
+	}
+&lt;/style&gt;
+... star symbol: &lt;span style="font-family:articlecls;"&gt;s&lt;/span&gt;</pre></code>
+
+
+	<div class="htmlhowto">
+		<p>More information about making your own font on the <a href="http://www.webdesignerdepot.com/2012/01/how-to-make-your-own-icon-webfont/">Webdesigner depot website</a> or the <a href="http://cleversomeday.files.wordpress.com/2010/02/inkscape-dingbats.pdf">Clever Some Day blog</a>.
+	</div>
+
+	</section>
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 	<section>
@@ -636,7 +665,7 @@ Only this and nothing more.&rdquo; (Edgar Allan Poe)</p>
 	<p>HTML allows to insert image formats like .jpg, .png, .gif. In browsers that support all CSS3 properties you can autonumber references (e.g., <a href="#firstfig" class="figref"></a>). See also the section about <a href="#crossreferences">cross-referencing</a>.</p>
 
 	<figure id="firstfig" class=span>
-	<img src="img/image.jpg" />
+	<img src="img/image.jpg" title="Example image." />
 	<figcaption>Example image.</figcaption>
 	</figure>
 
@@ -691,7 +720,7 @@ figure figcaption::before {
 	<p>Next to image files, you can also include pdfs as images (works in Safari, for Chrome and Firefox you'd need to use the <code>object</code> tag).</p>
 
 	<figure>
-		<img src="img/results.pdf" title="results" style="width:60%;" />
+		<img src="img/results.pdf" title="Results" style="width:60%;" />
 		<figcaption>Example pdf.</figcaption>
 	</figure>
 

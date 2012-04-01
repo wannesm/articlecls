@@ -453,25 +453,27 @@ Only this and nothing more.&rdquo; (Edgar Allan Poe)</p>
 			font-family: "articlecls";
 			src: url(fonts/articlecls.svg#articlecls) format("svg");
 		}
-		.customfont {
-			font-family: "articlecls";
-		}
+		.star        { font-family: "articlecls"; }
+		.star:before { content:     "s"; }
 	</style>
 
 	<h3>Customized symbols</h3>
-	<p>You can create your own fontfile with customized symbols by using, for example, Inkscape or SVG directly. Such fontfiles can be loaded with css and used in your documents. As an example, the font described in <code>fonts/articlecls.svg</code> contains a customized star symbol: <span class=customfont>s</span>. It can be called as follows:
+	<p>You can create your own fontfile with customized symbols by using, for example, Inkscape or <a href="http://www.w3.org/TR/SVG/fonts.html">SVG</a> directly. Such fontfiles can be loaded with css and used in your documents. As an example, the font described in <code>fonts/articlecls.svg</code> contains a customized star symbol: <span class=star></span>. It can be called as follows:
 
 	<pre><code>&lt;style scoped&gt;
 	@font-face { 
 		font-family: "articlecls";
 		src: url(fonts/articlecls.svg#articlecls) format("svg");
 	}
+	.star { font-family: "articlecls"; }
+	.star:before { content: "s"; }
 &lt;/style&gt;
-... star symbol: &lt;span style="font-family:articlecls;"&gt;s&lt;/span&gt;</pre></code>
+... star symbol: &lt;span class=star&gt;&lt;/span&gt;</pre></code>
 
 
 	<div class="htmlhowto">
 		<p>More information about making your own font on the <a href="http://www.webdesignerdepot.com/2012/01/how-to-make-your-own-icon-webfont/">Webdesigner depot website</a> or the <a href="http://cleversomeday.files.wordpress.com/2010/02/inkscape-dingbats.pdf">Clever Some Day blog</a>.
+		<p>An example svg font is <a href="https://github.com/somerandomdude/Iconic">Iconic</a>. To transform into other font formats, have a look at <a href="http://www.fontsquirrel.com/fontface/generator">Font Squirell @font-face generator</a>.
 	</div>
 
 	</section>

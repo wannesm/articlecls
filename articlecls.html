@@ -455,10 +455,16 @@ Only this and nothing more.&rdquo; (Edgar Allan Poe)</p>
 		}
 		.star        { font-family: "articlecls"; }
 		.star:before { content:     "s"; }
+		.accolade        {
+			font-family: "articlecls";
+			position: relative;
+			top: .4em;
+		}
+		.accolade:before { content:     "a"; }
 	</style>
 
 	<h3>Customized symbols</h3>
-	<p>You can create your own fontfile with customized symbols by using, for example, Inkscape or <a href="http://www.w3.org/TR/SVG/fonts.html">SVG</a> directly. Such fontfiles can be loaded with css and used in your documents. As an example, the font described in <code>fonts/articlecls.svg</code> contains a customized star symbol: <span class=star></span>. It can be called as follows:
+	<p>You can create your own fontfile with customized symbols by using, for example, Inkscape or <a href="http://www.w3.org/TR/SVG/fonts.html">SVG</a> directly. Such fontfiles can be loaded with css and used in your documents. As an example, the font described in <code>fonts/articlecls.svg</code> contains a customized star symbol: <span class=star></span> or an accolade: <span class=accolade></span>. It can be called as follows:
 
 	<pre><code>&lt;style scoped&gt;
 	@font-face { 

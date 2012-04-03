@@ -224,6 +224,9 @@ function insertOutline(livesearch) {
 				}).hide();
 			});
 		}
+		if ($('#toc h1, #toc h2, #toc h3').length == 0) {
+			$('#toc').append("<h2 class=notoc>Table of Contents</h2>");
+		}
 		$('#toc').append(outlinehtml);
 	}
 }

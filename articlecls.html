@@ -19,50 +19,51 @@
 	<script data-options="stylechooser" src="js/articlecls_extra.js"></script>
 </head>
 <body>
-	<div id="latexcmpbar"></div>
 
-	<article>
+<div id="latexcmpbar"></div>
 
-<!-- = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = -->
-	<section id="abstract">
-
-	<div class="latexcmpline"><div class="latexcmp">
-		<p>On the right side, the equivalent LaTeX commands are shown.</p>
-	</div></div>
-
-	<p>
-	The articlecls stylesheet and javascript module are an attempt to create a nicely looking style for print and summarize the typographical advancements made for html. It is inspired by the features found in LaTeX and triggered by the idea that most of these features are also supported in today's CSS3 and HTML5. A live version is available on <a href="http://wannesm.be/articlecls/">http://wannesm.be/articlecls/</a> and the sources (including this text) can be found at <a href="https://github.com/wannesm/articlecls">https://github.com/wannesm/articlecls</a>. This is very much work in progress and all feedback is appreciated.
-	</p>
-
-	<div class="htmlhowto">
-		<p>The internal html used will be showed in boxes like this one.</p>
-	</div>
-
-
-	</section>
+<article>
 
 <!-- = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = -->
-	<section id="toc">
-	<h2 class="nonumber">Table of Contents</h2>
-	</section>
+<section id="abstract">
+
+<div class="latexcmpline"><div class="latexcmp">
+	<p>On the right side, the equivalent LaTeX commands are shown.</p>
+</div></div>
+
+<p>
+The articlecls stylesheet and javascript module are an attempt to create a nicely looking style for print and summarize the typographical advancements made for html. It is inspired by the features found in LaTeX and triggered by the idea that most of these features are also supported in today's CSS3 and HTML5. A live version is available on <a href="http://wannesm.be/articlecls/">http://wannesm.be/articlecls/</a> and the sources (including this text) can be found at <a href="https://github.com/wannesm/articlecls">https://github.com/wannesm/articlecls</a>. This is very much work in progress and all feedback is appreciated.
+</p>
+
+<div class="htmlhowto">
+	<p>The internal html used will be showed in boxes like this one.</p>
+</div>
+
+
+</section>
+
+<!-- = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = -->
+<section id="toc">
+<h2 class="nonumber">Table of Contents</h2>
+</section>
 
 
 <!-- = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = -->
-	<section>
-	<h2 id=structure>Structure</h2>
+<section>
+<h2 id=structure>Structure</h2>
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-	<section>
-	<h3>Header</h3>
+<section>
+<h3>Header</h3>
 
-	<div class="latexcmpline"><div class="latexcmp">
-		<pre><code>\documentclass[11pt]{article}
-	\title{Article.cls}
-	\author{Wannes Meert}
-	\date{2012-02-6}</code></pre>
-	</div></div>
+<div class="latexcmpline"><div class="latexcmp">
+	<pre><code>\documentclass[11pt]{article}
+\title{Article.cls}
+\author{Wannes Meert}
+\date{2012-02-6}</code></pre>
+</div></div>
 
-	<pre><code>&lt;!DOCTYPE html&gt;
+<pre><code>&lt;!DOCTYPE html&gt;
 &lt;head&gt;
 	&lt;title&gt;Article.cls&lt;/title&gt;
 	&lt;meta charset="utf-8" /&gt;
@@ -80,29 +81,29 @@
 </code></pre>
 
 
-	<p>You can pass options to the <code>article.cls</code> class. For example, if you want a modern version of the style you can use the following line:</p>
+<p>You can pass options to the <code>article.cls</code> class. For example, if you want a modern version of the style you can use the following line:</p>
 
-	<div class="latexcmpline"><div class="latexcmp">
-		<pre><code>	\usepackage{modern}</code></pre>
-	</div></div>
+<div class="latexcmpline"><div class="latexcmp">
+	<pre><code>	\usepackage{modern}</code></pre>
+</div></div>
 
-	<pre><code>&lt;script data-options="modern" src="js/articlecls.js"&gt;&lt;/script&gt;</code></pre>
+<pre><code>&lt;script data-options="modern" src="js/articlecls.js"&gt;&lt;/script&gt;</code></pre>
 
-	<p>All options that are available (pass multiple options to <code>data-options</code> as a comma separated list):</p>
-	<ul>
-		<li><code>altfootnotes</code>
-		<li><code>bibliography=filename</code>
-		<li><code>citationstyle=stylename</code>
-		<li><code>hyphenator</code>
-		<li><code>noglossary</code>
-		<li><code>nomathjax</code>
-		<li><code>notitle</code>
-		<li><code>notoc</code>
-		<li><code>tocsearch</code>
-		<li><code>twocolumns</code>
-	</ul>
+<p>All options that are available (pass multiple options to <code>data-options</code> as a comma separated list):</p>
+<ul>
+	<li><code>altfootnotes</code>
+	<li><code>bibliography=filename</code>
+	<li><code>citationstyle=stylename</code>
+	<li><code>hyphenator</code>
+	<li><code>noglossary</code>
+	<li><code>nomathjax</code>
+	<li><code>notitle</code>
+	<li><code>notoc</code>
+	<li><code>tocsearch</code>
+	<li><code>twocolumns</code>
+</ul>
 
-	</section>
+</section>
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 	<section>
@@ -146,10 +147,10 @@
 &lt;/article&gt;
 &lt;/body&gt;</code></pre>
 
-	<p>The <code>&lt;section&gt;</code> tags are not necessary but are good HTML5 style.</p>
+<p>The <code>&lt;section&gt;</code> tags are not necessary but are good HTML5 style.</p>
 
-	<div class="htmlhowto">
-		<pre><code>/* Start h1 on right page. */
+<div class="htmlhowto">
+	<pre><code>/* Start h1 on right page. */
 h1 {
 		page-break-before: right;
 }
@@ -163,23 +164,23 @@ p {
 	orphans: 5;
 }
 </code></pre>
-	</div>
+</div>
 
-	</section>
+</section>
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-	<section>
-	<h3>Title</h3>
+<section>
+<h3>Title</h3>
 
-	<div class="latexcmpline"><div class="latexcmp">
-		<pre><code>\maketitle</code></pre>
-	</div></div>
+<div class="latexcmpline"><div class="latexcmp">
+	<pre><code>\maketitle</code></pre>
+</div></div>
 
-	<p>The title, authors and date are automatically inserted at the beginning of the article based on the meta-information found in the header unless the <code>notitle</code> option is given in the header.</p>
+<p>The title, authors and date are automatically inserted at the beginning of the article based on the meta-information found in the header unless the <code>notitle</code> option is given in the header.</p>
 
-	<p>If you want to avoid Javascript you can add the title block manually within the <code>article</code> tags as follows:</p>
+<p>If you want to avoid Javascript you can add the title block manually within the <code>article</code> tags as follows:</p>
 
-		<pre><code>&lt;header&gt;
+	<pre><code>&lt;header&gt;
 	&lt;h1&gt;Title&lt;/h1&gt;
 	&lt;div class=authors&gt;
 		&lt;span class=name&gt;Firstname1 Lastname1&lt;/span&gt;
@@ -188,9 +189,9 @@ p {
 	&lt;time datetime="2012-01-17" pubdate&gt;January 17, 2012&lt;/time&gt;
 &lt;/header&gt;</code></pre>
 
-	<div class="htmlhowto">
-		<p>The code added automatically follows the following tempate and is inserted right after the <code>article</code> tag.</p>
-		<pre><code>&lt;header&gt;
+<div class="htmlhowto">
+	<p>The code added automatically follows the following tempate and is inserted right after the <code>article</code> tag.</p>
+	<pre><code>&lt;header&gt;
 	&lt;h1&gt;Title&lt;/h1&gt;
 	&lt;div class=authors&gt;
 		&lt;span class=name&gt;Firstname1 Lastname1&lt;/span&gt;
@@ -198,59 +199,39 @@ p {
 	&lt;/div&gt;
 	&lt;time datetime="2012-01-17" pubdate&gt;January 17, 2012&lt;/time&gt;
 &lt;/header&gt;</code></pre>
-	</div>
+</div>
 
-	</section>
+</section>
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-	<section>
-	<h3>Abstract</h3>
+<section>
+<h3>Abstract</h3>
 
-	<p>Add an id to the abstract section named <code>abstract</code></p>
+<p>Add an id to the abstract section named <code>abstract</code></p>
 
-	<div class="latexcmpline"><div class="latexcmp">
-		<pre><code>\begin{abstract}
+<div class="latexcmpline"><div class="latexcmp">
+	<pre><code>\begin{abstract}
 	My abstract ...
 \end{abstract}</code></pre>
-	</div></div>
+</div></div>
 
 
-	<figure class=listing>
-	<pre><code>&lt;section id="abstract"&gt;
+<figure class=listing>
+<pre><code>&lt;section id="abstract"&gt;
 	My abstract ...
 &lt;\section&gt;</code></pre>
-	</figure>
+</figure>
 
-	</section>
-
-<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-	<section>
-	<h3>Table of Contents</h3>
-
-	<p>Add the id <code>toc</code> to the section where you want your table of contents. Headers having as class <code>notoc</code> will not be included in the table of contents and header with the class <code>nonumber</code> will be unnumbered but included into the table of contents.</p>
-
-	<div class="latexcmpline"><div class="latexcmp">
-		<pre><code>\tableofcontents</code></pre>
-	</div></div>
-
-	<figure class=listing>
-	<pre><code>&lt;section id="toc"&gt;
-	&lt;h2 class="nonumber"&gt;Table of Contents&lt;/h2&gt;
-&lt;\section&gt;</code></pre>
-	</figure>
-
-	<p>If you want an input field for live searching the table of contents (like in this document) you can add the <code>tocsearch</code> option to the <code>article.cls</code> class.</p>
-
-	</section>
+</section>
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-	<section>
-	<h3>Headers and footers</h3>
-	
-	<p>The <code>articlecls</code> module adds a header which contains the document title on the left page and the current section on the right page. The footer contains the current page number. These features are supported by <a href="#prince">prince</a> but not by all browsers.</p>
+<section>
+<h3>Headers and footers</h3>
 
-	<div class="htmlhowto">
-		<pre><code>/* Create named page */
+<p>The <code>articlecls</code> module adds a header which contains the document title on the left page and the current section on the right page. The footer contains the current page number. These features are supported by <a href="#prince">prince</a> but not by all browsers.</p>
+
+<div class="htmlhowto">
+	<pre><code>/* Create named page */
 @page pagename {
 	/*properties*/
 }
@@ -277,9 +258,9 @@ h1 {
 		content: string(header, first);
 	}
 }</code></pre>
-	</div>
-	<div class="htmlhowto">
-		<pre><code>/* Page number in footer */
+</div>
+<div class="htmlhowto">
+	<pre><code>/* Page number in footer */
 @page :left {
 	@bottom-left {
 		content: counter(page);
@@ -291,266 +272,224 @@ h1 {
 		content: counter(page, lower-roman);
 	}
 }</code></pre>
-	</div>
+</div>
 
-	</section>
+</section>
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-	<section>
-	<h3 id="crossreferences">Cross-referencing</h3>
-	
-	<p>To make a reference from one part of your text to another you can use the id-tag. For example a link to the <a href="#structure" class=secref>parent section</a>. Inserting automatically the section number when cross-referencing to a section can be done with the <code>h2ref</code> and <code>h3ref</code> classes. Cross-referencing to figures and tables is explained further (requires css properties that are not yet implemented in all browswer).</p>
+<section>
+<h3>Two columns</h3>
 
-	<div class="latexcmpline"><div class="latexcmp">
-		<pre><code>...
+<p>If you prefer a two-column layout you can add the <code>twocolumns</code> option to the articlecls module.</p>
+
+<div class="latexcmpline"><div class="latexcmp">
+	<pre><code>\documentclass[twocolumn]{article}</code></pre>
+</div></div>
+
+<pre><code>&lt;script data-options="twocolumns" src="js/articlecls.js"&gt;&lt;/script&gt;</code></pre>
+
+<div class="htmlhowto">
+	<p>[<a href="http://www.quirksmode.org/css/multicolumn.html">source</a>]</p>
+</div>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<section>
+<h3>Page breaks</h3>
+
+<p>You can force a line break by inserting the following snippet:</p>
+
+<div class="latexcmpline"><div class="latexcmp">
+	<pre><code>\newpage</code></pre>
+</div></div>
+
+<pre><code>&lt;div class="page-break"&gt;&lt;/div&gt;</code></pre>
+
+</section>
+
+</section>
+
+<!-- = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = -->
+
+<section>
+<h2>Referencing</h2>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<section>
+<h3>Table of Contents</h3>
+
+<p>Add the id <code>toc</code> to the section where you want your table of contents. Headers having as class <code>notoc</code> will not be included in the table of contents and header with the class <code>nonumber</code> will be unnumbered but included into the table of contents.</p>
+
+<div class="latexcmpline"><div class="latexcmp">
+	<pre><code>\tableofcontents</code></pre>
+</div></div>
+
+<figure class=listing>
+<pre><code>&lt;section id="toc"&gt;
+	&lt;h2 class="nonumber"&gt;Table of Contents&lt;/h2&gt;
+&lt;\section&gt;</code></pre>
+</figure>
+
+<p>If you want an input field for live searching the table of contents (like in this document) you can add the <code>tocsearch</code> option to the <code>article.cls</code> class.</p>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<section>
+<h3 id="crossreferences">Cross-referencing</h3>
+
+<p>To make a reference from one part of your text to another you can use the id-tag. For example a link to the <a href="#structure" class=secref>parent section</a>. Inserting automatically the section number when cross-referencing to a section can be done with the <code>h2ref</code> and <code>h3ref</code> classes. Cross-referencing to figures and tables is explained further (requires css properties that are not yet implemented in all browswer).</p>
+
+<div class="latexcmpline"><div class="latexcmp">
+	<pre><code>...
 \section{Tagged title}\label{mytitle}
 ...
 \begin{figure}\label{myfig}...\end{figure}
 ...
 Some text referencing the tagged title \ref{mytitle} and the tagged figure \ref{myfig}.
 </code></pre>
-	</div></div>
+</div></div>
 
-	<figure>
-	<pre><code>...
+<figure>
+<pre><code>...
 &lt;h3 id="mytitle"&gt;Tagged title&lt;/h3&gt;
 ...
 &lt;figure id="myfig"&gt;...&lt;/figure&gt;
 ...
 &lt;p&gt;Some text referencing the &lt;a href="#mytitle" class="h3ref"&gt;tagged title&lt;/a&gt; and the &lt;a href="#myfig" class="figref"&gt;tagged figure&lt;/a&gt;.&lt;/p&gt;</code></pre>
-	</figure>
+</figure>
 
-	<div class="htmlhowto">
-		<pre><code>a.h2ref:after {
+<div class="htmlhowto">
+	<pre><code>a.h2ref:after {
 	content: " (" target-counter(attr(href), headertwo) ")";
 }</code></pre>
-		<p>[<a href="http://www.w3.org/TR/css3-gcpm/#cross-references">source</a>]</p>
-	</div>
+	<p>[<a href="http://www.w3.org/TR/css3-gcpm/#cross-references">source</a>]</p>
+</div>
 
-	</section>
-
-<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-	<section>
-	<h3 id="footnotes">Footnotes</h3>
-
-	<p>Inserting footnotes can be done as follows:<span class="footnote">Example footnote.</span> Note that the necessary CSS properties are not yet supported in most browser and articlecls uses an extra option <code>altfootnotes</code> to cope with that.</p>
-
-	<div class="latexcmpline"><div class="latexcmp">
-		<pre><code>\footnote{Example footnote.}</code></pre>
-	</div></div>
-
-	<pre><code>&lt;span class="footnote"&gt;Example footnote.&lt;/span&gt;</code></pre>
-
-	<div class="htmlhowto">
-		<p>[<a href="http://www.w3.org/TR/css3-gcpm/#footnotes">source</a>]</p>
-	</div>
-
-	</section>
+</section>
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-	<section>
-	<h3>Two columns</h3>
+<section>
+<h3 id="footnotes">Footnotes</h3>
 
-	<p>If you prefer a two-column layout you can add the <code>twocolumns</code> option to the articlecls module.</p>
+<p>Inserting footnotes can be done as follows:<span class="footnote">Example footnote.</span> Note that the necessary CSS properties are not yet supported in most browser and articlecls uses an extra option <code>altfootnotes</code> to cope with that.</p>
 
-	<div class="latexcmpline"><div class="latexcmp">
-		<pre><code>\documentclass[twocolumn]{article}</code></pre>
-	</div></div>
+<div class="latexcmpline"><div class="latexcmp">
+	<pre><code>\footnote{Example footnote.}</code></pre>
+</div></div>
 
-	<pre><code>&lt;script data-options="twocolumns" src="js/articlecls.js"&gt;&lt;/script&gt;</code></pre>
+<pre><code>&lt;span class="footnote"&gt;Example footnote.&lt;/span&gt;</code></pre>
 
-	<div class="htmlhowto">
-		<p>[<a href="http://www.quirksmode.org/css/multicolumn.html">source</a>]</p>
-	</div>
+<div class="htmlhowto">
+	<p>[<a href="http://www.w3.org/TR/css3-gcpm/#footnotes">source</a>]</p>
+</div>
 
-	</section>
+</section>
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-	<section>
-	<h3>Glossary</h3>
-	
-	<p>While writing a text, you can introduce glossary items like <abbr title="HyperText Markup Language">HTML</abbr> and <abbr title="Cascading Style Sheets">CSS</abbr> with the <code>abbr</code> tag. If you add the <code>noglossary</code> class, the abbreviated term will not appear in the glossary. The class <code>hidden</code> can be used to introduce a term into the glossary without showing it in the main text. A glossary is automatically inserted into the section with id <code>glossary</code>:</p>
+<section>
+<h3>Glossary</h3>
 
-	<pre><code>Introducing the term &lt;abbr title="HyperText Markup Language"&gt;HTML&lt;/abbr&gt; in a text.
+<p>While writing a text, you can introduce glossary items like <abbr title="HyperText Markup Language">HTML</abbr> and <abbr title="Cascading Style Sheets">CSS</abbr> with the <code>abbr</code> tag. If you add the <code>noglossary</code> class, the abbreviated term will not appear in the glossary. The class <code>hidden</code> can be used to introduce a term into the glossary without showing it in the main text. A glossary is automatically inserted into the section with id <code>glossary</code>:</p>
+
+<pre><code>Introducing the term &lt;abbr title="HyperText Markup Language"&gt;HTML&lt;/abbr&gt; in a text.
 &lt;section id="glossary"&gt;
 	&lt;h2&gt;Glossary&lt;/h2&gt;
 &lt;/section&gt;</code></pre>
 
-	<p>For an example, see the <a href="#glossary">glossary section</a>.</p>
+<p>For an example, see the <a href="#glossary">glossary section</a>.</p>
 
-	</section>
+</section>
 
-<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-	<section>
-	<h3>Page breaks</h3>
-
-	<p>You can force a line break by inserting the following snippet:</p>
-
-	<div class="latexcmpline"><div class="latexcmp">
-		<pre><code>\newpage</code></pre>
-	</div></div>
-
-	<pre><code>&lt;div class="page-break"&gt;&lt;/div&gt;</code></pre>
-
-	</section>
-
-	</section>
+</section>
 
 <!-- = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = -->
 
-	<section>
-	<h2>Formatting</h2>
+<section>
+<h2>Formatting</h2>
 
-	<section>
-	<h3 id="hyphenation">Hyphenation</h3>
+<section>
+<h3 id="hyphenation">Hyphenation</h3>
 
-	<p>CSS3 supports hyphenation and articlecls applies it to all paragraphs. A more detailed explanation and an extension in javascript can be found on the website of <a href="http://code.google.com/p/hyphenator/wiki/en_CSS3Hyphenation">Hyphenator.js</a> which is a Javascript solution for browser that do not yet support advanced hyphenation. The hyphenator.js extension can be activated by giving the <code>hyphenator</code> option to the articlecls.js module.</p>
+<p>CSS3 supports hyphenation and articlecls applies it to all paragraphs. A more detailed explanation and an extension in javascript can be found on the website of <a href="http://code.google.com/p/hyphenator/wiki/en_CSS3Hyphenation">Hyphenator.js</a> which is a Javascript solution for browser that do not yet support advanced hyphenation. The hyphenator.js extension can be activated by giving the <code>hyphenator</code> option to the articlecls.js module.</p>
 
-	<p><strong>Example:</strong>Once upon a midnight dreary, while I pondered, weak and weary,
+<p><strong>Example:</strong>Once upon a midnight dreary, while I pondered, weak and weary,
 Over many a quaint and curious volume of forgotten lore &mdash;
 While I nodded, nearly napping, suddenly there came a tapping,
 As of some one gently rapping, rapping at my chamber door.
 &ldquo;&lsquo;Tis some visiter,&rdquo; I muttered, &ldquo;tapping at my chamber door &mdash;
 Only this and nothing more.&rdquo; (Edgar Allan Poe)</p>
 
-	</section>
+</section>
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-	<section>
-	<style scoped>
-		@import url(http://fonts.googleapis.com/css?family=Vollkorn);
-		.otherfont {
-			font-family: 'Gill Sans', 'Vollkorn', sans-serif;
-		}
-	</style>
+<section>
+<h3>Quotes</h3>
 
-	<h3>Fonts</h3>
+<blockquote cite="http://en.wikiquote.org/wiki/Richard_Feynman">
+	<p>If it disagrees with experiment, it is wrong. In that simple statement is the key to science. It doesn’t make any difference how beautiful your guess is, how smart you are, who made the guess, or what his name is. If it disagrees with experiment, it’s wrong. That’s all there is to it.</p>
+	<footer>Richard Feynman</footer>
+</blockquote>
 
-
-	<p>All fonts installed on your computer can also be used by setting the css <code>font-family</code> property. The following paragraph, for example, uses your local Gill Sans font (if that is not available the Vollkorn font will be used):</p>
-	<p class="otherfont">
-		Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-	</p>
-
-	<pre><code>&lt;style&gt;
-	.otherfont {
-		font-family: 'Gill Sans', 'Vollkorn', sans-serif;
-	}
-&lt;/style&gt;
-&lt;p class="otherfont"&gt;...</code></pre>
-
-	<div class="htmlhowto">
-		<p>articlecls only uses the local fonts but you can easily use <a href="http://www.google.com/webfonts">Google Web Fonts</a> or <a href="https://typekit.com/">Typekit</a> if you want to publish online.</p>
-		<p>[<a href="http://hellohappy.org/beautiful-web-type/">source</a>]</p>
-	</div>
-
-	</section>
-
-<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-	<section>
-	<style scoped>
-		@font-face { 
-			font-family: "articlecls";
-			src: url(fonts/articlecls.svg#articlecls) format("svg");
-		}
-		.star        { font-family: "articlecls"; }
-		.star:before { content:     "s"; }
-		.accolade        {
-			font-family: "articlecls";
-			position: relative;
-			top: .4em;
-		}
-		.accolade:before { content:     "a"; }
-	</style>
-
-	<h3>Customized symbols</h3>
-	<p>You can create your own fontfile with customized symbols by using, for example, Inkscape or <a href="http://www.w3.org/TR/SVG/fonts.html">SVG</a> directly. Such fontfiles can be loaded with css and used in your documents. As an example, the font described in <code>fonts/articlecls.svg</code> contains a customized star symbol: <span class=star></span> or an accolade: <span class=accolade></span>. It can be called as follows:
-
-	<pre><code>&lt;style scoped&gt;
-	@font-face { 
-		font-family: "articlecls";
-		src: url(fonts/articlecls.svg#articlecls) format("svg");
-	}
-	.star { font-family: "articlecls"; }
-	.star:before { content: "s"; }
-&lt;/style&gt;
-... star symbol: &lt;span class=star&gt;&lt;/span&gt;</pre></code>
-
-
-	<div class="htmlhowto">
-		<p>More information about making your own font on the <a href="http://www.webdesignerdepot.com/2012/01/how-to-make-your-own-icon-webfont/">Webdesigner depot website</a> or the <a href="http://cleversomeday.files.wordpress.com/2010/02/inkscape-dingbats.pdf">Clever Some Day blog</a>.
-		<p>An example svg font is <a href="https://github.com/somerandomdude/Iconic">Iconic</a>. To transform into other font formats, have a look at <a href="http://www.fontsquirrel.com/fontface/generator">Font Squirell @font-face generator</a>.
-	</div>
-
-	</section>
-
-<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-	<section>
-	<h3>Quotes</h3>
-
-	<blockquote cite="http://en.wikiquote.org/wiki/Richard_Feynman">
-		<p>If it disagrees with experiment, it is wrong. In that simple statement is the key to science. It doesn’t make any difference how beautiful your guess is, how smart you are, who made the guess, or what his name is. If it disagrees with experiment, it’s wrong. That’s all there is to it.</p>
-		<footer>Richard Feynman</footer>
-	</blockquote>
-
-	<div class="latexcmpline"><div class="latexcmp">
-		<pre><code>\begin{quotation}
+<div class="latexcmpline"><div class="latexcmp">
+	<pre><code>\begin{quotation}
 	If it disagrees with ... That’s all there is to it.
 
 	Richard Feynman
 \end{quotation}</code></pre>
-	</div></div>
+</div></div>
 
-	<pre><code>&lt;blockquote cite="http://en.wikiquote.org/wiki/Richard_Feynman"&gt;
+<pre><code>&lt;blockquote cite="http://en.wikiquote.org/wiki/Richard_Feynman"&gt;
 	&lt;p&gt;If it disagrees with ... That’s all there is to it.&lt;/p&gt;
 	&lt;footer&gt;Richard Feynman&lt;/footer&gt;
 &lt;/blockquote&gt;</code></pre>
 
 
-	<div class="htmlhowto">
-		<p>[<a href="http://html5doctor.com/blockquote-q-cite/">source</a>]</p>
-	</div>
+<div class="htmlhowto">
+	<p>[<a href="http://html5doctor.com/blockquote-q-cite/">source</a>]</p>
+</div>
 
-	</section>
+</section>
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-	<section>
-	<h3>Aside box</h3>
+<section>
+<h3>Aside box</h3>
 
-	<aside>
-		<p>Some extra information on the side. Or a quote?</p>
-	</aside>
-	<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
-	<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+<aside>
+	<p>Some extra information on the side. Or a quote?</p>
+</aside>
+<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
 
-	<pre><code>&lt;aside&gt;
+<pre><code>&lt;aside&gt;
 	&lt;p&gt;Some extra information on the side. Or a quote?&lt;/p&gt;
 &lt;/aside&gt;
 &lt;p&gt;Lorem ...</code></pre>
 
-	<div class="htmlhowto">
-		<p>[<a href="http://www.alistapart.com/articles/previewofhtml5">source</a>][<a href="http://html5doctor.com/aside-revisited/">source</a>]</p>
-	</div>
+<div class="htmlhowto">
+	<p>[<a href="http://www.alistapart.com/articles/previewofhtml5">source</a>][<a href="http://html5doctor.com/aside-revisited/">source</a>]</p>
+</div>
 
-	</section>
+</section>
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-	<section>
-	<h3>Address</h3>
+<section>
+<h3>Address</h3>
 
-	<script>insertAddress({
-		'fn': 'Wannes Meert',
-		'org': 'Departement of Computer Science, KU Leuven',
-		'adr': {
-			'street-address': 'Celestijnenlaan 200A',
-			'postal-code': '3001',
-			'locality': 'Heverlee (Leuven)',
-			'country-name': 'België',
-		},
-		'url': 'http://wannesm.be',
-	})</script>
-	
-	<pre><code>&lt;script&gt;insertAddress({
+<script>insertAddress({
+	'fn': 'Wannes Meert',
+	'org': 'Departement of Computer Science, KU Leuven',
+	'adr': {
+		'street-address': 'Celestijnenlaan 200A',
+		'postal-code': '3001',
+		'locality': 'Heverlee (Leuven)',
+		'country-name': 'België',
+	},
+	'url': 'http://wannesm.be',
+})</script>
+
+<pre><code>&lt;script&gt;insertAddress({
 	'fn': 'Wannes Meert',
 	'org': 'Departement of Computer Science, KU Leuven',
 	'adr': {
@@ -562,7 +501,7 @@ Only this and nothing more.&rdquo; (Edgar Allan Poe)</p>
 	'url': 'http://wannesm.be',
 })&lt;/script&gt;</code></pre>
 
-	</section>
+</section>
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 	<!--<section>-->
@@ -582,122 +521,123 @@ Only this and nothing more.&rdquo; (Edgar Allan Poe)</p>
 	</section>
 <!-- = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = -->
 
-	<section>
-	<h2>Lists</h2>
+<section>
+<h2>Lists</h2>
 
-	<section>
-	<h3>Inserting a numbered list</h3>
+<section>
+<h3>Inserting a numbered list</h3>
 
-	<div class="latexcmpline"><div class="latexcmp">
-		<pre><code>\begin{enumerate}
+<div class="latexcmpline"><div class="latexcmp">
+	<pre><code>\begin{enumerate}
 	\li Item 1
 	\li Item 2
 \end{enumerate}</code></pre>
-	</div></div>
+</div></div>
 
-	<figure class=listing>
-	<pre><code>&lt;ol&gt;
+<figure class=listing>
+<pre><code>&lt;ol&gt;
 	&lt;li&gt;Item 1
 	&lt;li&gt;Item 2
 &lt;/ol&gt;</code></pre>
-	</figure>
+</figure>
 
-	<p>Output:</p>
-	<ol>
-		<li>Item 1
-		<li>Item 2
-	</ol>
+<p>Output:</p>
+<ol>
+	<li>Item 1
+	<li>Item 2
+</ol>
 
-	</section>
+</section>
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-	<section>
-	<h3>Inserting a bullet list</h3>
+<section>
+<h3>Inserting a bullet list</h3>
 
-	<div class="latexcmpline"><div class="latexcmp">
-		<pre><code>\begin{itemize}
+<div class="latexcmpline"><div class="latexcmp">
+	<pre><code>\begin{itemize}
 	\li Item 1
 	\li Item 2
 \end{itemize}</code></pre>
-	</div></div>
+</div></div>
 
-	<figure class=listing>
-	<pre><code>&lt;ul&gt;
+<figure class=listing>
+<pre><code>&lt;ul&gt;
 	&lt;li&gt;Item 1
 	&lt;li&gt;Item 2
 &lt;/ul&gt;</code></pre>
-	</figure>
+</figure>
 
-	<p>Output:</p>
-	<ul>
-		<li>Item 1
-		<li>Item 2
-	</ul>
+<p>Output:</p>
+<ul>
+	<li>Item 1
+	<li>Item 2
+</ul>
 
-	</section>
+</section>
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-	<section>
-	<h3>Inserting a description list</h3>
+<section>
+<h3>Inserting a description list</h3>
 
-	<div class="latexcmpline"><div class="latexcmp">
-		<pre><code>\begin{itemize}
+<div class="latexcmpline"><div class="latexcmp">
+	<pre><code>\begin{itemize}
 	\li[Label 1] Item 1
 	\li[Label 2] Item 2
 \end{itemize}</code></pre>
-	</div></div>
+</div></div>
 
-	<figure class=listing>
-	<pre><code>&lt;dl&gt;
+<figure class=listing>
+<pre><code>&lt;dl&gt;
 	&lt;dt&gt;Label 1 &lt;dd&gt;Item 1
 	&lt;dt&gt;Label 2 &lt;dd&gt;Item 2
 &lt;/dl&gt;</code></pre>
-	</figure>
+</figure>
 
-	<p>Output:</p>
-	<dl>
-		<dt>Label 1 <dd>Item 1
-		<dt>Label 2 <dd>Item 2
-	</dl>
+<p>Output:</p>
+<dl>
+	<dt>Label 1 <dd>Item 1
+	<dt>Label 2 <dd>Item 2
+</dl>
 
-	</section>
-	</section>
+</section>
+
+</section>
 
 <!-- = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = -->
-	<section>
-	<h2>Floats</h2>
+<section>
+<h2>Floats</h2>
 
-	<section>
-	<h3>Inserting an image</h3>
-	
-	<p>HTML allows to insert image formats like .jpg, .png, .gif. In browsers that support all CSS3 properties you can autonumber references (e.g., <a href="#firstfig" class="figref"></a>). See also the section about <a href="#crossreferences">cross-referencing</a>.</p>
+<section>
+<h3>Inserting an image</h3>
 
-	<figure id="firstfig" class=span>
-	<img src="img/image.jpg" title="Example image." />
-	<figcaption>Example image.</figcaption>
-	</figure>
+<p>HTML allows to insert image formats like .jpg, .png, .gif. In browsers that support all CSS3 properties you can autonumber references (e.g., <a href="#firstfig" class="figref"></a>). See also the section about <a href="#crossreferences">cross-referencing</a>.</p>
 
-	<div class="latexcmpline"><div class="latexcmp">
-		<pre><code>Reference this figure \ref{firstfig}.
+<figure id="firstfig" class=span>
+<img src="img/image.jpg" title="Example image." />
+<figcaption>Example image.</figcaption>
+</figure>
+
+<div class="latexcmpline"><div class="latexcmp">
+	<pre><code>Reference this figure \ref{firstfig}.
 \begin{figure}
 	\includegraphic{image.jpg}
 	\caption{Example image.
 	\label{firstfig}
 \end{figure}</code></pre>
-	</div></div>
+</div></div>
 
-	<figure class=listing>
-	<pre><code>&lt;p&gt;Reference &lt;a class="figref" href="#firstfig"&gt;this figure&lt;/a&gt;.&lt;/p&gt;
+<figure class=listing>
+<pre><code>&lt;p&gt;Reference &lt;a class="figref" href="#firstfig"&gt;this figure&lt;/a&gt;.&lt;/p&gt;
 &lt;figure id="firstfig"&gt;
 	&lt;img alt="image" src="image.jpg" /&gt;
 	&lt;figcaption&gt;Example image.&lt;/figcaption&gt;
 &lt;/figure&gt;</code></pre>
-	<figcaption>Code to insert an image.</figcaption>
-	</figure>
+<figcaption>Code to insert an image.</figcaption>
+</figure>
 
-	<div class="htmlhowto">
-		CSS-code for numbering:
-		<pre><code>body {
+<div class="htmlhowto">
+	CSS-code for numbering:
+	<pre><code>body {
 	counter-reset: figure;
 	/* Warning: only one counter-reset allowed per tag/class/id. */
 	/* You need to combine different counters in one counter-reset. */
@@ -710,61 +650,61 @@ figure {
 figure figcaption::before {
 	content: "Figure " counter(figure) ": ";
 }</code></pre>
-	</div>
+</div>
 
-	<div class="htmlhowto">
-		CSS-code for avoid split over pages:
-		<pre><code>figure {
+<div class="htmlhowto">
+	CSS-code for avoid split over pages:
+	<pre><code>figure {
 	page-break-inside: avoid;
 }</code></pre>
-	</div>
+</div>
 
-	</section>
+</section>
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-	<section>
-	<h3>Inserting a pdf</h3>
+<section>
+<h3>Inserting a pdf</h3>
 
-	<p>Next to image files, you can also include pdfs as images (works in Safari, for Chrome and Firefox you'd need to use the <code>object</code> tag).</p>
+<p>Next to image files, you can also include pdfs as images (works in Safari, for Chrome and Firefox you'd need to use the <code>object</code> tag).</p>
 
-	<figure>
-		<img src="img/results.pdf" title="Results" style="width:60%;" />
-		<figcaption>Example pdf.</figcaption>
-	</figure>
+<figure>
+	<img src="img/results.pdf" title="Results" style="width:60%;" />
+	<figcaption>Example pdf.</figcaption>
+</figure>
 
-	<div class="latexcmpline"><div class="latexcmp">
-		<pre><code>\begin{figure}
+<div class="latexcmpline"><div class="latexcmp">
+	<pre><code>\begin{figure}
 	\includegraphic{results.pdf}
 	\caption{Example pdf.}
 \end{figure}</code></pre>
-	</div></div>
+</div></div>
 
-	<figure>
-		<pre><code>&lt;figure&gt;
+<figure>
+	<pre><code>&lt;figure&gt;
 	&lt;img src="img/results.pdf" title="results" width="60%" &gt;
 	&lt;figcaption&gt;Example pdf.&lt;/figcaption&gt;
 &lt;/figure&gt;</code></pre>
-		<figcaption>Code to insert pdf.</figcaption>
-	</figure>
+	<figcaption>Code to insert pdf.</figcaption>
+</figure>
 
-	<div class=htmlhowto>
-		<p>This can also be achieved by using the <code>object</code> tag.</p>
-		<pre><code>&lt;figure&gt;
+<div class=htmlhowto>
+	<p>This can also be achieved by using the <code>object</code> tag.</p>
+	<pre><code>&lt;figure&gt;
 	&lt;object data="img/results.pdf" type="application/pdf" title="results" width="460pt" height="189pt"&gt;&lt;/object&gt;
 	&lt;figcaption&gt;Example pdf.&lt;/figcaption&gt;
 &lt;/figure&gt;</code></pre>
-	</div>
+</div>
 
-	</section>
+</section>
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-	<section>
-	<h3>Inserting code</h3>
+<section>
+<h3>Inserting code</h3>
 
-	<p>Some inline <code>code-snippet</code> to show how it looks like.</p>
+<p>Some inline <code>code-snippet</code> to show how it looks like.</p>
 
-	<div class="latexcmpline"><div class="latexcmp">
-		<pre><code>Inline \textrm{code-snippet}...
+<div class="latexcmpline"><div class="latexcmp">
+	<pre><code>Inline \textrm{code-snippet}...
 \begin{listing}
 	&lt;pre&gt;&lt;code&gt;
 		&lt;figure class=listing&gt;
@@ -773,10 +713,10 @@ figure figcaption::before {
 	&lt;/code&gt;&lt;/pre&gt;
 	\caption{Example code.}
 \end{listing}</code></pre>
-	</div></div>
+</div></div>
 
-	<figure class=listing>
-	<pre><code>&lt;p&gt;Inline &lt;code&gt;code-snippet&lt;/code&gt;...&lt;/p&gt;
+<figure class=listing>
+<pre><code>&lt;p&gt;Inline &lt;code&gt;code-snippet&lt;/code&gt;...&lt;/p&gt;
 &lt;figure class=listing&gt;
 	&lt;pre&gt;&lt;code&gt;
 		&lt;figure class=listing&gt;
@@ -785,53 +725,53 @@ figure figcaption::before {
 	&lt;/code&gt;&lt;/pre&gt;
 	&lt;figcaption&gt;Example code.&lt;/figcaption&gt;
 &lt;/figure&gt;</code></pre>
-	<figcaption>Example code.</figcaption>
-	</figure>
+<figcaption>Example code.</figcaption>
+</figure>
 
-	<div class="htmlhowto">
-		<ul>
-			<li>Inline code samples use the <code>&lt;code&gt;</code> element.
-			<li>Block-level samples of text where whitespace is signficant use the <code>&lt;pre&gt;</code> element.
-			<li>So a block of code with significant whitespace uses <code>&lt;pre&gt;&lt;code&gt;</code>.
-		</ul>
-		<p>[<a target="new" href="http://projectcerbera.com/web/articles/code-in-pre">source</a>]</p>
-	</div>
+<div class="htmlhowto">
+	<ul>
+		<li>Inline code samples use the <code>&lt;code&gt;</code> element.
+		<li>Block-level samples of text where whitespace is signficant use the <code>&lt;pre&gt;</code> element.
+		<li>So a block of code with significant whitespace uses <code>&lt;pre&gt;&lt;code&gt;</code>.
+	</ul>
+	<p>[<a target="new" href="http://projectcerbera.com/web/articles/code-in-pre">source</a>]</p>
+</div>
 
-	</section>
+</section>
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-	<section>
-	<style scoped>
-		table {
-			width: 40%;
-		}
-	</style>
+<section>
+<style scoped>
+	table {
+		width: 40%;
+	}
+</style>
 
-	<h3>Inserting a table</h3>
+<h3>Inserting a table</h3>
 
-	<figure class=table>
-	<table>
-		<caption>Table title.</caption>
-		<thead>
-			<tr>
-				<th> Col1
-				<th> Col2
-				<th> Col3
-		<tbody>
-			<tr>
-				<td> Item 1 1
-				<td> Item 1 2
-				<td> Item 1 3
-			<tr>
-				<td> Item 2 1
-				<td> Item 2 2
-				<td> Item 2 3
-	</table>
-	<figcaption>Tabular caption text.</figcaption>
-	</figure>
+<figure class=table>
+<table>
+	<caption>Table title.</caption>
+	<thead>
+		<tr>
+			<th> Col1
+			<th> Col2
+			<th> Col3
+	<tbody>
+		<tr>
+			<td> Item 1 1
+			<td> Item 1 2
+			<td> Item 1 3
+		<tr>
+			<td> Item 2 1
+			<td> Item 2 2
+			<td> Item 2 3
+</table>
+<figcaption>Tabular caption text.</figcaption>
+</figure>
 
-	<div class="latexcmpline"><div class="latexcmp">
-		<pre><code>\begin{table}
+<div class="latexcmpline"><div class="latexcmp">
+	<pre><code>\begin{table}
 	\begin{tabular}{ccc}
 		\textbf{Col1} &amp; \textbf{Col2} &amp; \textbf{Col3} \\
 		Item 1 1 &amp; Item 1 2 &amp; Item 1 3\\
@@ -839,7 +779,7 @@ figure figcaption::before {
 	\end{tabular}
 	\caption{Tabular caption text.}
 \end{table}</code></pre>
-	</div></div>
+</div></div>
 
 <pre><code>&lt;figure class=table&gt;
 &lt;table&gt;
@@ -854,72 +794,72 @@ figure figcaption::before {
 &lt;/figure&gt;
 </code></pre>
 
-	</section>
+</section>
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-	<section>
-	<style scoped>
-		table.styledtable {
-			width: 40%;
-			border: 1px rgba(10%, 10%, 10%, 0.5) solid;
-		}
-		table.styledtable caption {
-			font-weight: bold;
-		}
-		table.styledtable .col1 {
-			background-color: #ffffda;
-		}
-		table.styledtable thead {
-			background-color: rgba(10%, 10%, 10%, 0.5);
-			color: white;
-		}
-		table.styledtable thead,
-		table.styledtable tbody {
-		}
-		table.styledtable tbody tr:nth-child(even) {
-			background-color: rgba(85%, 85%, 85%, 0.5);
-		}
-	</style>
+<section>
+<style scoped>
+	table.styledtable {
+		width: 40%;
+		border: 1px rgba(10%, 10%, 10%, 0.5) solid;
+	}
+	table.styledtable caption {
+		font-weight: bold;
+	}
+	table.styledtable .col1 {
+		background-color: #ffffda;
+	}
+	table.styledtable thead {
+		background-color: rgba(10%, 10%, 10%, 0.5);
+		color: white;
+	}
+	table.styledtable thead,
+	table.styledtable tbody {
+	}
+	table.styledtable tbody tr:nth-child(even) {
+		background-color: rgba(85%, 85%, 85%, 0.5);
+	}
+</style>
 
-	<h3>Styling a table</h3>
-	
-	<p>For style you can use CSS.</p>
-	
-	<figure class=table>
-	<table class="styledtable">
-		<caption>Table title</caption>
-		<colgroup>
-			<col class=col1 />
-			<col class=col2 />
-			<col class=col3 />
-		</colgroup>
-		<thead>
-			<tr>
-				<th> Col1
-				<th> Col2
-				<th> Col3
-		<tbody>
-			<tr>
-				<td> Item 1 1
-				<td> Item 1 2
-				<td> Item 1 3
-			<tr>
-				<td> Item 2 1
-				<td> Item 2 2
-				<td> Item 2 3
-			<tr>
-				<td> Item 3 1
-				<td> Item 3 2
-				<td> Item 3 3
-			<tr>
-				<td> Item 4 1
-				<td> Item 4 2
-				<td> Item 4 3
-	</table>
-	<figcaption>Stylized table</figcaption>
-	</figure>
+<h3>Styling a table</h3>
 
-	<pre><code>&lt;style&gt;
+<p>For style you can use CSS.</p>
+
+<figure class=table>
+<table class="styledtable">
+	<caption>Table title</caption>
+	<colgroup>
+		<col class=col1 />
+		<col class=col2 />
+		<col class=col3 />
+	</colgroup>
+	<thead>
+		<tr>
+			<th> Col1
+			<th> Col2
+			<th> Col3
+	<tbody>
+		<tr>
+			<td> Item 1 1
+			<td> Item 1 2
+			<td> Item 1 3
+		<tr>
+			<td> Item 2 1
+			<td> Item 2 2
+			<td> Item 2 3
+		<tr>
+			<td> Item 3 1
+			<td> Item 3 2
+			<td> Item 3 3
+		<tr>
+			<td> Item 4 1
+			<td> Item 4 2
+			<td> Item 4 3
+</table>
+<figcaption>Stylized table</figcaption>
+</figure>
+
+<pre><code>&lt;style&gt;
 	table.styledtable {
 		width: 40%;
 		border: 1px rgba(10%, 10%, 10%, 0.5) solid;
@@ -942,38 +882,114 @@ figure figcaption::before {
 ...
 </code></pre>
 
-	</section>
+</section>
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-	<section>
-	<h3>Float positioning</h3>
+<section>
+<h3>Float positioning</h3>
 
-	<p>Add <code>top</code> or <code>bottom</code> class to your figure environment to position the figure at the top or botton of a page (requires css properties not yet supported in all browsers).</p>
+<p>Add <code>top</code> or <code>bottom</code> class to your figure environment to position the figure at the top or botton of a page (requires css properties not yet supported in all browsers).</p>
 
-	<div class="latexcmpline"><div class="latexcmp">
-		<pre><code>\begin{figure}[t]...</code></pre>
-	</div></div>
+<div class="latexcmpline"><div class="latexcmp">
+	<pre><code>\begin{figure}[t]...</code></pre>
+</div></div>
 
-	<pre><code>&lt;figure class="top"&gt;...</code></pre>
+<pre><code>&lt;figure class="top"&gt;...</code></pre>
 
-	<div class="htmlhowto">
-		<pre><code>figure .top {
+<div class="htmlhowto">
+	<pre><code>figure .top {
 	float: top;
 }</code></pre>
-		<p>[<a href="http://www.w3.org/TR/css3-gcpm/#page-floats">source</a>]</p>
-	</div>
+	<p>[<a href="http://www.w3.org/TR/css3-gcpm/#page-floats">source</a>]</p>
+</div>
 
-	</section>
-	</section>
+</section>
+
+</section>
 
 <!-- = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = -->
 
-	<section>
-	<h2>Mathematics</h2>
+<section>
+<h2>Fonts</h2>
 
-	<section>
-	<h3>Inserting an equation</h3>
-	<p>articlecls uses <a href="http://mathjax.org">MathJax</a> to display mathematical equations with $\LaTeX$ inline $\frac{a}{b}$ and as blocks:</p>
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<section>
+<style scoped>
+	@import url(http://fonts.googleapis.com/css?family=Vollkorn);
+	.otherfont {
+		font-family: 'Gill Sans', 'Vollkorn', sans-serif;
+	}
+</style>
+
+<h3>Switch fonts</h3>
+
+
+<p>All fonts installed on your computer can also be used by setting the css <code>font-family</code> property. The following paragraph, for example, uses your local Gill Sans font (if that is not available the Vollkorn font will be used):</p>
+<p class="otherfont">
+	Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+</p>
+
+<pre><code>&lt;style&gt;
+	.otherfont {
+		font-family: 'Gill Sans', 'Vollkorn', sans-serif;
+	}
+&lt;/style&gt;
+&lt;p class="otherfont"&gt;...</code></pre>
+
+<div class="htmlhowto">
+	<p>articlecls only uses the local fonts but you can easily use <a href="http://www.google.com/webfonts">Google Web Fonts</a> or <a href="https://typekit.com/">Typekit</a> if you want to publish online.</p>
+	<p>[<a href="http://hellohappy.org/beautiful-web-type/">source</a>]</p>
+</div>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<section>
+<style scoped>
+	@font-face { 
+		font-family: "articlecls";
+		src: url(fonts/articlecls.svg#articlecls) format("svg");
+	}
+	.star        { font-family: "articlecls"; }
+	.star:before { content:     "s"; }
+	.accolade        {
+		font-family: "articlecls";
+		position: relative;
+		top: .4em;
+	}
+	.accolade:before { content:     "a"; }
+</style>
+
+<h3>Customized symbols</h3>
+<p>You can create your own fontfile with customized symbols by using, for example, Inkscape or <a href="http://www.w3.org/TR/SVG/fonts.html">SVG</a> directly. Such fontfiles can be loaded with css and used in your documents. As an example, the font described in <code>fonts/articlecls.svg</code> contains a customized star symbol: <span class=star></span> or an accolade: <span class=accolade></span>. It can be called as follows:
+
+<pre><code>&lt;style scoped&gt;
+	@font-face { 
+		font-family: "articlecls";
+		src: url(fonts/articlecls.svg#articlecls) format("svg");
+	}
+	.star { font-family: "articlecls"; }
+	.star:before { content: "s"; }
+&lt;/style&gt;
+... star symbol: &lt;span class=star&gt;&lt;/span&gt;</pre></code>
+
+<div class="htmlhowto">
+	<p>More information about making your own font on the <a href="http://www.webdesignerdepot.com/2012/01/how-to-make-your-own-icon-webfont/">Webdesigner depot website</a> or the <a href="http://cleversomeday.files.wordpress.com/2010/02/inkscape-dingbats.pdf">Clever Some Day blog</a>.
+	<p>For an example svg font, take a look at <a href="https://github.com/somerandomdude/Iconic">Iconic</a> or this <a href="http://css-tricks.com/flat-icons-icon-fonts/">CSS-Tricks.com overview</a>. To transform into other font formats, you can use the <a href="http://www.fontsquirrel.com/fontface/generator">Font Squirell @font-face generator</a>.
+</div>
+
+</section>
+
+</section>
+
+<!-- = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = -->
+
+<section>
+<h2>Mathematics</h2>
+
+<section>
+<h3>Inserting an equation</h3>
+<p>articlecls uses <a href="http://mathjax.org">MathJax</a> to display mathematical equations with $\LaTeX$ inline $\frac{a}{b}$ and as blocks:</p>
 
 $$\label{eqsimple}\frac{a}{b}$$
 
@@ -991,8 +1007,8 @@ $$\label{eqsimple}\frac{a}{b}$$
 
 <p>And we can reference equations \eqref{eqmaxwell} and \eqref{eqsimple}.</p>
 
-	<div class="latexcmpline"><div class="latexcmp">
-		<pre><code>&#92;&#91;
+<div class="latexcmpline"><div class="latexcmp">
+	<pre><code>&#92;&#91;
 &#92;begin{aligned}
 &#92;label{eqmaxwell}
 &#92;nabla &#92;times &#92;vec{&#92;mathbf{B}} -&#92;, &#92;frac1c&#92;, &#92;frac{&#92;partial&#92;vec{&#92;mathbf{E}}}{&#92;partial t} &amp; = &#92;frac{4&#92;pi}{c}&#92;vec{&#92;mathbf{j}} &#92;&#92;
@@ -1003,10 +1019,10 @@ $$\label{eqsimple}\frac{a}{b}$$
 &#92;&#93;
 And we can reference equations &#92;ref{eqmaxwell}.
 </code></pre>
-	</div></div>
+</div></div>
 
-	<figure class=listing>
-	<pre><code>&#92;&#91;
+<figure class=listing>
+<pre><code>&#92;&#91;
 &#92;begin{aligned}
 &#92;label{eqmaxwell}
 &#92;nabla &#92;times &#92;vec{&#92;mathbf{B}} -&#92;, &#92;frac1c&#92;, &#92;frac{&#92;partial&#92;vec{&#92;mathbf{E}}}{&#92;partial t} &amp; = &#92;frac{4&#92;pi}{c}&#92;vec{&#92;mathbf{j}} &#92;&#92;
@@ -1017,25 +1033,26 @@ And we can reference equations &#92;ref{eqmaxwell}.
 &#92;&#93;
 &lt;p&gt;And we can reference equations &#92;eqref{eqmaxwell}.&lt;/p&gt;
 </code></pre>
-	</figure>
-	</section>
-	</section>
+</figure>
+</section>
+
+</section>
 
 <!-- = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = -->
 
-	<section>
-	<h2>Bibliography</h2>
+<section>
+<h2>Bibliography</h2>
 
-	<p><code>Article.cls</code> uses <a href="http://gsl-nagoya-u.net/http/pub/citeproc-doc.html#retrieveitem">citeproc-js</a>, which is an implementation of the <a href="http://citationstyles.org/">Citation Style Language (CSL)</a>, to handle citations.</p>
+<p><code>Article.cls</code> uses <a href="http://gsl-nagoya-u.net/http/pub/citeproc-doc.html#retrieveitem">citeproc-js</a>, which is an implementation of the <a href="http://citationstyles.org/">Citation Style Language (CSL)</a>, to handle citations.</p>
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-	<section>
-	<h3>Inserting citations</h3>
-	
-	<p>Citations can be added to a Javascript file that is included as an option to the <code>article.cls</code> class: <code>bibliography=articlecls_bib.js</code>. Citing within the document has the following result: see reference <a href="#Meert2012" class=cite></a> and <a href="#Meert2011" class=cite></a>. The necessary html-code is the following:</p>
+<section>
+<h3>Inserting citations</h3>
 
-	<div class="latexcmpline"><div class="latexcmp">
-	<pre><code>see reference \ref{Meert2012}.
+<p>Citations can be added to a Javascript file that is included as an option to the <code>article.cls</code> class: <code>bibliography=articlecls_bib.js</code>. Citing within the document has the following result: see reference <a href="#Meert2012" class=cite></a> and <a href="#Meert2011" class=cite></a>. The necessary html-code is the following:</p>
+
+<div class="latexcmpline"><div class="latexcmp">
+<pre><code>see reference \ref{Meert2012}.
 
 # BibTeX
 \bibliographystyle{ieee}
@@ -1048,18 +1065,18 @@ And we can reference equations &#92;ref{eqmaxwell}.
 # body
 \printbibliogaphy
 </code></pre>
-	</div></div>
+</div></div>
 
-	<pre><code>see reference &lt;a href="#Meert2012" class=cite&gt;&lt;/a&gt;.
+<pre><code>see reference &lt;a href="#Meert2012" class=cite&gt;&lt;/a&gt;.
 
 &lt;section id=bibliography&gt;
 	&lt;h2&gt;Bibliography&lt;/&gt;
 &lt;/section&gt;</code></pre>
 
-	<p>The bib entries themselves are entered as Javascript according to the <a href="http://gsl-nagoya-u.net/http/pub/citeproc-doc.html#data-input">citeproc-js format</a> and is based on the <a href="http://www.loc.gov/standards/mods/">MODS</a> bibliography metadata format. The file <code>articlecls_bib.js</code>, for example, contains the following:
+<p>The bib entries themselves are entered as Javascript according to the <a href="http://gsl-nagoya-u.net/http/pub/citeproc-doc.html#data-input">citeproc-js format</a> and is based on the <a href="http://www.loc.gov/standards/mods/">MODS</a> bibliography metadata format. The file <code>articlecls_bib.js</code>, for example, contains the following:
 
-	<div class="latexcmpline"><div class="latexcmp">
-	<pre><code>% BibTeX
+<div class="latexcmpline"><div class="latexcmp">
+<pre><code>% BibTeX
 @article{Meert2012
 	title = {Some example reference title},
 	author = {
@@ -1072,9 +1089,9 @@ And we can reference equations &#92;ref{eqmaxwell}.
 	year = {2012}
 }
 ...</code></pre>
-	</div></div>
+</div></div>
 
-	<pre><code>var bibdata = {
+<pre><code>var bibdata = {
 	"Meert2012" : {
 		"id": "Meert2012",
 		"title": "Some example reference title",
@@ -1094,161 +1111,167 @@ And we can reference equations &#92;ref{eqmaxwell}.
 	},
 	...</code></pre>
 
-	<p>The result can be seen in the <a href="#bibliography">bibliography section</a>.</p>
+<p>The result can be seen in the <a href="#bibliography">bibliography section</a>.</p>
 
-	<div class=htmlhowto>
-		<p>More information about CSL:</p>
-		<ul>
-			<li>CSL is used by Mendeley, Zotero, Pages2, ...
-			<li>The input language is based upon MODS (for citeproc-js, a JSON version of MODS is used).
-			<li>Generating your own style: <a href="http://csleditor.quist.de/csleditor/show/1/example-citation-style">CSL Editor</a> or <a href="http://csleditor.wordpress.com/">New CSL Editor</a>.
-		</ul>
-	</div>
+<div class=htmlhowto>
+	<p>More information about CSL:</p>
+	<ul>
+		<li>CSL is used by Mendeley, Zotero, Pages2, ...
+		<li>The input language is based upon MODS (for citeproc-js, a JSON version of MODS is used).
+		<li>Generating your own style: <a href="http://csleditor.quist.de/csleditor/show/1/example-citation-style">CSL Editor</a> or <a href="http://csleditor.wordpress.com/">New CSL Editor</a>.
+	</ul>
+</div>
 
-	</section>
+</section>
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-	<section>
-	<h3>Using bibliography styles</h3>
-	
-	<p>Citation styles can be set as an <code>article.cls</code> option:</p>
+<section>
+<h3>Using bibliography styles</h3>
 
-	<pre><code>&lt;script data-options="bibliography=articlecls_bib.js, citationstyle=ieee" src="js/articlecls.js"&gt;&lt;/script&gt;</code></pre>
+<p>Citation styles can be set as an <code>article.cls</code> option:</p>
 
-	<p>Extra citation and bibliography styles can be found at the <a href="http://citationstyles.org/styles/">CLS: citation styles website</a> and copied into the citationstyles variable (e.g., in your bibliography javascript file) as follows:</p>
+<pre><code>&lt;script data-options="bibliography=articlecls_bib.js, citationstyle=ieee" src="js/articlecls.js"&gt;&lt;/script&gt;</code></pre>
 
-	<pre><code>citationstyles['myieee'] = "&lt;style xmlns=\"http://purl.org/net/xbiblio/csl\" class=\"in-text\"&gt;&lt;info&gt;...</code></pre>
+<p>Extra citation and bibliography styles can be found at the <a href="http://citationstyles.org/styles/">CLS: citation styles website</a> and copied into the citationstyles variable (e.g., in your bibliography javascript file) as follows:</p>
 
-	<p>The new style is now available with the name 'myieee' to the <code>citationstyle</code> option. The result can be seen in the <a href="#bibliography">bibliography section</a>.</p>
+<pre><code>citationstyles['myieee'] = "&lt;style xmlns=\"http://purl.org/net/xbiblio/csl\" class=\"in-text\"&gt;&lt;info&gt;...</code></pre>
 
-	</section>
+<p>The new style is now available with the name 'myieee' to the <code>citationstyle</code> option. The result can be seen in the <a href="#bibliography">bibliography section</a>.</p>
 
-	</section>
+</section>
+
+</section>
 <!-- = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = -->
 
-	<section>
-	<h2>Converting to PDF</h2>
+<section>
+<h2>Converting to PDF</h2>
 
-	<section>
-	<h3>Page size</h3>
+<section>
+<h3>Page size</h3>
 
-	<p>The output is printed to an A4-pdf.</p>
+<p>The output is printed to an A4-pdf.</p>
 
-	<div class="htmlhowto">
-		<pre><code>@page {
+<div class="htmlhowto">
+	<pre><code>@page {
 	size: A4;
 	/* size: letter; */
 	/* size: 210mm 297mm; */
 	margin: 27mm 16mm 27mm 16mm;
 	/* marks: crop cropss; */
 }</code></pre>
-	</div>
+</div>
 
-	</section>
+</section>
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 
-	<section>
-	<h3>HTML to PDF convertor</h3>
-	<h4>Browser</h4>
-	<p>Use print functionality of Safari or Firefox. Not all new print-related css features are yet available.</p>
-	<h4 id="prince"><a href="http://www.princexml.com/">Prince</a></h4><p>Direct printing from html. Supports new css features targeted towards print but has less support for javascript.</p>
-	<p>
-	Usage:
-	</p>
+<section>
+<h3>HTML to PDF convertor</h3>
 
-	<div class="latexcmpline"><div class="latexcmp">
-		<pre><code>$ latex  articlecls
+<h4>Browser</h4>
+<p>Use print functionality of Safari or Firefox. Not all new print-related css features are yet available.</p>
+
+<h4 id="prince"><a href="http://www.princexml.com/">Prince</a></h4>
+<p>Direct printing from html. Supports new css features targeted towards print but has less support for javascript.</p>
+<p>
+Usage:
+</p>
+
+<div class="latexcmpline"><div class="latexcmp">
+	<pre><code>$ latex  articlecls
 $ bibtex articlecls
 $ latex  articlecls
 $ latex  articlecls</code></pre>
-	</div></div>
+</div></div>
 
-	<pre><code>$ prince articlecls.html -o articlecls.pdf</code></pre>
-	</section>
-	</section>
+<pre><code>$ prince articlecls.html -o articlecls.pdf</code></pre>
+</section>
+
+</section>
+
+<!-- = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = -->
+
+<section>
+<h2>Conclusions</h2>
+
+<section>
+<h3>Dependencies</h3>
+
+<ul>
+<li><a href="http://necolas.github.com/normalize.css/">Normalize.css</a>: Start from a normalized CSS state.
+<li><a href="http://jquery.com/">jQuery</a>: More easily alter the DOM-tree using Javascript.
+<li><a href="http://www.mathjax.org/">MathJax</a>: For displaying mathematical equations.
+<li><a href="http://code.google.com/p/hyphenator/">Hyphenator.js</a>: Improved hyphenation.
+<li><a href="https://bitbucket.org/fbennett/citeproc-js/">Citeproc-js</a>: Citation formatting.
+<li>CSS3: The CSS standard that contains the paged media options.
+<li>HTML5: HTML with more semantic tags usable for print
+</ul>
+
+</section>
+
+<section>
+<h3>Comparison to LaTeX</h3>
+
+<h4>Advantages of HTML to LaTeX</h4>
+<ul>
+	<li><strong>Future-proof</strong>: HTML becomes more and more important as a format for traditional and ebook publishing. It serves as the basis for the <a href="http://en.wikipedia.org/wiki/EPUB">.epub</a> format and the <a href="http://www.apple.com/ibooks-author/">.ibooks</a> format. Also, it is used for online word processors like <a href="http://docs.google.com">Google Docs</a> and <a href="https://writer.zoho.com">Zoho Writer</a>.
+	<li><strong>Mobile</strong>: Easy reformatting for mobile usage.
+	<li><strong>Online</strong>: Easy distribution of articles over the web (native).
+	<li><strong>Debugging</strong>: Easy css and javascript debugging with advanced tools (in-browser tools, Firebug, Web inspector, htmllint, jslint, csslint, ...).
+	<li><strong>Stylize</strong>: It is more easy to make visually appealing layouts with html and css.
+	<li><strong>Interactive</strong>: In html it is easy to incorporate dynamic content for ebooks and online articles.
+</ul>
+
+<h4>Disadvantages of HTML to LaTeX</h4>
+<ul>
+	<li><strong>Consistency</strong>: LaTeX has more consistent commands.<br/>
+	In html you mix html-commands, css-commands, javascript-commands, and, in our case, MathJax-commands which all have a different syntax.<br>
+	Applying <a href="http://handlebarsjs.com/">Handlebars.js</a> would make the syntax more consistent but at the cost of introducing yet another (non-standard) style.
+	<li><strong>Cross-referencing</strong>: Cross-referencing is not as easy and consistent as in LaTeX.<br/>
+	For example, you need to add a class to notify css that it is a reference to an image or a table to get the correct count automatically inserted (although this is probably solvable with some Javascript pre-processing).
+	<li><strong>Redefinability</strong>: LaTeX allows hooks on all levels. With html you are limited to the hooks defined beforehand (although powerful things are possible as is proven by the MathJax library).
+</ul>
+
+</section>
+
+</section>
 
 <!-- = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = -->
 
-	<section>
-	<h2>Final thoughts</h2>
-
-	<section>
-	<h3>Dependencies</h3>
-
-	<ul>
-	<li><a href="http://necolas.github.com/normalize.css/">Normalize.css</a>: Start from a normalized CSS state.
-	<li><a href="http://jquery.com/">jQuery</a>: More easily alter the DOM-tree using Javascript.
-	<li><a href="http://www.mathjax.org/">MathJax</a>: For displaying mathematical equations.
-	<li><a href="http://code.google.com/p/hyphenator/">Hyphenator.js</a>: Improved hyphenation.
-	<li><a href="https://bitbucket.org/fbennett/citeproc-js/">Citeproc-js</a>: Citation formatting.
-	<li>CSS3: The CSS standard that contains the paged media options.
-	<li>HTML5: HTML with more semantic tags usable for print
-	</ul>
-
-	</section>
-
-	<section>
-	<h3>Comparison to LaTeX</h3>
-
-	<h4>Advantages of HTML to LaTeX</h4>
-	<ul>
-		<li><strong>Future-proof</strong>: HTML becomes more and more important as a format for traditional and ebook publishing. It serves as the basis for the <a href="http://en.wikipedia.org/wiki/EPUB">.epub</a> format and the <a href="http://www.apple.com/ibooks-author/">.ibooks</a> format. Also, it is used for online word processors like <a href="http://docs.google.com">Google Docs</a> and <a href="https://writer.zoho.com">Zoho Writer</a>.
-		<li><strong>Mobile</strong>: Easy reformatting for mobile usage.
-		<li><strong>Online</strong>: Easy distribution of articles over the web (native).
-		<li><strong>Debugging</strong>: Easy css and javascript debugging with advanced tools (in-browser tools, Firebug, Web inspector, htmllint, jslint, csslint, ...).
-		<li><strong>Stylize</strong>: It is more easy to make visually appealing layouts with html and css.
-		<li><strong>Interactive</strong>: In html it is easy to incorporate dynamic content for ebooks and online articles.
-	</ul>
-
-	<h4>Disadvantages of HTML to LaTeX</h4>
-	<ul>
-		<li><strong>Consistency</strong>: LaTeX has more consistent commands.<br/>
-		In html you mix html-commands, css-commands, javascript-commands, and, in our case, MathJax-commands which all have a different syntax.<br>
-		Applying <a href="http://handlebarsjs.com/">Handlebars.js</a> would make the syntax more consistent but at the cost of introducing yet another (non-standard) style.
-		<li><strong>Cross-referencing</strong>: Cross-referencing is not as easy and consistent as in LaTeX.<br/>
-		For example, you need to add a class to notify css that it is a reference to an image or a table to get the correct count automatically inserted (although this is probably solvable with some Javascript pre-processing).
-		<li><strong>Redefinability</strong>: LaTeX allows hooks on all levels. With html you are limited to the hooks defined beforehand (although powerful things are possible as is proven by the MathJax library).
-	</ul>
-
-	</section>
-
-	</section>
+<section id="glossary">
+<h2 class="nonumber">Glossary</h2>
+</section>
 
 <!-- = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = -->
-	<section id="glossary">
-	<h2 class="nonumber">Glossary</h2>
-	</section>
 
+<section>
+<h2 class="nonumber">References</h2>
+
+<ul>
+	<li>W3C, <cite><a href="http://www.w3.org/TR/css3-gcpm/">CSS Generated Content for Paged Media Module</a></cite>, 2011
+	<li>W3C, <cite><a href="http://www.w3.org/TR/html5/spec.html">HTML5</a></cite>, 2011
+	<li>WhatWG, <cite><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/index.html">HTML Standard</a></cite>, 2012
+	<li>A List Apart, <cite><a href="http://www.alistapart.com/articles/boom">Printing a Book with CSS: Boom!</a></cite>, 2005
+	<li>A List Apart, <cite><a href="http://www.alistapart.com/articles/goingtoprint/">Going to print</a></cite>, 2002
+	<li>nettuts+, <cite><a href="http://net.tutsplus.com/tutorials/html-css-techniques/25-html5-features-tips-and-techniques-you-must-know/">28 HTML5 Features, Tips, and Techniques You Must Know</a></cite>, 2011
+	<li>w3schools, <cite><a href="http://www.w3schools.com/cssref/css3_browsersupport.asp">CSS3 Browser Support Reference</a></cite>, 2011
+</ul>
+
+</section>
 <!-- = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = -->
-	<section>
-	<h2 class="nonumber">References</h2>
-	
-	<ul>
-		<li>W3C, <cite><a href="http://www.w3.org/TR/css3-gcpm/">CSS Generated Content for Paged Media Module</a></cite>, 2011
-		<li>W3C, <cite><a href="http://www.w3.org/TR/html5/spec.html">HTML5</a></cite>, 2011
-		<li>WhatWG, <cite><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/index.html">HTML Standard</a></cite>, 2012
-		<li>A List Apart, <cite><a href="http://www.alistapart.com/articles/boom">Printing a Book with CSS: Boom!</a></cite>, 2005
-		<li>A List Apart, <cite><a href="http://www.alistapart.com/articles/goingtoprint/">Going to print</a></cite>, 2002
-		<li>nettuts+, <cite><a href="http://net.tutsplus.com/tutorials/html-css-techniques/25-html5-features-tips-and-techniques-you-must-know/">28 HTML5 Features, Tips, and Techniques You Must Know</a></cite>, 2011
-		<li>w3schools, <cite><a href="http://www.w3schools.com/cssref/css3_browsersupport.asp">CSS3 Browser Support Reference</a></cite>, 2011
-	</ul>
+<section id=bibliography>
+<h2 class="nonumber">Bibliography</h2>
 
-	</section>
+<div class="htmlhowto">
+	<p>More information about cite-proc: <a href="http://gsl-nagoya-u.net/http/pub/citeproc-doc.html">cite-proc documentation</a>.</p>
+</div>
+
+</section>
 <!-- = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = -->
-	<section id=bibliography>
-	<h2 class="nonumber">Bibliography</h2>
-
-	<div class="htmlhowto">
-		<p>More information about cite-proc: <a href="http://gsl-nagoya-u.net/http/pub/citeproc-doc.html">cite-proc documentation</a>.</p>
-	</div>
-
-	</section>
-<!-- = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = -->
-	<footer>
-		<a href="http://validator.w3.org/nu/?doc=http%3A%2F%2Fwannesm.be%2Farticlecls">w3c html validation</a>
-	</footer>
-	</article>
+<footer>
+	<a href="http://validator.w3.org/nu/?doc=http%3A%2F%2Fwannesm.be%2Farticlecls">w3c html validation</a>
+</footer>
+</article>
 
 <!-- = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = -->
 </body>

@@ -156,6 +156,10 @@ function insertTitle() {
 	if (setoptions['notitle'])
 		return;
 
+	// If header block already exists, skip
+	if ($("body>header").length > 0 || $("body>article>header").length > 0)
+		return;
+
 	title = "";
 	authors = [];
 	date = "";

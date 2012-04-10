@@ -29,6 +29,7 @@ h1, h2, h3, h4 {
 	/* Headers should be closer to their content than the previous part. */
 	margin-top: 1.5em;
 	margin-bottom: .5em;
+	color: #333; /* In case header is wrapped in link */
 }
 
 h1 {
@@ -337,6 +338,28 @@ a.h3ref:after {
 #toc li.nonumber:before {
 	content: "";
 	counter-increment: item 0;
+}
+
+.toclink {
+	/*display: inline-block;*/
+}
+
+:target {
+	/* Yellow fading technique: */
+	/* http://snook.ca/archives/html_and_css/yellow-fade-technique-css-animations */
+	-webkit-animation: target-fade 3s 1;
+	-moz-animation:    target-fade 3s 1;
+	/*background-color: #ffffd8;*/
+}
+
+@-webkit-keyframes target-fade {
+    0%   { background-color: rgba(254,254,215,1); }
+    100% { background-color: rgba(254,254,215,0); }
+}
+
+@-moz-keyframes target-fade {
+    0%   { background-color: rgba(254,254,215,1); }
+    100% { background-color: rgba(254,254,215,0); }
 }
 
 /** TOC live search */

@@ -280,7 +280,9 @@ function createOutline(base) {
 		});
 		//console.log(links);
 		if (links.length == 0) {
-			$(this).before("<a name=\""+tocstr+"\"></a>");
+			//$(this).before("<a name=\""+tocstr+"\"></a>");
+			//$(this).wrapInner("<span class=toclink id=\""+tocstr+"\" />");
+			$(this).wrap("<div class=toclink id=\""+tocstr+"\" />");
 		}
 	});
 

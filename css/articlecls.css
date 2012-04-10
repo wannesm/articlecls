@@ -110,6 +110,8 @@ li {
 table {
 	margin: 1em auto;
 	text-align: left;
+	width: auto;
+	max-width: 100%;
 }
 
 table td, table th {
@@ -120,6 +122,34 @@ table td, table th {
 
 table.left {
 	margin: 0;
+}
+
+table.left td {
+	padding-left: 0;
+}
+
+table.withleader td:first-child {
+	max-width: 20em;
+	overflow-x: hidden;
+	padding-left: 0;
+	text-overflow: clip;
+}
+
+table.withleader td:first-child:before {
+	/* http://www.w3.org/Style/Examples/007/leaders */
+	color: #b3b3b3;
+	float: left;
+	width: 0;
+	white-space: nowrap;
+	content:
+ ". . . . . . . . . . . . . . . . . . . . "
+ ". . . . . . . . . . . . . . . . . . . . "
+ ". . . . . . . . . . . . . . . . . . . . "
+ ". . . . . . . . . . . . . . . . . . . . "
+}
+
+table.withleader td {
+	padding-left: 1ex;
 }
 
 /* Code */

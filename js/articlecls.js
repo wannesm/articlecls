@@ -45,14 +45,18 @@ function initArticleCls() {
 		console.log("Found multiple script tags that includes articlecls.js");
 	}
 	// Setoptions defaults
-	setoptions["nomathjax"]    = false;
-	setoptions["notitle"]      = false;
-	setoptions["notoc"]        = false;
-	setoptions['tocsearch']    = false;
-	setoptions["noglossary"]   = false;
+	setoptions['altfootnotes'] = false;
 	setoptions['bibliography'] = ''
-	setoptions["meeting"]      = false;
 	setoptions['citationstyle']= 'ieee';
+	setoptions['hyphenator']   = false;
+	setoptions['interactive']  = false;
+	setoptions['meeting']      = false;
+	setoptions['noglossary']   = false;
+	setoptions['nomathjax']    = false;
+	setoptions['notitle']      = false;
+	setoptions['notoc']        = false;
+	setoptions['tocsearch']    = false;
+	setoptions['twocolumns']   = false;
 
 	// Process given options
 	optiontags.each(function(k,v) {
@@ -280,9 +284,12 @@ function createOutline(base) {
 		});
 		//console.log(links);
 		if (links.length == 0) {
-			//$(this).before("<a name=\""+tocstr+"\"></a>");
-			//$(this).wrapInner("<span class=toclink id=\""+tocstr+"\" />");
-			$(this).wrap("<div class=toclink id=\""+tocstr+"\" />");
+			if (setoptions['interactive']) {
+				//$(this).wrapInner("<span class=toclink id=\""+tocstr+"\" />");
+				$(this).wrap("<div class=toclink id=\""+tocstr+"\" />");
+			} else {
+				$(this).before("<a name=\""+tocstr+"\"></a>");
+			}
 		}
 	});
 

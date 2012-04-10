@@ -15,7 +15,7 @@
 
 	<script type="text/javascript; e4x=1" src="js/citeproc/xmle4x.js"></script>
 	<script src="js/jquery-1.7.1.min.js"></script>
-	<script data-options="tocsearch, hyphenator, altfootnotes, bibliography=articlecls_bib.js, citationstyle=springer-author-date" src="js/articlecls.js"></script>
+	<script data-options="interactive, tocsearch, hyphenator, altfootnotes, bibliography=articlecls_bib.js, citationstyle=springer-author-date" src="js/articlecls.js"></script>
 	<script data-options="stylechooser" src="js/articlecls_extra.js"></script>
 </head>
 <body>
@@ -90,18 +90,22 @@ The articlecls stylesheet and javascript module are an attempt to create a nicel
 <pre><code>&lt;script data-options="modern" src="js/articlecls.js"&gt;&lt;/script&gt;</code></pre>
 
 <p>All options that are available (pass multiple options to <code>data-options</code> as a comma separated list):</p>
-<ul>
-	<li><code>altfootnotes</code>
-	<li><code>bibliography=filename</code>
-	<li><code>citationstyle=stylename</code>
-	<li><code>hyphenator</code>
-	<li><code>noglossary</code>
-	<li><code>nomathjax</code>
-	<li><code>notitle</code>
-	<li><code>notoc</code>
-	<li><code>tocsearch</code>
-	<li><code>twocolumns</code>
-</ul>
+<figure class=table>
+<table class=withleader>
+<tr><td><code>altfootnotes</code><td>See <a href="#footnotes">footnotes section</a>
+<tr><td><code>bibliography=filename</code><td>See <a href="#bibliography">bibliography section</a>
+<tr><td><code>citationstyle=stylename</code><td>See <a href="#bibliography">bibliography section</a>
+<tr><td><code>hyphenator</code><td>See <a href="hyphenation">hyphenation section</a>
+<tr><td><code>interactive</code><td>Adds interactive web features
+<tr><td><code>noglossary</code><td>See <a href="glossary">glossary section</a>
+<tr><td><code>nomathjax</code><td>See <a href="mathematics">mathematics section</a>
+<tr><td><code>notitle</code><td>See <a href="title">title section</a>
+<tr><td><code>notoc</code><td>See <a href="tableofcontents">table of contents section</a>
+<tr><td><code>tocsearch</code><td>See <a href="tableofcontents">table of contents section</a>
+<tr><td><code>twocolumns</code><td>See <a href="twocolumms">two columns section</a>
+</table>
+<figcaption>Options accepted by Article.cls</figcaption>
+</figure>
 
 </section>
 
@@ -170,7 +174,7 @@ p {
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 <section>
-<h3>Title</h3>
+<h3 id=title>Title</h3>
 
 <div class="latexcmpline"><div class="latexcmp">
 	<pre><code>\maketitle</code></pre>
@@ -278,7 +282,7 @@ h1 {
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 <section>
-<h3>Two columns</h3>
+<h3 id=twocolumns>Two columns</h3>
 
 <p>If you prefer a two-column layout you can add the <code>twocolumns</code> option to the articlecls module.</p>
 
@@ -317,7 +321,7 @@ h1 {
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 <section>
-<h3>Table of Contents</h3>
+<h3 id=tableofcontents>Table of Contents</h3>
 
 <p>Add the id <code>toc</code> to the section where you want your table of contents. Headers having as class <code>notoc</code> will not be included in the table of contents and header with the class <code>nonumber</code> will be unnumbered but included into the table of contents.</p>
 
@@ -389,7 +393,7 @@ Some text referencing the tagged title \ref{mytitle} and the tagged figure \ref{
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 <section>
-<h3>Glossary</h3>
+<h3 id=glossary>Glossary</h3>
 
 <p>While writing a text, you can introduce glossary items like <abbr title="HyperText Markup Language">HTML</abbr> and <abbr title="Cascading Style Sheets">CSS</abbr> with the <code>abbr</code> tag. If you add the <code>noglossary</code> class, the abbreviated term will not appear in the glossary. The class <code>hidden</code> can be used to introduce a term into the glossary without showing it in the main text. A glossary is automatically inserted into the section with id <code>glossary</code>:</p>
 
@@ -410,7 +414,7 @@ Some text referencing the tagged title \ref{mytitle} and the tagged figure \ref{
 <h2>Formatting</h2>
 
 <section>
-<h3 id="hyphenation">Hyphenation</h3>
+<h3 id=hyphenation>Hyphenation</h3>
 
 <p>CSS3 supports hyphenation and articlecls applies it to all paragraphs. A more detailed explanation and an extension in javascript can be found on the website of <a href="http://code.google.com/p/hyphenator/wiki/en_CSS3Hyphenation">Hyphenator.js</a> which is a Javascript solution for browser that do not yet support advanced hyphenation. The hyphenator.js extension can be activated by giving the <code>hyphenator</code> option to the articlecls.js module.</p>
 
@@ -742,15 +746,15 @@ figure figcaption::before {
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 <section>
 <style scoped>
-	table {
-		width: 40%;
+	table.nonstyled {
+		width: auto;
 	}
 </style>
 
 <h3>Inserting a table</h3>
 
 <figure class=table>
-<table>
+<table class=nonstyled>
 	<caption>Table title.</caption>
 	<thead>
 		<tr>
@@ -799,24 +803,24 @@ figure figcaption::before {
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 <section>
 <style scoped>
-	table.styledtable {
+	table.styled{
 		width: 40%;
 		border: 1px rgba(10%, 10%, 10%, 0.5) solid;
 	}
-	table.styledtable caption {
+	table.styled caption {
 		font-weight: bold;
 	}
-	table.styledtable .col1 {
+	table.styled .col1 {
 		background-color: #ffffda;
 	}
-	table.styledtable thead {
+	table.styled thead {
 		background-color: rgba(10%, 10%, 10%, 0.5);
 		color: white;
 	}
-	table.styledtable thead,
-	table.styledtable tbody {
+	table.styled thead,
+	table.styled tbody {
 	}
-	table.styledtable tbody tr:nth-child(even) {
+	table.styled tbody tr:nth-child(even) {
 		background-color: rgba(85%, 85%, 85%, 0.5);
 	}
 </style>
@@ -826,7 +830,7 @@ figure figcaption::before {
 <p>For style you can use CSS.</p>
 
 <figure class=table>
-<table class="styledtable">
+<table class="styled">
 	<caption>Table title</caption>
 	<colgroup>
 		<col class=col1 />
@@ -860,25 +864,25 @@ figure figcaption::before {
 </figure>
 
 <pre><code>&lt;style&gt;
-	table.styledtable {
+	table.styled {
 		width: 40%;
 		border: 1px rgba(10%, 10%, 10%, 0.5) solid;
 	}
-	table.styledtable caption {
+	table.styled caption {
 		font-weight: bold;
 	}
-	table.styledtable .col1 {
+	table.styled .col1 {
 		background-color: #ffffda;
 	}
-	table.styledtable thead {
+	table.styled thead {
 		background-color: rgba(10%, 10%, 10%, 0.5);
 		color: white;
 	}
-	table.styledtable tbody tr:nth-child(even) {
+	table.styled tbody tr:nth-child(even) {
 		background-color: rgba(85%, 85%, 85%, 0.5);
 	}
 &lt;/style&gt;
-&lt;table class=styledtable&gt;
+&lt;table class=styled&gt;
 ...
 </code></pre>
 
@@ -985,7 +989,7 @@ figure figcaption::before {
 <!-- = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = -->
 
 <section>
-<h2>Mathematics</h2>
+<h2 id=mathematics>Mathematics</h2>
 
 <section>
 <h3>Inserting an equation</h3>
@@ -1041,7 +1045,7 @@ And we can reference equations &#92;ref{eqmaxwell}.
 <!-- = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = -->
 
 <section>
-<h2>Bibliography</h2>
+<h2 id=bibliography>Bibliography</h2>
 
 <p><code>Article.cls</code> uses <a href="http://gsl-nagoya-u.net/http/pub/citeproc-doc.html#retrieveitem">citeproc-js</a>, which is an implementation of the <a href="http://citationstyles.org/">Citation Style Language (CSL)</a>, to handle citations.</p>
 

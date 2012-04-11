@@ -259,18 +259,18 @@ body > article > header > hgroup {
 /** COLUMNS *****************************************************************/
 
 body.twocolumns article {
-	-moz-column-count: 2;
-	-moz-column-gap: 2em;
-	-webkit-column-count: 2;
-	-webkit-column-gap: 2em;
-	column-count: 2;
-	column-gap: 2em;
+	column-count         : 2;
+	-moz-column-count    : 2;
+	-webkit-column-count : 2;
+	column-gap         : 2em;
+	-moz-column-gap    : 2em;
+	-webkit-column-gap : 2em;
 }
 
 body.twocolumns > article > header {
-	-moz-column-span: all;
-	-webkit-column-span: all;
-	column-span: all;
+	column-span         : all;
+	-moz-column-span    : all;
+	-webkit-column-span : all;
 }
 
 /** ABSTRACT ****************************************************************/
@@ -278,13 +278,12 @@ body.twocolumns > article > header {
 #abstract {
 	display: block;
 	padding: 0 3em;
-	columns: 2;
 }
 
 /** ADDRESS *****************************************************************/
 
 .vcard {
-	margin: 0 0 0 2em;
+	margin:  0 0 0 2em;
 	padding: 0 0 0 1em;
 }
 
@@ -543,8 +542,8 @@ sup {
 	@page {
 		/*size: 210mm 297mm;*/
 		size: A4;
-		/*margin: 27mm 16mm 27mm 16mm;*/
-		margin: 25mm;
+		margin: 25mm 16mm;
+		/*margin: 25mm;*/
 		/* marks: crop cropss; */
 	}
 

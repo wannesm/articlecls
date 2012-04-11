@@ -16,7 +16,6 @@
 body {
 	font-family: Georgia, serif;
 	/*font-family:"Times New Roman",Georgia,Serif;*/
-	margin: 0 10% 5em 10%;
 	font-size: 11pt;
 	line-height: 16pt; /* should be 1.5 font-size */
 	color: #333; /* only for web */
@@ -533,18 +532,28 @@ sup {
 
 /** PRINT PAGES *************************************************************/
 
-/*body {*/
-	/*width: 210mm; [> A4 <]*/
-/*}*/
+@media screen {
+	body {
+		margin: 0 10% 5em 10%;
+		/*width: 210mm; [> A4 <]*/
+	}
+}
 
 @media print {
+
+
+	body {
+		margin: 0;
+	}
 
 	@page {
 		/*size: 210mm 297mm;*/
 		size: A4;
 		margin: 25mm 16mm;
+		padding: 0;
 		/*margin: 25mm;*/
-		/* marks: crop cropss; */
+		marks: crop cropss; 
+		/*border: 1px solid red;*/
 	}
 
 	@page:left{}
@@ -583,6 +592,11 @@ sup {
 
 	tr {
 		page-break-inside: avoid;
+	}
+
+	li {
+		orphans: 2;
+		widows: 2;
 	}
 
 	/*dt {*/

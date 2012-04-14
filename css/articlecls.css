@@ -116,6 +116,7 @@ table td, table th {
 	margin: 0;
 	padding: .2em .5em;
 	vertical-align: baseline;
+	text-align: left;
 }
 
 table.left {
@@ -610,6 +611,20 @@ sup {
 	}
 
 	@page blank :left {
+		@top-left {
+			content: normal;
+		}
+	}
+
+	@page:first {
+		@top {
+			content: normal;
+		}
+
+		@top-right {
+			content: normal;
+		}
+
 		@top-left {
 			content: normal;
 		}

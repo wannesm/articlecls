@@ -354,7 +354,7 @@ h2:before {
 	content: counter(headertwo) ". ";
 }
 
-h2.notoc::before, h2.nonumber::before {
+h2.notoc:before, h2.nonumber:before {
 	counter-increment: headertwo 0;
 	content: "";
 }
@@ -370,12 +370,12 @@ h3:before {
 
 /* References */
 
-a.h2ref:after {
-	content: " Section " target-counter(attr(href), headertwo);
+a.h2ref::after {
+	content: " Section " target-counter(attr(href, url), headertwo);
 }
 
-a.h3ref:after {
-	content: " Section " target-counter(attr(href), headertwo) "." target-counter(attr(href), headerthree);
+a.h3ref::after {
+	content: " Section " target-counter(attr(href, url), headertwo) "." target-counter(attr(href, url), headerthree);
 }
 
 /** TOC */

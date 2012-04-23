@@ -217,7 +217,7 @@ function insertTitle() {
 
 function insertOutline(livesearch) {
 	outlinehtml = createOutline($('article'));
-	if ($('#toc').length > 0) {
+	if ($('section#toc').length > 0) {
 		if (livesearch) {
 			$('#toc').append("<input id='tocsearchneedle' type='search' placeholder='Search table of contents' results='0' incremental='true'>");
 			$('#tocsearchneedle').keyup(function(){
@@ -284,12 +284,15 @@ function createOutline(base) {
 		});
 		//console.log(links);
 		if (links.length == 0) {
-			if (setoptions['interactive']) {
-				//$(this).wrapInner("<span class=toclink id=\""+tocstr+"\" />");
-				$(this).wrap("<div class=toclink id=\""+tocstr+"\" />");
-			} else {
-				$(this).before("<a name=\""+tocstr+"\"></a>");
-			}
+			$(this).addClass("toclink");
+			// do not wrap header tags in div, this messes up css counting
+			$(this).html("<a name=\""+tocstr+"\">"+$(this).html()+"</a>");
+			//if (setoptions['interactive']) {
+				////$(this).wrapInner("<span class=toclink id=\""+tocstr+"\" />");
+				//$(this).html("<div class=toclink id=\""+tocstr+"\">"+$(this).html()+"</div>");
+			//} else {
+				//$(this).html("<a name=\""+tocstr+"\"></a>"+$(this).html());
+			//}
 		}
 	});
 
@@ -496,7 +499,7 @@ function setTwoColumns() {
 }
 
 function insertGlossary() {
-	if ($('#glossary').length == 0)
+	if ($('section#glossary').length == 0)
 		return;
 	
 	gloss = [];

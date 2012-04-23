@@ -127,6 +127,7 @@ table.left {
 	margin: 0;
 }
 
+table.left th,
 table.left td {
 	padding-left: 0;
 }
@@ -449,11 +450,11 @@ figure.span {
 	/*position: absolute;*/
 }
 
-figure .top {
+figure.top {
 	float: top;
 }
 
-figure .bottom {
+figure.bottom {
 	float: bottom;
 }
 

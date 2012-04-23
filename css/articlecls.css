@@ -623,6 +623,8 @@ sup {
 	@page :left {
 		@top-left {
 			content: string(title);
+			color: #666666;
+			font-size: 75%;
 		}
 	}
 
@@ -649,6 +651,7 @@ sup {
 	@page :right {
 		@top-right {
 			content: string(header, first);
+			color: #666666;
 		}
 	}
 

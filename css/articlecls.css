@@ -316,16 +316,32 @@ body.twocolumns > article > header {
 /** NUMBERING SECTIONS ******************************************************/
 
 /*
- * Does not work with one nested header counter because the header tags
- * are scoped in section tags which messes up the counter-reset.
+ * To use nested tags, the headers should be nested wich is not garuanteed.
+ * And event then, the code underneath failes.
  */
+
+/*body {*/
+	/*counter-reset:section figure table listing;*/
+/*}*/
+
+/*section {*/
+	/*counter-increment: section;*/
+/*}*/
+
+/*section:before {*/
+	/*content: "->section=" counters(section, ".") ". " "<-";*/
+/*}*/
+
+/*h1::before, h2::before, h3::before {*/
+	/*content: counters(section, ".") ". ";*/
+/*}*/
 
 body {
 	counter-reset:headerone headertwo figure table listing;
 }
 
-h1::before {
-	/*content: counter(headerone) " ";*/
+h1:before {
+	content: counter(headerone) " ";
 	counter-increment: headerone;
 }
 
@@ -333,7 +349,7 @@ h1 {
 	counter-reset: headertwo;
 }
 
-h2::before {
+h2:before {
 	counter-increment: headertwo;
 	content: counter(headertwo) ". ";
 }
@@ -347,12 +363,9 @@ h2 {
 	counter-reset: headerthree;
 }
 
-h3::before {
+h3:before {
 	counter-increment: headerthree;
 	content: counter(headertwo) "." counter(headerthree) ". ";
-}
-
-h3 {
 }
 
 /* References */
@@ -364,10 +377,6 @@ a.h2ref:after {
 a.h3ref:after {
 	content: " Section " target-counter(attr(href), headertwo) "." target-counter(attr(href), headerthree);
 }
-
-/*
- * TODO: make use of nested counts for header counts
- */
 
 /** TOC */
 

@@ -151,7 +151,7 @@ The articlecls stylesheet and javascript module are an attempt to create a nicel
 &lt;/article&gt;
 &lt;/body&gt;</code></pre>
 
-<p>The <code>&lt;section&gt;</code> tags are not necessary but are good HTML5 style.</p>
+<p>The <code>&lt;section&gt;</code> tags are optional. Header tags (e.g., <code>h1</code>) implicitely introduces a new section.</p>
 
 <div class="htmlhowto">
 	<pre><code>/* Start h1 on right page. */
@@ -180,7 +180,7 @@ p {
 	<pre><code>\maketitle</code></pre>
 </div></div>
 
-<p>The title, authors and date are automatically inserted at the beginning of the article based on the meta-information found in the header unless the <code>notitle</code> option is given in the header.</p>
+<p>The title, authors and date are automatically inserted at the beginning of the article based on the meta-information found in the header unless the <code>notitle</code> option is given in the header or a <code>header</code> block is present.</p>
 
 <p>If you want to avoid Javascript you can add the title block manually within the <code>article</code> tags as follows:</p>
 
@@ -393,7 +393,7 @@ Some text referencing the tagged title \ref{mytitle} and the tagged figure \ref{
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
 <section>
-<h3 id=glossary>Glossary</h3>
+<h3 id=howglossary>Glossary</h3>
 
 <p>While writing a text, you can introduce glossary items like <abbr title="HyperText Markup Language">HTML</abbr> and <abbr title="Cascading Style Sheets">CSS</abbr> with the <code>abbr</code> tag. If you add the <code>noglossary</code> class, the abbreviated term will not appear in the glossary. The class <code>hidden</code> can be used to introduce a term into the glossary without showing it in the main text. A glossary is automatically inserted into the section with id <code>glossary</code>:</p>
 
@@ -1045,7 +1045,7 @@ And we can reference equations &#92;ref{eqmaxwell}.
 <!-- = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = -->
 
 <section>
-<h2 id=bibliography>Bibliography</h2>
+<h2 id=aboutbibliography>Bibliography</h2>
 
 <p><code>Article.cls</code> uses <a href="http://gsl-nagoya-u.net/http/pub/citeproc-doc.html#retrieveitem">citeproc-js</a>, which is an implementation of the <a href="http://citationstyles.org/">Citation Style Language (CSL)</a>, to handle citations.</p>
 

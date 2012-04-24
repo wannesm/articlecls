@@ -342,7 +342,7 @@ body {
 }
 
 h1:before {
-	content: counter(headerone) " ";
+	/*content: counter(headerone) " ";*/
 	counter-increment: headerone;
 }
 

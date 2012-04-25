@@ -64,6 +64,7 @@ The articlecls stylesheet and javascript module are an attempt to create a nicel
 </div></div>
 
 <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
 &lt;head&gt;
 	&lt;title&gt;Article.cls&lt;/title&gt;
 	&lt;meta charset="utf-8" /&gt;
@@ -149,9 +150,10 @@ The articlecls stylesheet and javascript module are an attempt to create a nicel
 		&lt;p&gt;Some references.&lt;/p&gt;
 	&lt;/section&gt;
 &lt;/article&gt;
-&lt;/body&gt;</code></pre>
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
 
-<p>The <code>&lt;section&gt;</code> tags are optional. Header tags (e.g., <code>h1</code>) implicitely introduces a new section.</p>
+<p>The <code>&lt;section&gt;</code> tags are optional. Header tags (e.g., <code>h1</code>) implicitely introduces a new section.</pre>
 
 <div class="htmlhowto">
 	<pre><code>/* Start h1 on right page. */
@@ -170,6 +172,38 @@ p {
 </code></pre>
 </div>
 
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<section>
+<h3>Mininal html5 header and body</h3>
+
+<p>The <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/syntax.html#syntax-tag-omission">html5 standard</a> allows you to omit optional tags like <code>html</code>, <code>head</code>, <code>body</code>. Also not all closing tags (e.g., <code>&lt;/p&gt;</code>) are required. This can make your document significantly simpler. An equivalent version of the header and body together as shown above would be:
+
+
+	<pre><code>&lt;!DOCTYPE html&gt;
+&lt;title&gt;Article.cls&lt;/title&gt;
+&lt;meta charset="utf-8" /&gt;
+&lt;meta name="generator" content="articlecls" /&gt;
+&lt;meta name="author" content="Wannes Meert" /&gt;
+&lt;meta name="dcterms.issued" content="2012-02-06" /&gt;
+&lt;link rel="author" href="mailto:wannes.meert@cs.kuleuven.be" /&gt;
+
+&lt;link rel="stylesheet" href="css/normalize.css" type="text/css" /&gt;
+&lt;link rel="stylesheet" href="css/articlecls.css" type="text/css" /&gt;
+
+&lt;script src="js/jquery-1.7.1.min.js"&gt;&lt;/script&gt;
+&lt;script src="js/articlecls.js"&gt;&lt;/script&gt;
+&lt;article&gt;
+	&lt;h2&gt;Introduction&lt;/h2&gt;
+	&lt;p&gt;Some introductionary text.
+	&lt;h2&gt;Another section&lt;/h2&gt;
+	&lt;p&gt;Some more text.
+		&lt;h3&gt;A subsection&lt;/h3&gt;
+		&lt;p&gt;Some subsection text.
+	&lt;h2 class="notoc"&gt;References&lt;/h2&gt;
+	&lt;p&gt;Some references.
+&lt;/article&gt;</code></pre>
 </section>
 
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
@@ -211,7 +245,7 @@ p {
 <section>
 <h3>Abstract</h3>
 
-<p>Add an id to the abstract section named <code>abstract</code></p>
+<p>Add a section with id <code>abstract</code> to your document.</p>
 
 <div class="latexcmpline"><div class="latexcmp">
 	<pre><code>\begin{abstract}
@@ -1259,6 +1293,7 @@ $ latex  articlecls</code></pre>
 	<li>A List Apart, <cite><a href="http://www.alistapart.com/articles/goingtoprint/">Going to print</a></cite>, 2002
 	<li>nettuts+, <cite><a href="http://net.tutsplus.com/tutorials/html-css-techniques/25-html5-features-tips-and-techniques-you-must-know/">28 HTML5 Features, Tips, and Techniques You Must Know</a></cite>, 2011
 	<li>w3schools, <cite><a href="http://www.w3schools.com/cssref/css3_browsersupport.asp">CSS3 Browser Support Reference</a></cite>, 2011
+	<li>Google, <cite><a href="http://google-styleguide.googlecode.com/svn/trunk/htmlcssguide.xml">HTML/CSS Style Guide</a></cite>, 2012
 </ul>
 
 </section>

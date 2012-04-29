@@ -250,6 +250,8 @@ function createOutline(base) {
 
 	prevlevel = 2;
 	cnt = Array(0,0,0,0);
+	cntapp = 0;
+	isappendix = false;
 	list = $("H2,H3,H4").not(".notoc")
 	list.each(function(index,value) {
 		//console.log(value);
@@ -265,13 +267,24 @@ function createOutline(base) {
 				prevlevel -= 1;
 			}
 		}
+		var isappendix = $(this).hasClass("appendix");
 		var classstr = ""
 		if ($(this).hasClass("nonumber") || curlevel > 3) {
-			classstr = " class=\"nonumber\"";
+			classstr = " class='nonumber'";
 		}
-		cnt[curlevel] += 1;
+		if (isappendix) {
+			classstr = " class='appendix'";
+			cntapp += 1;
+		} else {
+			cnt[curlevel] += 1;
+		}
 		var tocstr = "toc";
-		for (i=0; i<=curlevel; i++) { tocstr += "_"+cnt[i]; }
+		for (i=0; i<=curlevel; i++) {
+			if (isappendix && i == 2)
+				tocstr += "_a"+cntapp;
+			else
+				tocstr += "_"+cnt[i];
+		}
 		html += "<li"+classstr+"><a href=\"#"+tocstr+"\">"+value.textContent+"</a>";
 		links = $(this).parent().children('a').filter(function(i) {
 			//console.log($(this));

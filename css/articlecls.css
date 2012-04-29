@@ -338,7 +338,9 @@ body.twocolumns > article > header {
 /*}*/
 
 body {
-	counter-reset:headerone headertwo figure table listing;
+	counter-reset:headerone headertwo appendix figure table listing;
+	/* string-set and string() are not yet supported in safari */
+	/*string-set: sectionstr "";*/ 
 }
 
 h1:before {
@@ -353,11 +355,20 @@ h1 {
 h2:before {
 	counter-increment: headertwo;
 	content: counter(headertwo) ". ";
+	/*string-set: sectionstr content();*/
 }
 
-h2.notoc:before, h2.nonumber:before {
+h2.notoc:before,
+h2.nonumber:before {
 	counter-increment: headertwo 0;
 	content: "";
+	/*string-set: sectionstr content();*/
+}
+
+h2.appendix:before {
+	counter-increment: appendix;
+	content: "A" counter(appendix) ". ";
+	/*string-set: sectionstr content();*/
 }
 
 h2 {
@@ -366,7 +377,14 @@ h2 {
 
 h3:before {
 	counter-increment: headerthree;
+	/*content: string(sectionstr) counter(headerthree) ". ";*/
 	content: counter(headertwo) "." counter(headerthree) ". ";
+}
+
+/* Temporary solution as long as Safari does not support string-set and 
+ * string(). This requires all header to be tagged with the appendix class */
+h3.appendix:before {
+	content: "A" counter(appendix) "." counter(headerthree) ". ";
 }
 
 /* References */
@@ -379,23 +397,51 @@ a.h3ref::after {
 	content: " Section " target-counter(attr(href, url), headertwo) "." target-counter(attr(href, url), headerthree);
 }
 
+a.appref::after {
+	content: " Appendix " target-counter(attr(href, url), appendix);
+}
+
 /** TOC */
 
-#toc ol {
-	counter-reset: item
+#toc>ol {
+	counter-reset: tocheadertwo tocappendix;
 	/*list-style-type: none;*/
 }
 #toc li {
 	display: block
 	/*list-style-type: none;*/
 }
-#toc li:before {
-	content: counters(item, ".") ".  ";
-	counter-increment: item;
+#toc>ol>li:before {
+	/*content: counters(item, ".") ".  ";*/
+	counter-increment: tocheadertwo;
+	content: counter(tocheadertwo) ". ";
 }
-#toc li.nonumber:before {
+
+#toc>ol>li.nonumber:before {
+	counter-increment: tocheadertwo 0;
 	content: "";
-	counter-increment: item 0;
+}
+
+#toc>ol>li.appendix:before {
+	counter-increment: tocappendix;
+	content: "A" counter(tocappendix) ". ";
+}
+
+#toc>ol>li {
+	counter-reset: tocheaderthree;
+}
+
+#toc>ol>li>ol>li:before {
+	counter-increment: tocheaderthree;
+	content: counter(tocheadertwo) "." counter(tocheaderthree) ". ";
+}
+
+#toc>ol>li.appendix>ol>li:before {
+	content: "A" counter(tocappendix) "." counter(tocheaderthree) ". ";
+}
+
+#toc>ol>li>ol>li>ol>li {
+	margin-left: 3ex; /* Make up for no section numbers */
 }
 
 .toclink {
@@ -611,6 +657,10 @@ sup {
 
 	h2 {
 		string-set: header content();
+	}
+
+	h2.appendix {
+		page-break-before: always;
 	}
 
 	body.noheaders h2 {

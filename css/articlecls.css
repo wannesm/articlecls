@@ -98,8 +98,16 @@ ol {
 	list-style-type: decimal;
 }
 
+dl {
+	padding: 0;
+}
+
 dl dt {
 	font-weight: bold;
+}
+
+dl dd {
+	margin: 0 0 0 1.5em;
 }
 
 /* Smaller space between paragraphs in definition */
@@ -109,6 +117,7 @@ dl dd p {
 
 /* No spacing around embedded lists */
 li > ul, li > ol {
+	margin: 0;
 	padding: 0 0 0 2em;
 }
 

@@ -625,7 +625,10 @@ sup {
 @media screen {
 	body {
 		margin: 0 10% 5em 10%;
-		/*width: 210mm; [> A4 <]*/
+	}
+
+	body.a4 {
+		width: 210mm;
 	}
 }
 

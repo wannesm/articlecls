@@ -1166,11 +1166,63 @@ And we can reference equations &#92;ref{eqmaxwell}.
 <div class=htmlhowto>
 	<p>More information about CSL:</p>
 	<ul>
-		<li>CSL is used by Mendeley, Zotero, Pages2, ...
+		<li>CSL is used by Mendeley, Zotero, Pages2.
 		<li>The input language is based upon MODS (for citeproc-js, a JSON version of MODS is used).
 		<li>Generating your own style: <a href="http://csleditor.quist.de/csleditor/show/1/example-citation-style">CSL Editor</a> or <a href="http://csleditor.wordpress.com/">New CSL Editor</a>.
 	</ul>
 </div>
+
+</section>
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<section>
+<h3>Citation Format</h3>
+
+<p>The JSON format to enter citation entries is based on MODS and is briefly explained in the <a href="http://gsl-nagoya-u.net/http/pub/citeproc-doc.html#data-input">citeproc-js</a> documentation. Underneath is a summary of often used fields:
+
+<ul>
+<li>id (string): The unique identifier
+<li>title (string): The title of the article
+<li>author (array): The authors
+	<ul>
+	<li>family (string): Family name, last name
+	<li>surname (string): Family name, last name
+	<li>given (string): First name
+	<li>forename (string): First name
+	</ul>
+<li>editors (array): The editors, format is the same as for authors
+<li>container-title (string): Name of journal, proceeding
+<li>published_in (string): Name of journal, proceeding
+<li>series (string)
+<li>volume (string): Volume number
+<li>issue (string): Issue number
+<li>page (string): Pagenumber(s) of publication
+<li>pages (string): Pagenumber(s) of publication
+<li>chapter (string)
+<li>publisher (string)
+<li>institution (string)
+<li>year (string)
+<li>issued (dictionary): Date when article was issued
+	<ul>
+	<li>date-parts (array):
+		<ul>
+		<li>Array to identify date [year, month], or [year, month, day]
+		</ul>
+	</ul>
+<li>type (string): Type of publication
+	<ul>
+	<li>article-journal
+	<li>journal
+	</ul>
+<li>identifiers (dictionary):
+	<ul>
+	<li>issn (string)
+	<li>isbn (string)
+	<li>doi (string)
+	<li>pmid (string)
+	</ul>
+<li>website (string)
+</ul>
 
 </section>
 
@@ -1299,7 +1351,8 @@ $ latex  articlecls</code></pre>
 
 <ul>
 	<li>W3C, <cite><a href="http://www.w3.org/TR/css3-gcpm/">CSS Generated Content for Paged Media Module</a></cite>, 2011
-	<li>W3C, <cite><a href="http://www.w3.org/TR/html5/spec.html">HTML5</a></cite>, 2011
+	<li>W3C, <cite><a href="http://www.w3.org/TR/html5/spec.html">HTML5</a> (Working draft)</cite>, 2012
+	<li>W3C, <cite><a href="http://dev.w3.org/html5/spec/">HTML5</a> (Editor's draft)</cite>, 2012
 	<li>WhatWG, <cite><a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/index.html">HTML Standard</a></cite>, 2012
 	<li>A List Apart, <cite><a href="http://www.alistapart.com/articles/boom">Printing a Book with CSS: Boom!</a></cite>, 2005
 	<li>A List Apart, <cite><a href="http://www.alistapart.com/articles/goingtoprint/">Going to print</a></cite>, 2002

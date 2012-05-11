@@ -19,6 +19,10 @@ body.modernstyle h3 {
 	color: #104a84;
 	border-bottom: 3px solid rgba(16, 74, 131, 0.1);
 }
+body.modernstyle h2 a,
+body.modernstyle h3 a {
+	color: #104a84;
+}
 
 body.modernstyle dl dt {
 	font-weight: bold;
@@ -40,14 +44,14 @@ body.modernstyle > article > header > hgroup > p {
 	text-align: left;
 }
 
-body.modernstyle #toc li:before {
-	content: counter(item) ".  ";
-}
+/*body.modernstyle #toc li:before {*/
+	/*content: counter(item) ".  ";*/
+/*}*/
 
-body.modernstyle #toc li.nonumber:before {
-	content: "";
-	counter-increment: item 0;
-}
+/*body.modernstyle #toc li.nonumber:before {*/
+	/*content: "";*/
+	/*counter-increment: item 0;*/
+/*}*/
 
 body.modernstyle figure {
 	text-align: left;

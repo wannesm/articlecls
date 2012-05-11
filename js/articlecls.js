@@ -286,7 +286,7 @@ function createOutline(base) {
 				tocstr += "_"+cnt[i];
 		}
 		html += "<li"+classstr+"><a href=\"#"+tocstr+"\">"+value.textContent+"</a>";
-		links = $(this).parent().children('a').filter(function(i) {
+		links = $(this).children('a').filter(function(i) {
 			//console.log($(this));
 			name = $(this).first().attr("name")
 			//console.log(name);

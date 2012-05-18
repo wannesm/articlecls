@@ -9,12 +9,6 @@
  * 3.0 Unported License.
  */
 
-/** SETTINGS ****************************************************************/
-
-var setoptions = {};
-var thispath = '';
-var months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
-
 /** MAIN ********************************************************************/
 
 // Make sure that calling console.log does not cause an error
@@ -27,10 +21,21 @@ if (!("console" in window) && !("firebug" in console)) {
 }
 
 $(document).ready(function(){
-	initArticleCls();
+	articlecls.initArticleCls();
 });
 
-function initArticleCls() {
+
+/** SETTINGS ****************************************************************/
+
+var articlecls = {
+
+setoptions : {},
+thispath : '',
+months : ["January","February","March","April","May","June","July","August","September","October","November","December"],
+
+/** FUNCTIONS ***************************************************************/
+
+initArticleCls : function() {
 	// Parse options
 	optiontags = $('script').filter(function(index) {
 		src = $(this).first().attr("src")
@@ -45,18 +50,18 @@ function initArticleCls() {
 		console.log("Found multiple script tags that includes articlecls.js");
 	}
 	// Setoptions defaults
-	setoptions['altfootnotes'] = false;
-	setoptions['bibliography'] = ''
-	setoptions['citationstyle']= 'ieee';
-	setoptions['hyphenator']   = false;
-	setoptions['interactive']  = false;
-	setoptions['meeting']      = false;
-	setoptions['noglossary']   = false;
-	setoptions['nomathjax']    = false;
-	setoptions['notitle']      = false;
-	setoptions['notoc']        = false;
-	setoptions['tocsearch']    = false;
-	setoptions['twocolumns']   = false;
+	articlecls.setoptions['altfootnotes'] = false;
+	articlecls.setoptions['bibliography'] = ''
+	articlecls.setoptions['citationstyle']= 'ieee';
+	articlecls.setoptions['hyphenator']   = false;
+	articlecls.setoptions['interactive']  = false;
+	articlecls.setoptions['meeting']      = false;
+	articlecls.setoptions['noglossary']   = false;
+	articlecls.setoptions['nomathjax']    = false;
+	articlecls.setoptions['notitle']      = false;
+	articlecls.setoptions['notoc']        = false;
+	articlecls.setoptions['tocsearch']    = false;
+	articlecls.setoptions['twocolumns']   = false;
 
 	// Process given options
 	optiontags.each(function(k,v) {
@@ -69,9 +74,9 @@ function initArticleCls() {
 		$.each(optionslist, function(k,v) {
 			option = v.split("=");
 			if (option.length == 1) {
-				setoptions[option[0]] = true;
+				articlecls.setoptions[option[0]] = true;
 			} else if (option.length == 2) {
-				setoptions[option[0]] = option[1];
+				articlecls.setoptions[option[0]] = option[1];
 			} else {
 				console.log("Error in parsing option: "+v);
 			}
@@ -81,23 +86,23 @@ function initArticleCls() {
 	//console.log(setoptions);
 
 	// Insert header
-	insertGenerator();
-	insertTitle();
+	articlecls.insertGenerator();
+	articlecls.insertTitle();
 
 	// Hyphenator
-	if (setoptions["hyphenator"] == true) {
+	if (articlecls.setoptions["hyphenator"] == true) {
 		//console.log("Activate hyphenator.js");
-		applyHyphenator();
+		articlecls.applyHyphenator();
 	}
 
 	// Footnotes
-	if (setoptions["altfootnotes"]) {
+	if (articlecls.setoptions["altfootnotes"]) {
 		//console.log("Activate alternative footnotes");
-		setAlternativeFootnotes();
+		articlecls.setAlternativeFootnotes();
 	}
 
 	// Modernstyle
-	if (setoptions["modern"]) {
+	if (articlecls.setoptions["modern"]) {
 		scriptpath = $("script").last().attr("src").split('?')[0].split('/').slice(0, -1).join('/')+'/';
 		//console.log("Setting modern");
 		var link = $('<link>');
@@ -111,53 +116,53 @@ function initArticleCls() {
 	}
 
 	// Twocolumns
-	if (setoptions["twocolumns"]) {
+	if (articlecls.setoptions["twocolumns"]) {
 		//console.log("Activate two columns");
-		setTwoColumns();
+		articlecls.setTwoColumns();
 	}
 
 	// Open Typography
-	if (setoptions["opentypography"]) {
-		useOpenTypography();
+	if (articlecls.setoptions["opentypography"]) {
+		articlecls.useOpenTypography();
 	}
 
 	// Add glossary
-	if (!setoptions["noglossary"]) {
-		insertGlossary();
+	if (!articlecls.setoptions["noglossary"]) {
+		articlecls.insertGlossary();
 	}
 
 	// Add outline for tag <toc>
-	if (!setoptions["notoc"]) {
-		insertOutline(setoptions["tocsearch"]);
+	if (!articlecls.setoptions["notoc"]) {
+		articlecls.insertOutline(articlecls.setoptions["tocsearch"]);
 	}
 
 	// How-to
 	// now with master style (see styles).
 
 	// Add references
-	 insertBibliography();
+	articlecls.insertBibliography();
 	
 	// Add MathJax
-	if (!setoptions["nomathjax"]) {
-		insertMathJax();
+	if (!articlecls.setoptions["nomathjax"]) {
+		articlecls.insertMathJax();
 	}
 	
 	// Apply meeting minutes
-	if (setoptions["meeting"]) {
-		applyMeetingMinutes();
+	if (articlecls.setoptions["meeting"]) {
+		articlecls.applyMeetingMinutes();
 	}
-}
+},
 
 /** GENERATOR ***************************************************************/
 
-function insertGenerator() {
+insertGenerator : function() {
 	$('head').prepend("<meta name=\"generator\" content=\"Article.cls\" />");
-}
+},
 
 /** TITLE AND HEADER ********************************************************/
 
-function insertTitle() {
-	if (setoptions['notitle'])
+insertTitle : function() {
+	if (articlecls.setoptions['notitle'])
 		return;
 
 	// If header block already exists, skip
@@ -202,7 +207,7 @@ function insertTitle() {
 		if (authorsstr != '')
 			headerstr += "<div class=authors>"+authorsstr+"</div>";
 		if (date != '')
-			headerstr += "<time datetime=\""+date.getFullYear()+"-"+date.getMonth()+"-"+date.getDate()+"\" pubdate>"+months[date.getMonth()]+" "+date.getDate()+", "+date.getFullYear()+"</time>";
+			headerstr += "<time datetime=\""+date.getFullYear()+"-"+date.getMonth()+"-"+date.getDate()+"\" pubdate>"+articlecls.months[date.getMonth()]+" "+date.getDate()+", "+date.getFullYear()+"</time>";
 		headerstr += "</hgroup></header>";
 	}
 
@@ -211,12 +216,12 @@ function insertTitle() {
 		article.prepend(headerstr);
 	else
 		$('body').prepend(headerstr);
-}
+},
 
 /** TABLE OF CONTENTS *******************************************************/
 
-function insertOutline(livesearch) {
-	outlinehtml = createOutline($('article'));
+insertOutline : function(livesearch) {
+	outlinehtml = articlecls.createOutline($('article'));
 	if ($('section#toc').length > 0) {
 		if (livesearch) {
 			$('#toc').append("<input id='tocsearchneedle' type='search' placeholder='Search table of contents' results='0' incremental='true'>");
@@ -237,15 +242,15 @@ function insertOutline(livesearch) {
 		}
 		$('#toc').append(outlinehtml);
 	}
-}
+},
 
-function removeOutline() {
+removeOutline : function() {
 	if ($('#toc').length > 0) {
 		$('#toc ol').remove();
 	}
-}
+},
 
-function createOutline(base) {
+createOutline : function(base) {
 	var html = "<ol>"
 
 	prevlevel = 2;
@@ -311,11 +316,11 @@ function createOutline(base) {
 
 	html += "</ol>"
 	return html
-}
+},
 
 /** HYPHENATOR **************************************************************/
 
-function applyHyphenator() {
+applyHyphenator : function() {
 	//console.log("starting hyphenator");
 	$('p,li').addClass("hyphenate text");
 	$.getScript(thispath+"js/hyphenator/Hyphenator.js").done(function(script, textStatus) {
@@ -330,7 +335,7 @@ function applyHyphenator() {
 		console.log(settings);
 		console.log(exception);
 	});
-}
+},
 
 /** ADDRESS *****************************************************************/
 
@@ -339,7 +344,7 @@ function applyHyphenator() {
  *
  * http://microformats.org/wiki/hcard
  */
-function insertAddress(data) {
+insertAddress : function(data) {
 	//console.log(data);
 	addr = "<div class=vcard>";
 	if ("fn" in data)
@@ -384,11 +389,11 @@ function insertAddress(data) {
 		addr += "<a class=url href=\"mailto:"+data["url"]+"\">"+data["url"]+"</a>";
 	addr += "</div>";
 	document.write(addr);
-}
+},
 
 /** MATHJAX *****************************************************************/
 
-function insertMathJax() {
+insertMathJax : function() {
   var script = document.createElement("script");
   script.type = "text/javascript";
   script.src  = "http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
@@ -405,7 +410,7 @@ function insertMathJax() {
                else {script.text = config}
 
   document.getElementsByTagName("head")[0].appendChild(script);
-}
+},
 
 /** BIBLIOGRAPHY ************************************************************/
 
@@ -414,8 +419,8 @@ function insertMathJax() {
  *
  * http://gsl-nagoya-u.net/http/pub/citeproc-doc.html
  */
-function insertBibliography() {
-	if (setoptions['bibliography'] == '')
+insertBibliography : function() {
+	if (articlecls.setoptions['bibliography'] == '')
 		return;
 	// Can't get dataType to work with e4x=1
 	//$.ajax({
@@ -429,7 +434,7 @@ function insertBibliography() {
 	$.getScript(thispath+"js/citeproc/loadsys.js", function() {
 	$.getScript(thispath+"js/citeproc/loadcsl.js", function() {
 		//console.log("Loading bibfile "+setoptions['bibliography']);
-	$.getScript(setoptions['bibliography'], function() {
+	$.getScript(articlecls.setoptions['bibliography'], function() {
 		//console.log("Using bibstyle "+setoptions['citationstyle']);
 		if (typeof bibabbr == "undefined") {
 			console.log("Expected the variable bibarr to exist.");
@@ -437,8 +442,8 @@ function insertBibliography() {
 		}
 		var sys = new Sys(bibabbr);
 		var citationstyle = citationstyles['ieee']
-		if (typeof citationstyles != "undefined" && citationstyles[setoptions['citationsstyle']] != "undefined")
-			citationstyle = citationstyles[setoptions['citationstyle']]
+		if (typeof citationstyles != "undefined" && citationstyles[articlecls.setoptions['citationsstyle']] != "undefined")
+			citationstyle = citationstyles[articlecls.setoptions['citationstyle']]
 		var citeproc = new CSL.Engine(sys, citationstyle);
 		citeproc.setAbbreviations("default");
 		// Collect all citations and update citeproc
@@ -476,7 +481,7 @@ function insertBibliography() {
 		//console.log(settings);
 		//console.log(exception);
 	//})
-}
+},
 
 /** MEETING MINUTES *********************************************************/
 
@@ -484,7 +489,7 @@ function insertBibliography() {
  * Todos in meeting minutes appointed to someone with the @name syntax are
  * highlighted.
  */
-function applyMeetingMinutes() {
+applyMeetingMinutes : function() {
 	//console.log("Applying meeting minutes");
 	match1 = /([^a-zA-Z0-9])(@\w+)/ig;
 	replacement1 = "$1<span class=at>$2</span>";
@@ -493,11 +498,11 @@ function applyMeetingMinutes() {
 	$('li,p').each(function(k,v) {
 		$(this).html($(this).html().replace(match1,replacement1).replace(match2,replacement2))
 	});
-}
+},
 
 /** OTHER *******************************************************************/
 
-function setAlternativeFootnotes() {
+setAlternativeFootnotes : function() {
 	var footnotecount = 0;
 	$('.footnote').each(function(k,v) {
 		footnotecount += 1;
@@ -505,13 +510,13 @@ function setAlternativeFootnotes() {
 		$(this).before("<sup>"+footnotecount+"</sup>");
 		$(this).prepend("<b>"+footnotecount+"</b> ");
 	});
-}
+},
 
-function setTwoColumns() {
+setTwoColumns : function() {
 	$('body').addClass('twocolumns');
-}
+},
 
-function insertGlossary() {
+insertGlossary : function() {
 	if ($('section#glossary').length == 0)
 		return;
 	
@@ -546,9 +551,9 @@ function insertGlossary() {
 			root.append("<dt>"+v[0]+"<dd>"+v[1]);
 		});
 	});
-}
+},
 
-function useOpenTypography() {
+useOpenTypography : function() {
 	//$('head').append('<link rel="stylesheet" href="css/typography_extra.css" type="text/css" />');
 	$.getScript(thispath+"js/opentypography/DOMhelp.js", function() {
 		$.getScript(thispath+"js/opentypography/typesetter.js", function() {
@@ -557,5 +562,7 @@ function useOpenTypography() {
 			charReplacements();
 		});
 	});
-}
+},
+
+} // End of articlecls
 

@@ -49,6 +49,7 @@ initArticleCls : function() {
 	if (optiontags.length > 1) {
 		console.log("Found multiple script tags that includes articlecls.js");
 	}
+
 	// Setoptions defaults
 	articlecls.setoptions['altfootnotes'] = false;
 	articlecls.setoptions['bibliography'] = ''
@@ -60,6 +61,7 @@ initArticleCls : function() {
 	articlecls.setoptions['nomathjax']    = false;
 	articlecls.setoptions['notitle']      = false;
 	articlecls.setoptions['notoc']        = false;
+	articlecls.setoptions['prince']       = false;
 	articlecls.setoptions['tocsearch']    = false;
 	articlecls.setoptions['twocolumns']   = false;
 
@@ -394,23 +396,40 @@ insertAddress : function(data) {
 /** MATHJAX *****************************************************************/
 
 insertMathJax : function() {
-  var script = document.createElement("script");
-  script.type = "text/javascript";
-  script.src  = "http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+	var script = document.createElement("script");
+	script.type = "text/javascript";
+	script.src  = "http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
 
-  var config = 'MathJax.Hub.Config({' +
-                 'extensions: ["tex2jax.js"],' +
-                 'jax: ["input/TeX","output/HTML-CSS"],' +
-                 'tex2jax: { inlineMath: [["$","$"],["\\\\(","\\\\)"]], displayMath: [["$$","$$"],["\\\\[","\\\\]"]],},' +
-                 'TeX: {equationNumbers: { autoNumber: "all" }},' +
-               '});' +
-               'MathJax.Hub.Startup.onload();';
+	var config = 'MathJax.Hub.Config({' +
+		'extensions: ["tex2jax.js"],' +
+		'jax: ["input/TeX","output/HTML-CSS"],' +
+		'tex2jax: { inlineMath: [["$","$"],["\\\\(","\\\\)"]], displayMath: [["$$","$$"],["\\\\[","\\\\]"]],},' +
+		'TeX: {equationNumbers: { autoNumber: "all" }},' +
+		'MMLorHTML: { '+articlecls.mathJaxPrefer()+' },'+
+		'});' +
+		'MathJax.Hub.Startup.onload();';
 
-  if (window.opera) {script.innerHTML = config}
-               else {script.text = config}
+	if (window.opera) {script.innerHTML = config}
+	else {script.text = config}
 
-  document.getElementsByTagName("head")[0].appendChild(script);
+	document.getElementsByTagName("head")[0].appendChild(script);
 },
+
+mathJaxOutput : function() {
+	if (articlecls.setoptions['print'])
+		return "HTML-NativeMML";
+	return "HTML-CSS";
+},
+
+mathJaxPrefer : function() {
+	if (articlecls.setoptions['prince']) {
+		// Prince can parse MML but not yet the MathJax javascript. Use a
+		// browser as a preprocessing step
+		return 'prefer: {MSIE: "MML", Firefox: "MML", Safari: "MML", Chrome: "MML", Opera: "MML", other: "MML"}';
+	}
+	return 'prefer: {MSIE: "MML", Firefox: "HTML", Safari: "HTML", Chrome: "HTML", Opera: "HTML", other: "HTML"}';
+},
+
 
 /** BIBLIOGRAPHY ************************************************************/
 

@@ -44,7 +44,7 @@ The articlecls stylesheet and javascript module are an attempt to create a nicel
 
 <!-- = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = -->
 <section id="toc">
-<h2 class="nonumber">Table of Contents</h2>
+<h2 class="notoc">Table of Contents</h2>
 </section>
 
 
@@ -1274,8 +1274,8 @@ And we can reference equations &#92;ref{eqmaxwell}.
 <h4>Browser</h4>
 <p>Use print functionality of Safari or Firefox. Not all new print-related css features are yet available.</p>
 
-<h4 id="prince"><a href="http://www.princexml.com/">Prince</a></h4>
-<p>Direct printing from html. Supports new css features targeted towards print but has less support for javascript (use the <code>prince</code> option and a browser for preprocessing).</p>
+<h4 id="prince">Prince</h4>
+<p><a href="http://www.princexml.com/">Prince</a> allows direct printing from html to pdf. Prince supports new css features targeted towards print but has limited support for javascript. To overcome this you can pre-process the html file and let Prince parse the resulting html-file. In the support folder you can find a helper script based upon <a href="http://phantomjs.org">PhantomJS</a> that does this task for you (<code>support/processjs.sh</code>).</p>
 <p>
 Usage:
 </p>

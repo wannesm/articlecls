@@ -36,6 +36,8 @@ months : ["January","February","March","April","May","June","July","August","Sep
 /** FUNCTIONS ***************************************************************/
 
 initArticleCls : function() {
+	articlecls.isReady = false;
+
 	// Parse options
 	optiontags = $('script').filter(function(index) {
 		src = $(this).first().attr("src")
@@ -85,6 +87,12 @@ initArticleCls : function() {
 		});
 
 	});
+	// Override options
+	if (articlecls.setoptions['prince']) {
+		articlecls.setoptions['altfootnotes'] = false;
+		articlecls.setoptions['interactive'] = false;
+		articlecls.setoptions['tocsearch'] = false;
+	}
 	//console.log(setoptions);
 
 	// Insert header
@@ -147,18 +155,41 @@ initArticleCls : function() {
 	// Add MathJax
 	if (!articlecls.setoptions["nomathjax"]) {
 		articlecls.insertMathJax();
+	} else {
+		articlecls.mathJaxReady = true;
 	}
 	
 	// Apply meeting minutes
 	if (articlecls.setoptions["meeting"]) {
 		articlecls.applyMeetingMinutes();
 	}
+
+	// Extra tags for Prince
+	if (articlecls.setoptions["prince"]) {
+		articlecls.insertPrince();
+	}
+
+	articlecls.checkIsReady();
+},
+
+isReady : false,
+
+checkIsReady : function() {
+	articlecls.isReady = true;
+	if (!articlecls.mathJaxReady)
+		articlecls.isReady = false;
 },
 
 /** GENERATOR ***************************************************************/
 
 insertGenerator : function() {
 	$('head').prepend("<meta name=\"generator\" content=\"Article.cls\" />");
+},
+
+insertPrince : function() {
+	$('head').prepend("<meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\" />");
+	$('body').addClass('prince');
+	$('table.withleader').removeClass('withleader').addClass('withprintleader');
 },
 
 /** TITLE AND HEADER ********************************************************/
@@ -395,24 +426,33 @@ insertAddress : function(data) {
 
 /** MATHJAX *****************************************************************/
 
+mathJaxReady : false,
+
 insertMathJax : function() {
+	articlecls.mathJaxReady = false;
+
 	var script = document.createElement("script");
 	script.type = "text/javascript";
 	script.src  = "http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
 
-	var config = 'MathJax.Hub.Config({' +
-		'extensions: ["tex2jax.js"],' +
-		'jax: ["input/TeX","output/HTML-CSS"],' +
-		'tex2jax: { inlineMath: [["$","$"],["\\\\(","\\\\)"]], displayMath: [["$$","$$"],["\\\\[","\\\\]"]],},' +
-		'TeX: {equationNumbers: { autoNumber: "all" }},' +
-		'MMLorHTML: { '+articlecls.mathJaxPrefer()+' },'+
-		'});' +
-		'MathJax.Hub.Startup.onload();';
+	var config = 'MathJax.Hub.Config({\n' +
+		'	extensions: ["tex2jax.js"],\n' +
+		'	jax: ["input/TeX","output/HTML-CSS"],\n' +
+		'	tex2jax: { inlineMath: [["$","$"],["\\\\(","\\\\)"]], displayMath: [["$$","$$"],["\\\\[","\\\\]"]],},\n' +
+		'	TeX: {equationNumbers: { autoNumber: "all" }},\n' +
+		'	MMLorHTML: { '+articlecls.mathJaxPrefer()+' },\n'+
+		'});\n' +
+		'MathJax.Hub.Startup.onload();\n' +
+		'MathJax.Hub.Queue(function () {\n' +
+		'	articlecls.mathJaxReady = true;\n' +
+		'	articlecls.checkIsReady();\n' +
+		'});\n';
 
 	if (window.opera) {script.innerHTML = config}
 	else {script.text = config}
 
 	document.getElementsByTagName("head")[0].appendChild(script);
+	console.log("Added MathJax");
 },
 
 mathJaxOutput : function() {

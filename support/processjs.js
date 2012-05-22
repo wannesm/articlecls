@@ -1,9 +1,17 @@
 #!/usr/bin/env phantomjs
 // process.js
 //
-// Copyright (c), Wannes Meert, 2012.
+// PhantomJS script to preprocess an article.cls html file for processing by
+// Prince.
 //
-// Requires: PhantomJS
+// Usage:
+//     phantomjs processjs.js filename.html
+//     ./processjs.js filename.html
+//
+// Requires: PhantomJS - http://phantomjs.org
+//           Prince    - http://www.princexml.com
+//
+// Copyright (c), Wannes Meert, 2012.
 //
 // processjs.js by Wannes Meert is licensed under a Creative Commons 
 // Attribution 3.0 Unported License.

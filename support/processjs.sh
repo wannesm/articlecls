@@ -2,17 +2,20 @@
 #
 # process.js
 #
-# Copyright (c), Wannes Meert, 2012.
+# Links the processjs.js PhantomJS script directly to Prince for a smooth
+# workflow between the article.cls style and the Prince PDF generator.
 #
-# Requires: PhantomJS, Prince
-#
-# processjs.js by Wannes Meert is licensed under a Creative Commons 
-# Attribution 3.0 Unported License.
-
 # Usage:
 #     processjs.sh filename.html
 #
 #
+# Requires: PhantomJS - http://phantomjs.org
+#           Prince    - http://www.princexml.com
+#
+# Copyright (c), Wannes Meert, 2012.
+#
+# processjs.js by Wannes Meert is licensed under a Creative Commons 
+# Attribution 3.0 Unported License.
 
 if [ -z "$1" ]; then
 	echo "No filename given."

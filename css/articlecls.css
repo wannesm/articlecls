@@ -710,14 +710,6 @@ sup {
 		/*page-break-after: avoid;*/
 	/*}*/
 
-	@page :left {
-		@top-left {
-			content: string(title);
-			color: #666666;
-			font-size: 75%;
-		}
-	}
-
 	@page blank :left {
 		@top-left {
 			content: normal;
@@ -738,16 +730,25 @@ sup {
 		}
 	}
 
-	@page :right {
-		@top-right {
-			content: string(header, first);
+	@page :left {
+		@top-left {
+			content: string(title);
 			color: #666666;
+			font-size: 80%;
 		}
 	}
 
 	@page :left {
 		@bottom-left {
 			content: counter(page);
+		}
+	}
+
+	@page :right {
+		@top-right {
+			content: string(header, first);
+			color: #666666;
+			font-size: 80%;
 		}
 	}
 

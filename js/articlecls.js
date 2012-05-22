@@ -187,9 +187,20 @@ insertGenerator : function() {
 },
 
 insertPrince : function() {
-	$('head').prepend("<meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\" />");
 	$('body').addClass('prince');
+
+	// Prince does not yet support html 5 tag for encoding
+	$('head').prepend("<meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\" />");
+
+	// Use real css leaders for Prince
 	$('table.withleader').removeClass('withleader').addClass('withprintleader');
+
+	// Remove toc search box if shown
+	tocsearch = $('#tocsearchneedle');
+	if (tocsearch.size() > 0) {
+		tocsearch = tocsearch[0];
+		tocsearch.parentNode.removeChild(tocsearch);
+	}
 },
 
 /** TITLE AND HEADER ********************************************************/
@@ -452,7 +463,6 @@ insertMathJax : function() {
 	else {script.text = config}
 
 	document.getElementsByTagName("head")[0].appendChild(script);
-	console.log("Added MathJax");
 },
 
 mathJaxOutput : function() {

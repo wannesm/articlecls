@@ -1,14 +1,28 @@
 #!/usr/bin/env phantomjs
 // process.js
-// Copyright, 2012, Wannes Meert
+//
+// Copyright (c), Wannes Meert, 2012.
+//
+// Requires: PhantomJS
+//
+// processjs.js by Wannes Meert is licensed under a Creative Commons 
+// Attribution 3.0 Unported License.
 
 var address = '';
 var renderpdf = false;
 
+function help() {
+	console.log('Usage:\n    processjs.js [options] filename\n\nOptions:\n    -h    This help');
+	phantom.exit();
+}
+
+// Process script arguments
 if (phantom.args.length === 0) {
 	console.log('Expects a filename:\n    processjs.js path/to/filename.html');
 	phantom.exit();
 } else {
+	if (phantom.args[0] == "-h" || phantom.args[0] == "--help")
+		help();
 	if (phantom.args.length === 2) {
 		if (phantom.args[0] == "--pdf")
 			renderpdf = true;
@@ -18,10 +32,10 @@ if (phantom.args.length === 0) {
 	}
 }
 
-console.log('Processing '+address);
+console.log('Loading '+address+' ...');
 
 var page = require('webpage').create();
-var t = Date.now();
+var t0 = Date.now();
 
 page.onConsoleMessage = function(msg) {
     console.log(msg);
@@ -39,8 +53,8 @@ page.open(address, function (status) {
 		console.log('FAIL to load the address');
 	} else {
 		// Load page
-		t = Date.now() - t;
-		console.log('Loading time ' + t + ' msec');
+		var t1 = Date.now() - t0;
+		console.log('Loading time ' + t1 + ' msec');
 		var fs = require('fs');
 		
 		// Setup output file
@@ -53,24 +67,13 @@ page.open(address, function (status) {
 		htmlout = baseaddress + ".nojs.html";
 		pdfout = baseaddress + ".pdf";
 		
-		if (renderpdf) {
-			console.log('Writing to '+pdfout);
-			page.viewportSize = { width: 480, height: 800 }
-			window.setTimeout(function () {
-				page.render(pdfout);
-				phantom.exit();
-				}, 2000000);
-		}
-
-		console.log("Waiting for scripts to end");
+		console.log("Processing JavaScript ...");
+		t0 = Date.now();
 
 		var saveHTML = function() {
 			// Alter DOM
 			var innerhtml = page.evaluate(function() {
 				var html = document.getElementsByTagName("html")[0];
-
-				console.log("Changing html");
-				console.log("Article.cls ready: "+articlecls.isReady);
 
 				// Adapt for Prince
 				articlecls.insertPrince();
@@ -85,26 +88,40 @@ page.open(address, function (status) {
 			});
 			//console.log(innerhtml);
 
-			// Write result to output file
+			// Write resulting pdf to file
+			if (renderpdf) {
+				// This is meant for images, does not give a nice result for
+				// text documents
+				console.log('Writing to '+pdfout);
+				page.viewportSize = { width: 1240, height: 1753 }
+				page.render(pdfout);
+			}
+
+			// Write resulting html to file
 			console.log('Writing to '+htmlout);
 			fs.write(htmlout, innerhtml, 'w');
 
 			phantom.exit();
 		}
 
+		// Max time for rendering
+		window.setTimeout(function() {
+			console.log("JavaScript processing timeout");
+			saveHTML();
+		}, 10000);
+
 		var articleclsReady = false;
 
-		// Max time for rendering
-		window.setTimeout(function() { saveHTML() }, 10000);
-
 		// Check whether article cls is ready rendering
+		// This is indicated by the articlecls.isReady variable
 		var checkArticleclsReady = function() {
 			var ready = page.evaluate(function() {
-				console.log("Checking articlecls.isReady: "+articlecls.isReady);
+				console.log("... Checking articlecls.isReady: "+articlecls.isReady);
 				return articlecls.isReady;
 			});
 			if (ready) {
-				console.log("Article.cls is ready");
+				var t1 = Date.now() - t0;
+				console.log('Processing time ' + t1 + ' msec');
 				articleclsReady = true;
 				saveHTML();
 			} else {

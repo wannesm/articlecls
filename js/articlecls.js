@@ -113,7 +113,16 @@ initArticleCls : function() {
 
 	// Modernstyle
 	if (articlecls.setoptions["modern"]) {
-		scriptpath = $("script").last().attr("src").split('?')[0].split('/').slice(0, -1).join('/')+'/';
+    var thisscript = undefined;
+    $("script").each(function (idx,item) {
+      var src = $(item).attr('src');
+      if (src && src.indexOf("articlecls.js") !== -1)
+          thisscript = item;
+    });
+    if (thisscript === undefined) {
+      return;
+    }
+		var scriptpath = $(thisscript).attr("src").split('?')[0].split('/').slice(0, -1).join('/')+'/';
 		//console.log("Setting modern");
 		var link = $('<link>');
 		link.attr({
@@ -190,6 +199,7 @@ insertPrince : function() {
 	$('body').addClass('prince');
 
 	// Prince does not yet support html 5 tag for encoding
+  // Prince 8.1 has experimental support so we can soon drop this line
 	$('head').prepend("<meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\" />");
 
 	// Use real css leaders for Prince

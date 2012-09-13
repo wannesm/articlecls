@@ -17,13 +17,16 @@
 # processjs.js by Wannes Meert is licensed under a Creative Commons 
 # Attribution 3.0 Unported License.
 
+# stop on error
+set -e
+
 if [ -z "$1" ]; then
 	echo "No filename given."
 	echo "Usage: processjs.sh filename.html"
 	exit 2;
 fi
 
-dir=$(pwd)"/"$(dirname $0)
+dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 basename=${1%.*}
 extension=${1##*.}
 

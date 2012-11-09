@@ -70,7 +70,11 @@ initArticleCls : function() {
 	// Process given options
 	optiontags.each(function(k,v) {
 		//console.log(v);
-		optionslist = $(this).first().attr("data-options").replace(/ +/g,"").split(",");
+    var data_options = $(this).first().attr("data-options");
+		var optionslist = Array();
+    if (data_options) {
+        optionslist = data_options.replace(/ +/g,"").split(",");
+    }
 		//console.log(optionslist);
 		thispath = $(this).first().attr("src").split("/").slice(0,-1).join("/")
 		if (thispath != "") thispath += "/";

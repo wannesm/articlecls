@@ -642,6 +642,10 @@ sup {
 	}
 }
 
+.plain {
+	page: blank;
+}
+
 @media print {
 
 
@@ -658,10 +662,6 @@ sup {
 		marks: crop cropss; 
 		/*border: 1px solid red;*/
 	}
-
-	@page:left{}
-	@page:right{}
-
 
 	div.chapter, div.appendix {
 		page-break-after: always;
@@ -710,24 +710,10 @@ sup {
 		/*page-break-after: avoid;*/
 	/*}*/
 
-	@page blank :left {
-		@top-left {
-			content: normal;
-		}
-	}
-
 	@page:first {
-		@top {
-			content: normal;
-		}
-
-		@top-right {
-			content: normal;
-		}
-
-		@top-left {
-			content: normal;
-		}
+		@top {content: normal;}
+		@top-right {content: normal;}
+		@top-left {content: normal;}
 	}
 
 	@page :left {
@@ -762,6 +748,15 @@ sup {
 		@bottom-left {
 			content: counter(page, lower-roman);
 		}
+	}
+
+	@page blank :left {
+		@top-left {content: normal;}
+		@bottom-left {content: normal;}
+	}
+	@page blank :right {
+		@top-right {content: normal;}
+		@bottom-right {content: normal;}
 	}
 
 	img {

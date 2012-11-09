@@ -402,6 +402,13 @@ h3:before {
 	content: counter(headertwo) "." counter(headerthree) ". ";
 }
 
+h3.notoc:before,
+h3.nonumber:before {
+	counter-increment: headerthree 0;
+	content: "";
+	/*string-set: sectionstr content();*/
+}
+
 /* Temporary solution as long as Safari does not support string-set and 
  * string(). This requires all header to be tagged with the appendix class */
 h3.appendix:before {

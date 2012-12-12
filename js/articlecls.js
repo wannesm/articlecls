@@ -520,8 +520,8 @@ insertBibliography : function() {
 	$.getScript(articlecls.setoptions['bibliography'], function() {
 		//console.log("Using bibstyle "+setoptions['citationstyle']);
 		if (typeof bibabbr == "undefined") {
-			console.log("Expected the variable bibarr to exist.");
-			bibarr = {"default": {}}
+			console.log("Expected the variable bibabbr to exist.");
+			bibabbr = {"default": {}}
 		}
 		var sys = new Sys(bibabbr);
 		var citationstyle = citationstyles['ieee']

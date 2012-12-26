@@ -812,7 +812,9 @@ abbr.noglossary {
 }
 
 #bibliography .csl-bib-body {
-	margin-left: 2em;
+  margin-left: 2em;
+  position: relative;
+  text-indent: -2em;
 }
 
 #bibliography .csl-left-margin {

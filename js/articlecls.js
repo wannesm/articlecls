@@ -55,7 +55,7 @@ initArticleCls : function() {
 	// Setoptions defaults
 	articlecls.setoptions['altfootnotes'] = false;
 	articlecls.setoptions['bibliography'] = ''
-	articlecls.setoptions['citationstyle']= 'ieee';
+	articlecls.setoptions['citationstyle']= 'harvard';
 	articlecls.setoptions['hyphenator']   = false;
 	articlecls.setoptions['interactive']  = false;
 	articlecls.setoptions['meeting']      = false;
@@ -520,11 +520,11 @@ insertBibliography : function() {
 	$.getScript(articlecls.setoptions['bibliography'], function() {
 		//console.log("Using bibstyle "+setoptions['citationstyle']);
 		if (typeof bibabbr == "undefined") {
-			console.log("Expected the variable bibabbr to exist.");
+			console.log("No variable bibabbr found. Set to empty default.");
 			bibabbr = {"default": {}}
 		}
 		var sys = new Sys(bibabbr);
-		var citationstyle = citationstyles['ieee']
+		var citationstyle = citationstyles['harvard']
 		if (typeof citationstyles != "undefined" && citationstyles[articlecls.setoptions['citationsstyle']] != "undefined")
 			citationstyle = citationstyles[articlecls.setoptions['citationstyle']]
 		var citeproc = new CSL.Engine(sys, citationstyle);
@@ -532,7 +532,10 @@ insertBibliography : function() {
 		// Collect all citations and update citeproc
 		keys = [];
 		$('a.cite').each(function(k,v) {
-			key = $(this).attr('href').substr(1);
+			key = $(this).attr('href')
+      if (key[0] == '#') {
+        key = key.substr(1);
+      }
 			keys.push(key);
 		});
 		citeproc.updateItems(keys);
@@ -542,6 +545,9 @@ insertBibliography : function() {
 			$("#bibliography").append(htmloutput);
 		}
 		// Replace all a.cite instances with their respective reference.
+    if ($('a.cite').size() == 0) {
+        console.log("No citations found in text. Empty bibliography.");
+    }
 		$('a.cite').each(function(k,v) {
 			key = $(this).attr('href').substr(1);
 			citation_object = {"citationItems": [{"id": key}],"properties": {"noteIndex": 0}}
@@ -552,7 +558,7 @@ insertBibliography : function() {
 		$('#bibliography .csl-bib-body').css('margin-left', output.maxoffset+1+'em');
 
 	}).fail(function(jqxhr, settings, exception) {
-		console.log("ERROR loading "+setoptions['bibliography']);
+		console.log("ERROR loading "+articlecls.setoptions['bibliography']);
 		//console.log(jqxhr);
 		//console.log(settings);
 		//console.log(exception);

@@ -674,6 +674,10 @@ sup {
 		page-break-after: always;
 	}
 
+	/*article {*/
+		/*page-break-before: always;*/
+	/*}*/
+
 	h1, h2, h3 {
 		page-break-after: avoid;
 		orphans: 3;
@@ -702,6 +706,10 @@ sup {
 
 	body.noheaders h2 {
 		string-set: title '';
+	}
+
+	ul {
+		page-break-inside: avoid;
 	}
 
 	tr {
@@ -768,6 +776,7 @@ sup {
 
 	img {
 		page-break-inside: avoid; /* Do not split image over multiple pages. */
+		max-width: 100% !important;
 	}
 
 	/**

@@ -11,13 +11,16 @@
  */
 
 body.modernstyle {
-	font-family: 'PT Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	/*font-family: 'PT Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;*/
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 body.modernstyle h2,
 body.modernstyle h3 {
 	color: #104a84;
-	border-bottom: 3px solid rgba(16, 74, 131, 0.1);
+}
+body.modernstyle h2 {
+	border-bottom: 1px solid rgba(16, 74, 131, 0.1);
 }
 body.modernstyle h2 a,
 body.modernstyle h3 a {
@@ -66,12 +69,13 @@ body.modernstyle figure {
 }
 
 body.modernstyle figure figcaption {
-	width: 10%;
-	text-align: right;
+	/*width: 10%;*/
+	/*text-align: right;*/
+	/*position:absolute;*/
+	/*top:0px;*/
+	/*left:-12%;*/
+
 	/*margin: 0 0 1.2em 0;*/
-	position:absolute;
-	top:0px;
-	left:-12%;
 }
 
 body.modernstyle figure figcaption::before {

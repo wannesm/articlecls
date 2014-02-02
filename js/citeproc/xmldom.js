@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2009, 2010 and 2011 Frank G. Bennett, Jr. All Rights
+ * Copyright (c) 2009-2013 Frank G. Bennett, Jr. All Rights
  * Reserved.
  *
  * The contents of this file are subject to the Common Public
@@ -10,7 +10,7 @@
  * http://bitbucket.org/fbennett/citeproc-js/src/tip/LICENSE.
  *
  * The License is based on the Mozilla Public License Version 1.1 but
- * Sections 14 and 15 have been added to cover use of software over a
+ * Sections 1.13, 14 and 15 have been added to cover use of software over a
  * computer network and provide for limited attribution for the
  * Original Developer. In addition, Exhibit A has been modified to be
  * consistent with Exhibit B.
@@ -23,7 +23,7 @@
  * The Original Code is the citation formatting software known as
  * "citeproc-js" (an implementation of the Citation Style Language
  * [CSL]), including the original test fixtures and software located
- * under the ./std subdirectory of the distribution archive.
+ * under the ./tests subdirectory of the distribution archive.
  *
  * The Original Developer is not the Initial Developer and is
  * __________. If left blank, the Original Developer is the Initial
@@ -31,7 +31,7 @@
  *
  * The Initial Developer of the Original Code is Frank G. Bennett,
  * Jr. All portions of the code written by Frank G. Bennett, Jr. are
- * Copyright (c) 2009, 2010 and 2011 Frank G. Bennett, Jr. All Rights Reserved.
+ * Copyright (c) 2009-2013 Frank G. Bennett, Jr. All Rights Reserved.
  *
  * Alternatively, the contents of this file may be used under the
  * terms of the GNU Affero General Public License (the [AGPLv3]
@@ -45,7 +45,10 @@
  * recipient may use your version of this file under either the CPAL
  * or the [AGPLv3] License.”
  */
-var CSL_IS_IE;
+
+if ("undefined" === typeof CSL_IS_IE) {
+    var CSL_IS_IE;
+};
 var CSL_CHROME = function () {
     if ("undefined" == typeof DOMParser || CSL_IS_IE) {
         CSL_IS_IE = true;
@@ -206,6 +209,9 @@ CSL_CHROME.prototype.getAttributeName = function (attr) {
 }
 CSL_CHROME.prototype.getAttributeValue = function (myxml,name,namespace) {
     var ret = "";
+    if (namespace) {
+        name = namespace+":"+name;
+    }
     if (myxml && this.hasAttributes(myxml) && myxml.getAttribute(name)) {
         ret = myxml.getAttribute(name);
     }
@@ -269,12 +275,12 @@ CSL_CHROME.prototype.deleteAttribute = function (myxml,attr) {
     myxml.removeAttribute(attr);
 }
 CSL_CHROME.prototype.setAttribute = function (myxml,attr,val) {
-    var attribute;
     if (!myxml.ownerDocument) {
         myxml = myxml.firstChild;
     }
-    attribute = myxml.ownerDocument.createAttribute(attr);
-    myxml.setAttribute(attr, val);
+    if (["function", "unknown"].indexOf(typeof myxml.setAttribute) > -1) {
+        myxml.setAttribute(attr, val);
+    }
     return false;
 }
 CSL_CHROME.prototype.nodeCopy = function (myxml) {
@@ -314,16 +320,31 @@ CSL_CHROME.prototype.insertChildNodeAfter = function (parent,node,pos,datexml) {
     myxml = this.importNode(node.ownerDocument, datexml);
     parent.replaceChild(myxml, node);
      return parent;
- };
+};
 CSL_CHROME.prototype.insertPublisherAndPlace = function(myxml) {
     var group = myxml.getElementsByTagName("group");
     for (var i = 0, ilen = group.length; i < ilen; i += 1) {
         var node = group.item(i);
-        if (node.childNodes.length === 2) {
+        var skippers = [];
+        for (var j = 0, jlen = node.childNodes.length; j < jlen; j += 1) {
+            if (node.childNodes.item(j).nodeType !== 1) {
+                skippers.push(j);
+            }
+        }
+        if (node.childNodes.length - skippers.length === 2) {
             var twovars = [];
             for (var j = 0, jlen = 2; j < jlen; j += 1) {
-                var child = node.childNodes.item(j);
-                if (child.childNodes.length === 0) {
+                if (skippers.indexOf(j) > -1) {
+                    continue;
+                }
+                var child = node.childNodes.item(j);                    
+                var subskippers = [];
+                for (var k = 0, klen = child.childNodes.length; k < klen; k += 1) {
+                    if (child.childNodes.item(k).nodeType !== 1) {
+                        subskippers.push(k);
+                    }
+                }
+                if (child.childNodes.length - subskippers.length === 0) {
                     twovars.push(child.getAttribute('variable'));
                     if (child.getAttribute('suffix')
                         || child.getAttribute('prefix')) {

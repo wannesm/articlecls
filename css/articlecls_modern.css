@@ -57,7 +57,12 @@ body.modernstyle > article > header > hgroup > p {
 /*}*/
 
 body.modernstyle figure {
-	text-align: left;
+	text-align: center;
+  width: 100%;
+}
+
+body.modernstyle figure img {
+  max-width: 100%;
 }
 
 body.modernstyle table {

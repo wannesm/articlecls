@@ -13,7 +13,7 @@
 	<link rel="stylesheet" href="css/articlecls.css" type="text/css" />
 	<link rel="stylesheet" href="css/articlecls_extra.css" type="text/css" />
 
-	<script type="text/javascript; e4x=1" src="js/citeproc/xmle4x.js"></script>
+	<!--<script type="text/javascript; e4x=1" src="js/citeproc/xmle4x.js"></script>-->
   <script src="js/jquery-1.7.1.min.js"></script>
 	<script data-options="interactive, tocsearch, altfootnotes, bibliography=articlecls_bib.js, citationstyle=springer-author-date" src="js/articlecls.js"></script>
 	<script data-options="stylechooser" src="js/articlecls_extra.js"></script>
@@ -1163,6 +1163,9 @@ And we can reference equations &#92;ref{eqmaxwell}.
 	...</code></pre>
 
 <p>The result can be seen in the <a href="#bibliography">bibliography section</a>.</p>
+
+<p>A BibTeX file can be automatically converted to .json using <a href="http://michel-kraemer.github.io/citeproc-java/">citeproc-java</a>, <a href="https://github.com/brechtm/citeproc-py">citeproc-py</a> or <a href="https://github.com/inukshuk/bibtex-ruby">bibtex-ruby</a>. For example:</p>
+<pre><code>./citeproc-java -b references.bib -s json &gt; references.json</code></pre>
 
 <div class=htmlhowto>
 	<p>More information about CSL:</p>

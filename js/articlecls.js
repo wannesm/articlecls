@@ -21,6 +21,11 @@ if (!("console" in window) && !("firebug" in console)) {
 }
 
 $(document).ready(function(){
+  // Safe?
+  $.ajaxPrefilter( "json script", function( options ) {
+    options.crossDomain = true;
+  });
+
 	articlecls.initArticleCls();
 });
 

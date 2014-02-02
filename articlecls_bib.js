@@ -25,6 +25,7 @@ var bibabbr = {
 	},
 };
 
+// loadsys.js requires a bibdata variable
 var bibdata = {
 	"Meert2012" : {
 		"id": "Meert2012",
@@ -59,6 +60,16 @@ var bibdata = {
 		"type": "book"
 	}
 };
+
+//$.ajax({
+  //url: 'articlecls_bib.json',
+  //async: false,
+  //dataType: 'json',
+  //success: function (response) {
+    //console.log(response);
+    //bibdata = response;
+  //}
+//});
 
 // Extend the known citationstyles with a custom one (or taken from 
 // https://github.com/citation-style-language/styles
